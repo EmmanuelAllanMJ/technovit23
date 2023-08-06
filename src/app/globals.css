@@ -2,4 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
 
+svg text {
+  stroke: rgb(190, 8, 190);
+  stroke-width: 3;
+  font-family: Lora;
+  font-weight: 700;
+
+  letter-spacing: 10px;
+  animation: example 5s infinite alternate;
+}
+@keyframes example {
+  from {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+  }
+
+  to {
+    stroke-dasharray: 50% 0;
+  }
+}

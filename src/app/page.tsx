@@ -1,20 +1,39 @@
-import Navbar from "../components/Navbar"
-
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 export default function Home() {
   return (
-    <>
-    <div className=" h-screen relative">
+    <div>
+      <div className=" h-screen relative">
         <div className="z-20 absolute w-full">
-      < Navbar/>
+          <Navbar />
+        </div>
+
+        <div className="w-full">
+          {/* <h1 className="text-white">Hiiii</h1> */}
+          <video
+            src="/assets/purpleparticle2.mp4"
+            autoPlay
+            loop
+            muted
+            className="h-screen w-screen z-0 fixed object-cover"
+          ></video>
+          <div className="relative translate-y-20 text-center">
+            <svg height={"100%"} width={"100%"} className="fill-white">
+              <text
+                x={"50%"}
+                y={"100%"}
+                textAnchor="middle"
+                className="text-8xl"
+              >
+                technoVIT'23
+              </text>
+            </svg>
+          </div>
+        </div>
       </div>
-      <div className="w-full">
-        <video src="/assets/Blender - floating fire particles.mp4"
-        autoPlay
-        loop
-        muted
-        className="max-h-screen w-full z-0 absolute object-cover" ></video>
+      <div className="relative">
+        <Footer />
       </div>
     </div>
-    </>
-  )
+  );
 }
