@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 const Footer = () => {
   return (
     <div className="bg-black text-white flex flex-col justify-evenly items-center  ">
@@ -11,7 +12,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <img src="\assets\insta.png" alt="insta" />
+            <Image width={65} height={65} src="/assets/insta.png" alt="insta" />
           </Link>
 
           <Link
@@ -20,7 +21,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <img src="\assets\yt.png" alt="yt" />
+            <Image width={65} height={65}  src="/assets/yt.png" alt="yt" />
           </Link>
 
           <Link
@@ -29,7 +30,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <img src="\assets\mail.png" alt="mail" />
+            <Image width={65} height={65}  src="/assets/mail.png" alt="mail" />
           </Link>
 
           <Link
@@ -38,7 +39,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <img src="\assets\twitter.png" alt="twitter" />
+            <Image width={65} height={65}  src="/assets/twitter.png" alt="twitter" />
           </Link>
           <Link
             href={"https://www.snapchat.com/add/technovit22"}
@@ -46,7 +47,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <img src="\assets\snap.png" alt="snap" />
+            <Image width={65} height={65}  src="/assets/snap.png" alt="snap" />
           </Link>
         </div>
         <p className="text-2xl ml-20">Visitors</p>
