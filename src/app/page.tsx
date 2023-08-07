@@ -25,7 +25,7 @@ export default function Home() {
                 textAnchor="middle"
                 className="text-8xl"
               >
-                technoVIT'23
+                technoVIT&apos;23
               </text>
             </svg>
           </div>

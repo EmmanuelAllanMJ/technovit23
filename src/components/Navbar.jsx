@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import Image from "next/image";
 
 const Navbar = () => {
   const [nav, setNav] = useState("true");
@@ -29,7 +30,7 @@ const Navbar = () => {
       <div className="flex justify-between mx-8 py-2 items-center ">
         {/* left */}
         <div className="">
-          <img src="\assets\logo.svg" alt="logo" className="h-32" />
+          <Image width={200} height={75}  src="\assets\logo.svg" alt="logo" className="h-32" />
         </div>
         {/* right */}
         <div className=" backdrop-blur-md rounded-md">
