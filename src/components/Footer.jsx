@@ -58,7 +58,7 @@ const Footer = () => {
         <p className="text-xl mr-20 sm:text-2xl sm:ml-20 ">Visitors</p>
       </div>
       <div className="max-w-xl w-4/6 border-t-2 border-t-gray-700 m-0  "></div>
-      <p className="text-base py-7 sm:text-xl">
+      <p className="text-base py-7 text-center sm:text-xl">
         {" "}
         Copyright © 2022-23 technoVIT. All rights reserved.
       </p>
