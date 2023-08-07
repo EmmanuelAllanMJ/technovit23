@@ -23,13 +23,34 @@ svg text {
     stroke-dasharray: 50% 0;
   }
 }
-@media screen and (max-width: 502px) {
+@media screen and (max-width: 540px) {
   svg text {
     stroke: rgb(190, 8, 190);
     stroke-width: 2;
     font-family: Lora;
     font-weight: 700;
     font-size: 3em;
+    letter-spacing: 10px;
+    animation: example 5s infinite alternate;
+  }
+  @keyframes example {
+    from {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset: 20%;
+    }
+
+    to {
+      stroke-dasharray: 50% 0;
+    }
+  }
+}
+@media screen and (max-width: 416px) {
+  svg text {
+    stroke: rgb(190, 8, 190);
+    stroke-width: 1;
+    font-family: Lora;
+    font-weight: 700;
+    font-size: 2em;
     letter-spacing: 10px;
     animation: example 5s infinite alternate;
   }

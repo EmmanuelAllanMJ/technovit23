@@ -4,8 +4,8 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <div className="bg-black text-white flex flex-col justify-evenly items-center  ">
-      <div className="flex felx-row items-center pt-10  mb-5">
-        <div className="flex flex-column mr-20">
+      <div className="flex felx-col items-center pt-10  mb-5 ">
+        <div className="flex flex-row mr-20">
           <Link
             href={"https://www.instagram.com/Technovit22/"}
             target="_blank"
@@ -21,7 +21,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <Image width={65} height={65}  src="/assets/yt.png" alt="yt" />
+            <Image width={65} height={65} src="/assets/yt.png" alt="yt" />
           </Link>
 
           <Link
@@ -30,7 +30,7 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <Image width={65} height={65}  src="/assets/mail.png" alt="mail" />
+            <Image width={65} height={65} src="/assets/mail.png" alt="mail" />
           </Link>
 
           <Link
@@ -39,7 +39,12 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <Image width={65} height={65}  src="/assets/twitter.png" alt="twitter" />
+            <Image
+              width={65}
+              height={65}
+              src="/assets/twitter.png"
+              alt="twitter"
+            />
           </Link>
           <Link
             href={"https://www.snapchat.com/add/technovit22"}
@@ -47,13 +52,13 @@ const Footer = () => {
             rel="noreferrer"
           >
             {" "}
-            <Image width={65} height={65}  src="/assets/snap.png" alt="snap" />
+            <Image width={65} height={65} src="/assets/snap.png" alt="snap" />
           </Link>
         </div>
-        <p className="text-2xl ml-20">Visitors</p>
+        <p className="text-xl mr-20 sm:text-2xl sm:ml-20 ">Visitors</p>
       </div>
-      <div className="w-2/6 border-t-2 border-t-gray-700 m-0  "></div>
-      <p className="text-xl py-7">
+      <div className="max-w-xl w-4/6 border-t-2 border-t-gray-700 m-0  "></div>
+      <p className="text-base py-7 sm:text-xl">
         {" "}
         Copyright © 2022-23 technoVIT. All rights reserved.
       </p>
