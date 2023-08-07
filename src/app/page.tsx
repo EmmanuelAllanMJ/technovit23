@@ -20,7 +20,7 @@ export default function Home() {
           <div className="relative translate-y-20 text-center">
             <svg height={"100%"} width={"100%"} className="fill-white">
               <text x={"50%"} y={"100%"} textAnchor="middle">
-                technoVIT'23
+                technoVIT&apos;23
               </text>
             </svg>
           </div>
