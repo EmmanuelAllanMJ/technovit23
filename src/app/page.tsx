@@ -19,12 +19,7 @@ export default function Home() {
           ></video>
           <div className="relative translate-y-20 text-center">
             <svg height={"100%"} width={"100%"} className="fill-white">
-              <text
-                x={"50%"}
-                y={"100%"}
-                textAnchor="middle"
-                className="text-8xl"
-              >
+              <text x={"50%"} y={"100%"} textAnchor="middle">
                 technoVIT'23
               </text>
             </svg>
