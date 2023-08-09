@@ -1,7 +1,8 @@
-'use client'
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { BsArrowRight } from 'react-icons/bs';
+"use client";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { BsArrowRight } from "react-icons/bs";
+import Cards from "./Cards";
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -11,7 +12,7 @@ const Hero = () => {
   };
   return (
     <div>
-      <div className="w-full sm:h-50">
+      <div className="w-full sm:h-50 ">
         <img
           src="/assets/background.png"
           className="h-screen w-screen object-cover blur-1xl"
@@ -39,7 +40,8 @@ const Hero = () => {
         {/* Centered text */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
           <h1 className="text-9xl sm:text-7xl md:text-7xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
-            TECHNOVIT<span className="text-6xl sm:text-xl md:text-5xl">'23</span>
+            TECHNOVIT
+            <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
           </h1>
 
           {/* Small Text */}
@@ -48,12 +50,12 @@ const Hero = () => {
           </div>
           {/* Button */}
           <motion.button
-            className="w-60 h-16 sm:w-23 h-10 rounded-full p-2 border border-white mt-20 flex items-center justify-center"
+            className="w-60 h-16 sm:w-23 h-10 rounded-full p-2 border border-white mt-20 mb-10 flex items-center justify-center"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
             variants={buttonVariants}
             initial="moving"
-            animate={isHovered ? 'stopped' : 'moving'}
+            animate={isHovered ? "stopped" : "moving"}
             whileHover="stopped"
           >
             <div className="text-white flex gap-2 font-normal capitalize">
@@ -69,9 +71,10 @@ const Hero = () => {
               </p>
             </div>
           </motion.button>
-
+          <div className="w-full h-2">
+            <Cards />
+          </div>
         </div>
-
       </div>
     </div>
   );
