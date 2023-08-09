@@ -1,8 +1,13 @@
 import Navbar from "../components/Navbar";
+import Schools from "@/components/schools";
 import Footer from "@/components/Footer";
+import TickerComponent from "@/components/ticker";
 export default function Home() {
   return (
     <div>
+      <div className="relative">
+        <TickerComponent />
+      </div>
       <div className=" h-screen relative">
         <div className="z-20 absolute w-full">
           <Navbar />
@@ -25,6 +30,9 @@ export default function Home() {
             </svg>
           </div>
         </div>
+      </div>
+      <div className="h-screen">
+        <Schools />
       </div>
       <div className="relative">
         <Footer />

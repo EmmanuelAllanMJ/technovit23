@@ -1,7 +1,7 @@
 const Footer = (): JSX.Element => {
   return (
     <>
-      <section className="flex flex-wrap justify-between px-32 sm:px-4 text-white font-monty py-4">
+      <section className="flex flex-wrap justify-between px-32 md:px-8 sm:px-4 text-white font-monty py-6">
         <section className="flex flex-col gap-4 md:py-8 sm:py-8">
           <section className="font-semibold text-6xl md:text-5xl sm:text-4xl">
             Contact Us!
@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
             +91-999222939
           </a>
         </section>
-        <section className="flex flex-col justify-start uppercase font-monty text-white gap-[40px] text-3xl md:text-2xl sm:text-xl md:py-8 sm:py-8 sm:border-white sm:border-t-white">
+        <section className="flex flex-col justify-start uppercase font-monty text-white gap-16 text-3xl md:text-2xl sm:text-xl md:py-8 sm:py-8 sm:border-white sm:border-t-white">
           <section>Home</section>
           <section>About</section>
           <section>Events</section>
