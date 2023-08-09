@@ -1,11 +1,15 @@
-import Navbar from "../components/Navbar";
+import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Countdown from "@/components/Countdown";
 export default function Home() {
   return (
     <div>
       <div className=" h-screen relative">
         <div className="z-20 absolute w-full">
           <Navbar />
+        </div>
+        <div className="h-screen">
+          <Countdown/>
         </div>
 
         <div className="w-full">
