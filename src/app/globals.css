@@ -7,3 +7,9 @@
 *{
   background-color: black;
 }
+.text-gradient-about{
+  background: -webkit-linear-gradient(#fff, #ffffff47);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color:transparent;
+}
