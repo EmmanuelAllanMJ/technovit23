@@ -1,10 +1,10 @@
 const Footer = (): JSX.Element => {
   return (
     <>
-      <section className="flex flex-wrap justify-between px-32 md:px-8 sm:px-4 text-white font-monty py-6">
+      <section className="flex flex-wrap justify-between px-32 md:px-8 sm:px-4 font-monty py-6">
         <section className="flex flex-col gap-4 md:py-8 sm:py-8">
-          <section className="font-semibold text-6xl md:text-5xl sm:text-4xl">
-            Contact Us!
+          <section className="font-regular text-6xl md:text-5xl sm:text-4xl uppercase bg-clip-text text-transparent bg-gradient-to-tr hover:bg-gradient-to-bl from-stone-600 to-white">
+            Contact Us
           </section>
           <a
             href="mailto:technovit-help@vit.ac.in"

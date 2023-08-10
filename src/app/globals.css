@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("../assets/typography.css");
+@import url("@/assets/css/typography.css");
 
 
 .ticker-container {

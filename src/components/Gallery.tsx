@@ -59,8 +59,8 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div ref={gallery} className={styles.gallery}>
+    <main className="">
+      <div ref={gallery} className="gallery">
         <Column images={[images[0], images[1], images[2]]} y={y} />
         <Column images={[images[3], images[4], images[5]]} y={y2} />
         <Column images={[images[6], images[7], images[8]]} y={y3} />
@@ -77,10 +77,10 @@ interface ColumnProps {
 
 const Column: React.FC<ColumnProps> = ({ images, y }) => {
   return (
-    <motion.div className={styles.column} style={{ y }}>
+    <motion.div className={"column"} style={{ y }}>
       {images.map((src, i) => (
-        <div key={i} className={styles.imageContainer}>
-          <Image src={`/images/${src}`} alt="image" fill objectFit="cover" />
+        <div key={i} className="imageContainer">
+          <Image src={`/images/${src}`} alt="image" fill />
         </div>
       ))}
     </motion.div>
