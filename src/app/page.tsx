@@ -14,7 +14,7 @@ export default function Home() {
     <main className="bg-[#110F13]">
       <Hero />
       <Gallery />
-      <section className="sm:min-h-screen md:min-h-screen lg:min-h-screen flex flex-col justify-center items-center">
+      <section className="min-h-screen pt-16">
         <Countdown />
         <Schools />
       </section>
