@@ -40,7 +40,6 @@ const Hero = () => {
     }
   };
 
-
   const buttonVariants = {
     moving: { y: -10 },
     stopped: { y: 0 },

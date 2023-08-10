@@ -1,5 +1,5 @@
-'use client'
-import styles from './style.module.scss'
+"use client";
+import styles from "@/assets/css/navigation.module.css";
 import { useEffect, useState } from 'react';
 
 import { AnimatePresence } from 'framer-motion';
@@ -54,3 +54,4 @@ export default function NavBar() {
         </>
     )
 }
+

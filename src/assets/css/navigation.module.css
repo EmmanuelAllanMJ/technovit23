@@ -1,0 +1,51 @@
+.header {
+  padding: 30px;
+  position: fixed;
+  right: 0;
+  font-family: "Montserrat", sans-serif;
+  z-index: 10;
+}
+
+.header .button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.header .burger {
+  width: 100%;
+}
+.header .burger::after,
+.header .burger::before {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 40%;
+  margin: auto;
+  background-color: white;
+  position: relative;
+  transition: transform 0.3s;
+}
+
+.header .burger::after {
+  top: -5px;
+}
+
+.header .burger::before {
+  top: 5px;
+}
+
+.header .burgerActive::after {
+  transform: rotate(45deg);
+  top: -1px;
+}
+
+.header .burgerActive::before {
+  transform: rotate(-45deg);
+  top: 0px;
+}
