@@ -1,9 +1,9 @@
 const Footer = (): JSX.Element => {
   return (
     <>
-      <section className="flex flex-wrap justify-between px-32 md:px-8 sm:px-4 font-monty py-6 ">
-        <section className="flex flex-col gap-4 md:py-8 sm:py-8">
-          <section className="font-regular text-6xl md:text-5xl sm:text-4xl uppercase bg-clip-text text-transparent bg-gradient-to-tr hover:bg-gradient-to-bl from-stone-600 to-white">
+      <div className="flex md:flex-col sm:flex-col flex-row justify-between px-10 md:px-8 sm:px-4 font-monty md:pt-60 sm:pt-96 pt-20 pb-10">
+        <div className="flex w-full flex-col gap-4 md:py-8 sm:py-8">
+          <div className="w-full flex items-start justify-center flex-col font-regular text-6xl md:text-5xl sm:text-4xl uppercase bg-clip-text text-transparent bg-gradient-to-tr hover:bg-gradient-to-bl from-stone-600 to-white">
             Contact Us
             <a
               href="mailto:technovit-help@vit.ac.in"
@@ -17,20 +17,20 @@ const Footer = (): JSX.Element => {
             >
               +91-999222939
             </a>
-          </section>
-        </section>
-        <section className="flex flex-col justify-center items-end md:items-start sm:items-start uppercase font-monty text-white gap-12 sm:gap-4 md:gap-8 text-2xl md:text-xl sm:text-sm md:py-8 sm:py-8 sm:border-white sm:border-t-white">
-          <section>Home</section>
-          <section>About</section>
-          <section>Events</section>
-          <section>Gallery</section>
-          <section>Contact Us</section>
-        </section>
-        <section />
-      </section>
-      <section className=" bg-primary text-white font-monty uppercase h-10 text-xl flex items-center justify-center py-2 sm:text-sm md:text-lg w-full">
+          </div>
+        </div>
+        <div className="w-full flex flex-col justify-center items-end md:items-start sm:items-start uppercase font-monty text-white gap-12 sm:gap-4 md:gap-8 text-2xl md:text-xl sm:text-sm md:py-8 sm:py-8 sm:border-white sm:border-t-white">
+          <div>Home</div>
+          <div>About</div>
+          <div>Events</div>
+          <div>Gallery</div>
+          <div>Contact Us</div>
+        </div>
+        <div />
+      </div>
+      <div className=" bg-primary text-white font-monty uppercase h-10 text-xl flex items-center justify-center py-2 sm:text-sm md:text-lg w-full">
         Made with ❤️ by Team TechnoVIT © {new Date().getFullYear()}
-      </section>
+      </div>
     </>
   );
 };
