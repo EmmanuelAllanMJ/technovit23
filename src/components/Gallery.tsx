@@ -7,17 +7,17 @@ import styles from './page.module.scss';
 
 const images = [
   "1.jpg",
-  "2.jpg",
-  "3.jpg",
-  "4.jpg",
-  "5.jpg",
-  "6.jpg",
-  "7.jpg",
-  "8.jpg",
-  "9.jpg",
-  "10.jpg",
-  "11.jpg",
-  "12.jpg",
+  "2.JPG",
+  "3.JPG",
+  "4.JPG",
+  "5.JPG",
+  "6.JPG",
+  "7.JPG",
+  "8.JPG",
+  "9.JPG",
+  "10.JPG",
+  "11.JPG",
+  "12.JPG",
 ];
 
 const Gallery: React.FC = () => {
@@ -81,6 +81,7 @@ const Column: React.FC<ColumnProps> = ({ images, y }) => {
           <Image src={`/images/${src}`} alt='image' fill objectFit="cover" />
         </div>
       ))}
+
     </motion.div>
   );
 };
