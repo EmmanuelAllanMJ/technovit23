@@ -38,9 +38,9 @@ const Hero = () => {
         </div>
 
         {/* Centered text */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center">
-          <h1 className="text-9xl sm:text-7xl md:text-7xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
-            TECHNOVIT
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center mt-28">
+          <h1 className="text-9xl sm:text-4xl md:text-7xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
+            T E C H N O V I T
             <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
           </h1>
 
@@ -50,7 +50,7 @@ const Hero = () => {
           </div>
           {/* Button */}
           <motion.button
-            className="w-60 h-16 sm:w-23 h-10 rounded-full p-2 border border-white mt-20 mb-10 flex items-center justify-center"
+            className="w-40 h-16 sm:w-23 h-10 rounded-full p-2 border border-white mt-20 mb-10 flex items-center justify-center"
             onHoverStart={() => setIsHovered(true)}
             onHoverEnd={() => setIsHovered(false)}
             variants={buttonVariants}
@@ -71,9 +71,9 @@ const Hero = () => {
               </p>
             </div>
           </motion.button>
-          <div className="w-full h-2">
+          {/* <div className="w-full h-2">
             <Cards />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
