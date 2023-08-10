@@ -40,7 +40,7 @@ const Hero = () => {
             <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
           </h1>
 
-          <div className="text-white text-base sm:text-sm  font-monty italic capitalize text-center mt-6 sm:text-left">
+          <div className="text-white text-2xl sm:text-sm font-monty italic capitalize text-center mt-6 sm:text-left">
             light of future it's AI
           </div>
           <motion.button
