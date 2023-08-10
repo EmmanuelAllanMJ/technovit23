@@ -1,9 +1,13 @@
-import NavBar from '@/components/NavBar'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import dynamic from 'next/dynamic'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const NavBar = dynamic(() => import("@/components/NavBar"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Techno vit 2023',
