@@ -34,8 +34,8 @@ const Countdown = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center md:h-screen sm:h-screen">
-      <h1 className="text-4xl font-regular text-center text-white uppercase">
+    <div className="px-8 flex flex-col justify-center items-center md:h-screen sm:h-screen">
+      <h1 className="text-4xl md:text-3xl sm:text-2xl font-regular text-center text-white uppercase">
         Get ready to be Engaged, Enthrilled, and Entertained in
       </h1>
       <motion.div
