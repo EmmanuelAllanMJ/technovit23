@@ -1,9 +1,25 @@
 "use client";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef,useEffect,useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
+import Text3d from '../components/Text3d';
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
+  
+  const plane = useRef<HTMLDivElement | null>(null);
+  const maxRotate =40;
+
+  const manageMouseMove = (e: any) => {
+    if (plane.current) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      const perspective = window.innerWidth * 4;
+      const rotateX = maxRotate * x - maxRotate / 2; 
+      const rotateY = (maxRotate * y - maxRotate / 2) * -1;
+      plane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`;
+    }
+  };
+  
 
   const buttonVariants = {
     moving: { y: -10 },
@@ -22,20 +38,24 @@ const Hero = () => {
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
-            className="w-full h-28  md:h-10 sm:h-10"
+            className="w-full h-20 lg:h-40 "
           />
         </div>
         <div className="absolute top-16 right-20 sm:right-0 sm:top-8 px-4">
           <img
             src="/assets/technovitlogo.png"
             alt="Right Logo"
-            className="w-full h-30 md:h-10 sm:h-10"
+            className="w-full h-20 lg:h-40"
           />
         </div>
-
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center mt-28">
-          <h1 className="text-9xl sm:text-4xl md:text-7xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white tracking-widest">
-            TECHNOVIT
+        <div onMouseMove={(e) => {manageMouseMove(e)}}>
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center mt-60">
+          <h1 className="text-9xl sm:text-4xl md:text-7xl font-monty bg-clip-text text-slate-200 tracking-widest">
+          
+            <div ref={plane}>
+              <Text3d primary={"T E C H N O V I T"} secondary={"T E C H N O V I T"}/>
+            </div>
+         
             <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
           </h1>
 
@@ -66,6 +86,7 @@ const Hero = () => {
           </motion.button>
         </div>
       </div>
+      </div>  
     </div>
   );
 };
