@@ -4,9 +4,6 @@
 
 @import url("../assets/typography.css");
 
-* {
-  background-color: black;
-}
 
 .ticker-container {
   width: 100%;
