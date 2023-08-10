@@ -5,6 +5,7 @@ import Schools from "@/components/schools";
 import About from "@/components/About";
 import dynamic from "next/dynamic";
 
+
 const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
 });
