@@ -85,7 +85,7 @@ const Column: React.FC<ColumnProps> = ({ images, y }) => {
           key={i}
           className={`h-full w-full relative overflow-hidden rounded-[1vw] `}
         >
-           <Image src={`/images/${src}`} alt='image' className="object-cover" layout="fill" />
+           <Image src={`/images/${src}`} alt='image' className="object-cover" fill />
         </div>
       ))}
     </motion.div>
