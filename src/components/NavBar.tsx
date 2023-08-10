@@ -9,7 +9,7 @@ import Header from './nav/Header';
 export default function NavBar() {
 
     const [isActive, setIsActive] = useState(true);
-    // const [showButton, setShowButton] = useState(false);
+    const [showButton, setShowButton] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -17,24 +17,24 @@ export default function NavBar() {
         console.log(pathname)
     }, [pathname])
 
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-    //       if (isActive && scrollPosition <= 50) {
-    //         setShowButton(true);
-    //       } else if (scrollPosition > 50) {
-    //         setShowButton(true);
-    //       } else {
-    //         setShowButton(false);
-    //       }
-    //     };
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+          if (isActive && scrollPosition <= window.innerHeight) {
+            setShowButton(true);
+          } else if (scrollPosition > window.innerHeight) {
+            setShowButton(true);
+          } else {
+            setShowButton(false);
+          }
+        };
       
-    //     window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);
       
-    //     return () => {
-    //       window.removeEventListener('scroll', handleScroll);
-    //     };
-    //   }, [isActive]);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, [isActive]);
       
 
     return (
@@ -42,9 +42,9 @@ export default function NavBar() {
         <div className={styles.main}>
     
           <div className={styles.header}>
-            <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
+            {showButton && <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
               <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-            </div>
+            </div>}
           </div>
     
         </div>
