@@ -1,13 +1,12 @@
 "use client";
-import "@/app/swivel.css";
 import bandvit from "@/assets/logos/bandvit.webp";
 import connect from "@/assets/logos/connectivitieee.webp";
 import diseno from "@/assets/logos/diseno.webp";
+import glitz from "@/assets/logos/glitz.webp";
 import lilacs from "@/assets/logos/lilacs.webp";
 import qubit from "@/assets/logos/qubit.webp";
 import srishti from "@/assets/logos/srishti.webp";
 import taikunn from "@/assets/logos/taikuun.webp";
-import glitz from "@/assets/logos/glitz.webp";
 import vitness from "@/assets/logos/vitness.webp";
 import vsplash from "@/assets/logos/vsplash.webp";
 import Image, { StaticImageData } from "next/image";
@@ -21,7 +20,7 @@ interface ImageProps {
 let ImageComponent = (props: ImageProps): ReactNode => {
   return (
     <Image
-      className={`${props.className}`}
+      className={`sm:max-w-[8em] sm:max-h-[8em] md:max-h-[8em] md:max-w-[8em] grayscale hover:grayscale-0 ${props.className}`}
       src={props.image}
       alt="Logo"
     />
@@ -30,40 +29,23 @@ let ImageComponent = (props: ImageProps): ReactNode => {
 
 let Schools = (): JSX.Element => {
   return (
-    <div className="container hover:grayscale-0">
-      <div id="carousel">
-        <div>
-          <ImageComponent image={qubit} className="" />
-        </div>
-        <div>
-          <ImageComponent image={bandvit} />
-        </div>
-        <div>
-          <ImageComponent image={lilacs} />
-        </div>
-        <div>
-          <ImageComponent image={glitz} />
-        </div>
-        <div>
-          <ImageComponent image={connect} />
-        </div>
-        <div>
-          <ImageComponent image={diseno} />
-        </div>
-        <div>
-          <ImageComponent image={srishti} />
-        </div>
-        <div>
-          <ImageComponent image={taikunn} />
-        </div>
-        <div>
-          <ImageComponent image={vitness} />
-        </div>
-        <div>
-          <ImageComponent image={vsplash} />
-        </div>
-      </div>
-    </div>
+    <section>
+      <section className="lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+        Schools
+      </section>
+      <section className="grid md:grid-cols-5 md:px-6 sm:grid-cols-1 lg:grid-cols-5 lg:px-32 items-center place-items-center place-content-center gap-4">
+        <ImageComponent className="" image={qubit} />
+        <ImageComponent className="" image={srishti} />
+        <ImageComponent className="" image={glitz} />
+        <ImageComponent className="" image={taikunn} />
+        <ImageComponent className="" image={diseno} />
+        <ImageComponent className="" image={bandvit} />
+        <ImageComponent className="lg:h-48 lg:w-48" image={lilacs} />
+        <ImageComponent className="" image={vsplash} />
+        <ImageComponent className="" image={vitness} />
+        <ImageComponent className="lg:h-48 lg:w-48" image={connect} />
+      </section>
+    </section>
   );
 };
 

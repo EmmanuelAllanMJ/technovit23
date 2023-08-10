@@ -216,7 +216,7 @@
 
 "@studio-freight/lenis@^1.0.19":
   version "1.0.19"
-  resolved "https://registry.npmjs.org/@studio-freight/lenis/-/lenis-1.0.19.tgz"
+  resolved "https://registry.yarnpkg.com/@studio-freight/lenis/-/lenis-1.0.19.tgz#6fd5c60f37226a27862cf036503d4a41f4c34fca"
   integrity sha512-0DZdjDaJqhYVxzcbj6Dpv/BHS/RLc4f6XYu/n0t0fUKatuvO5vtXW4gW4GHgJPiPIpamct7bg8hpihbjZ6fqpw==
 
 "@swc/helpers@0.5.1":
@@ -1140,7 +1140,7 @@ fraction.js@^4.2.0:
 
 framer-motion@^10.15.1:
   version "10.15.1"
-  resolved "https://registry.npmjs.org/framer-motion/-/framer-motion-10.15.1.tgz"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-10.15.1.tgz#c80ba7afc90fa0d5ac2dad9a077cc1bf6e03692a"
   integrity sha512-6avJj/Uftblw0fMmo6jDHkKRH4TBdkMX/FiyR3G/hFe3hQHE4BUNJCqlMPKg9EzfI5jyqDOwO5oDnU+bW5y0eg==
   dependencies:
     tslib "^2.4.0"
