@@ -5,14 +5,17 @@ import Schools from "@/components/schools";
 import About from "@/components/About";
 import dynamic from "next/dynamic";
 import Navbar  from "@/components/Navbar";
+import TickerComponent from "@/components/ticker";
+
 const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
 });
 
 export default function Home() {
   return (
-    <main className="bg-[#110F13]">
-      {/* < Navbar /> */}
+
+    <main className="bg-[#110F13] flex items-center justify-center flex-col gap-6 h-auto">
+      < Navbar />
       <Hero />
       <Gallery />
       <section className="min-h-screen pt-16">
