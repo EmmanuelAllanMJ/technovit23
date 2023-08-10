@@ -45,9 +45,7 @@
 .gallery .column:nth-of-type(4) {
   @apply -top-3/4;
 }
-.spacer {
-  @apply h-screen;
-}
+
 
 .svgCurve {
   position: absolute;
