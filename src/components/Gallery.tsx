@@ -6,7 +6,7 @@ import { useTransform, useScroll, motion } from 'framer-motion';
 import styles from './page.module.css';
 
 const images = [
-  "1.JPG",
+  "1.jpg",
   "2.JPG",
   "3.JPG",
   "4.JPG",
