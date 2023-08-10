@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
             +91-999222939
           </a>
         </section>
-        <section className="flex flex-col justify-start uppercase font-monty text-white gap-16 text-3xl md:text-2xl sm:text-xl md:py-8 sm:py-8 sm:border-white sm:border-t-white">
+        <section className="flex flex-col justify-start uppercase font-monty text-white gap-12 sm:gap-4 md:gap-8 text-3xl md:text-2xl sm:text-xl md:py-8 sm:py-8 sm:border-white sm:border-t-white">
           <section>Home</section>
           <section>About</section>
           <section>Events</section>
