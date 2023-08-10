@@ -5,6 +5,7 @@ import Schools from "@/components/schools";
 import About from "@/components/About";
 import dynamic from "next/dynamic";
 
+import Events from "@/components/Events";
 
 const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
@@ -18,6 +19,9 @@ export default function Home() {
       <section className="min-h-screen pt-16">
         <Countdown />
         <Schools />
+      </section>
+      <section>
+        <Events />
       </section>
       <section className="h-screen flex flex-col justify-center items-center">
         <About />
