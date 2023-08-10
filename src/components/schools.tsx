@@ -29,7 +29,7 @@ let ImageComponent = (props: ImageProps): ReactNode => {
 
 let Schools = (): JSX.Element => {
   return (
-    <section>
+    <section className="py-32">
       <section className="lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
         Schools
       </section>

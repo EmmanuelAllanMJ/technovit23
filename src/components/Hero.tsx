@@ -11,26 +11,25 @@ const Hero = () => {
   };
   return (
     <div>
-      <div className="w-full sm:h-50 ">
+      <div className="w-full sm:h-50">
         <img
           src="/assets/background.png"
           className="h-screen w-screen object-cover blur-1xl"
           alt="Background"
         />
 
-        <div className="absolute top-16 left-16 sm:top-8">
+        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4">
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
-            className="w-full h-20 md:10 sm:h-12"
+            className="w-full h-28  md:h-10 sm:h-10"
           />
         </div>
-
-        <div className="absolute top-16 right-20 sm:top-8 ">
+        <div className="absolute top-16 right-20 sm:right-0 sm:top-8 px-4">
           <img
             src="/assets/technovitlogo.png"
             alt="Right Logo"
-            className="w-full h-30 md:10 sm:h-12"
+            className="w-full h-30 md:h-10 sm:h-10"
           />
         </div>
 
@@ -40,7 +39,7 @@ const Hero = () => {
             <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
           </h1>
 
-          <div className="text-white text-base sm:text-sm  font-monty italic capitalize text-center mt-6 sm:text-left">
+          <div className="text-white text-2xl sm:text-sm font-monty italic capitalize text-center mt-6 sm:text-left">
             light of future it's AI
           </div>
           <motion.button
