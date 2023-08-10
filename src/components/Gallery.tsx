@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Lenis from '@studio-freight/lenis';
 import { useTransform, useScroll, motion } from 'framer-motion';
-import styles from './page.module.scss';
 
 const images = [
   "1.jpg",
@@ -57,14 +56,14 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div ref={gallery} className={styles.gallery}>
+    <section >
+      <div ref={gallery} className={`gallery`}>
         <Column images={[images[0], images[1], images[2]]} y={y} />
         <Column images={[images[3], images[4], images[5]]} y={y2} />
         <Column images={[images[6], images[7], images[8]]} y={y3} />
         <Column images={[images[9], images[10], images[11]]} y={y4} />
       </div>
-    </main>
+    </section>
   );
 };
 
@@ -75,13 +74,12 @@ interface ColumnProps {
 
 const Column: React.FC<ColumnProps> = ({ images, y }) => {
   return (
-    <motion.div className={styles.column} style={{ y }}>
+    <motion.div className={`column relative h-full w-3/12 min-w-[250px] flex flex-col gap-[2vw]`} style={{ y }}>
       {images.map((src, i) => (
-        <div key={i} className={styles.imageContainer}>
-          <Image src={`/images/${src}`} alt='image' fill objectFit="cover" />
+        <div key={i} className={`h-full w-full relative overflow-hidden rounded-[1vw] `}>
+          <Image src={`/images/${src}`} alt='technovit image' fill objectFit="cover" />
         </div>
       ))}
-
     </motion.div>
   );
 };
