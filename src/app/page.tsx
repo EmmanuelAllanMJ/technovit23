@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Space from "@/components/Space";
 import Gallery from "@/components/Gallery";
 import Cards from "@/components/Cards";
+import Navbar from "@/components/Navbar";
 
 
 import About from "@/components/About";
@@ -15,6 +16,7 @@ const Countdown = dynamic(() => import('../components/Countdown'), {
 export default function Home() {
   return (
     <div className="bg-[#110F13]">
+      <Navbar/>
       <Hero />
       <Gallery />
 

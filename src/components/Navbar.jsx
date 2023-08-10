@@ -1,117 +1,178 @@
 "use client";
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import { BiMenuAltRight } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
-import Image from "next/image";
+import { useState } from "react";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 
-const Navbar = () => {
-  const [nav, setNav] = useState("true");
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    if (count > 0) {
-      window.addEventListener("resize", (e) => {
-        if (window.innerWidth > 767) {
-          if (document.querySelector(".ver")) {
-            document.querySelector(".ver").classList.add("invisible");
-          }
-          setNav("false");
-        }
-      });
-    }
-  }),
-    [nav];
-  const ToggleNav = () => {
-    setNav(!nav);
-    setCount(1);
-  };
-  return (
-    <div className="backdrop-blur-sm ">
-      <div className="flex justify-between mx-8 py-2 items-center ">
-        {/* left */}
-        <div className="">
-          <Image width={200} height={75}  src="\assets\logo.svg" alt="logo" className="h-32" />
-        </div>
-        {/* right */}
-        <div className=" backdrop-blur-md rounded-md">
-          <div className="">
-            <div className="hidden md:flex gap-x-3 text-sm text-neutral-300">
-              <Link className="hover:text-neutral-100" href={"/"}>
-                Home
-              </Link>
-              <Link className="hover:text-neutral-100" href={"/"}>
-                About
-              </Link>
-              <Link className="hover:text-neutral-100" href={"/"}>
-                Venue
-              </Link>
-              <Link className="hover:text-neutral-100" href={"/"}>
-                School Fest
-              </Link>
-              <Link className="hover:text-neutral-100" href={"/"}>
-                Gallery
-              </Link>
-              <Link className="hover:text-neutral-100" href={"/"}>
-                Sponsors
-              </Link>
-            </div>
-            {/* Menu button */}
-            <div className="text-white md:hidden">
-              <button onClick={ToggleNav}>
-                {nav && <BiMenuAltRight size={30} />}
-                {!nav && <AiOutlineClose size={30} />}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* menu */}
-      {!nav && (
-        <div className="ver">
-          <div className=" h-screen backdrop-blur-md bg-black/50">
-            {/* Links */}
-            <div className="text-white flex flex-col h-full justify-center items-center ">
-              <Link
-                href={"/"}
-                onClick={ToggleNav}
-                className="cursor-pointer hover:scale-105 duration-200 border-b-2 py-6 border-neutral-400 w-3/4 flex justify-center"
-              >
-                Home
-              </Link>
-              <Link
-                href={"/"}
-                onClick={ToggleNav}
-                className="cursor-pointer hover:scale-105 duration-200 border-b-2 py-6 border-neutral-400 w-3/4 flex justify-center"
-              >
-                Residencies
-              </Link>
-              <Link
-                href={"/"}
-                onClick={ToggleNav}
-                className="cursor-pointer hover:scale-105 duration-200 border-b-2 py-6 border-neutral-400 w-3/4 flex justify-center"
-              >
-                Our Values
-              </Link>
-              <Link
-                href={"/"}
-                onClick={ToggleNav}
-                className="cursor-pointer hover:scale-105 duration-200 border-b-2 py-6 border-neutral-400 w-3/4 flex justify-center"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href={"/"}
-                onClick={ToggleNav}
-                className="cursor-pointer hover:scale-105 duration-200 border-b-2 py-6 border-neutral-400 w-3/4 flex justify-center"
-              >
-                Get Started
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
+export default function Navbar() {
+	const [mobileNav, setMobileNav] = useState(false);
 
-export default Navbar;
+	const toggleMobileNav = () => {
+		setMobileNav(!mobileNav);
+	};
+
+	return (
+		<header className="sticky top-0 inset-x-0 p-6">
+			<nav className="container mx-auto">
+			<ul class="hidden md:text-white md:inline-flex lg:inline-flex lg:text-white gap-[40px] p-3 items-center transform rotate-90 absolute right-0 top-[500%] ">
+    <li>About</li>
+    <li>Events</li>
+    <li>Gallery</li>
+    <li>Contact us</li>
+</ul>
+
+
+
+
+
+
+				<motion.button
+					initial="hide"
+					animate={mobileNav ? "show" : "hide"}
+					onClick={toggleMobileNav}
+					className="flex flex-col space-y-1 absolute right-6 top-6 z-10 md:hidden lg:hidden"
+				>
+					<motion.span
+						variants={{
+							hide: {
+								rotate: 0,
+							},
+							show: {
+								rotate: 45,
+								y: 5,
+							},
+						}}
+						className="w-6 bg-white h-px block"
+					></motion.span>
+					<motion.span
+						variants={{
+							hide: {
+								opacity: 1,
+							},
+							show: {
+								opacity: 0,
+							},
+						}}
+						className="w-6 bg-white h-px block"
+					></motion.span>
+					<motion.span
+						variants={{
+							hide: {
+								rotate: 0,
+							},
+							show: {
+								rotate: -45,
+								y: -5,
+							},
+						}}
+						className="w-6 bg-white h-px block"
+					></motion.span>
+				</motion.button>
+
+
+
+				<AnimatePresence>
+					{mobileNav && (
+						<MotionConfig
+							transition={{
+								type: "spring",
+								bounce: 0.1,
+							}}
+						>
+							<motion.div
+								key="mobile-nav"
+								variants={{
+									hide: {
+										x: "-100%",
+										transition: {
+											type: "spring",
+											bounce: 0.1,
+											when: "afterChildren",
+											staggerChildren: 0.25,
+										},
+									},
+									show: {
+										x: "0%",
+										transition: {
+											type: "spring",
+											bounce: 0.1,
+											when: "beforeChildren",
+											staggerChildren: 0.25,
+										},
+									},
+								}}
+								initial="hide"
+								animate="show"
+								exit="hide"
+								className="fixed inset-0 bg-[#110F13] p-6 flex flex-col justify-center space-y-10 lg:hidden"
+							>
+								<motion.ul
+									variants={{
+										hide: {
+											y: "25%",
+											opacity: 0,
+										},
+										show: {
+											y: "0%",
+											opacity: 1,
+										},
+									}}
+									className="list-none space-y-6"
+								>
+
+									<li>
+										<a href="#" className="text-5xl font-semibold text-white">
+											About
+										</a>
+									</li>
+									<li>
+										<a href="#" className="text-5xl font-semibold text-white">
+											Events
+										</a>
+									</li>
+									<li>
+										<a href="#" className="text-5xl font-semibold text-white">
+											Gallery
+										</a>
+									</li>
+									<li>
+										<a href="#" className="text-5xl font-semibold text-white">
+											Contact Us
+										</a>
+									</li>
+								</motion.ul>
+								<motion.div
+									variants={{
+										hide: {
+											y: "25%",
+											opacity: 0,
+										},
+										show: {
+											y: "0%",
+											opacity: 1,
+										},
+									}}
+									className="w-full h-px bg-white/30"
+								></motion.div>
+								<motion.ul
+									variants={{
+										hide: {
+											y: "25%",
+											opacity: 0,
+										},
+										show: {
+											y: "0%",
+											opacity: 1,
+										},
+									}}
+									className="list-none flex justify-center gap-x-4"
+								>
+
+								</motion.ul>
+							</motion.div>
+						</MotionConfig>
+					)}
+				</AnimatePresence>
+
+			</nav>
+		</header>
+	);
+}
