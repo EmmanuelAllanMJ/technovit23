@@ -1,23 +1,23 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import Lenis from '@studio-freight/lenis';
 import { useTransform, useScroll, motion } from 'framer-motion';
 
 
 const images = [
-  "1.jpg",
-  "2.JPG",
-  "3.JPG",
-  "4.JPG",
-  "5.JPG",
-  "6.JPG",
-  "7.JPG",
-  "8.JPG",
-  "9.JPG",
-  "10.JPG",
-  "11.JPG",
-  "12.JPG",
+  "1.webp",
+  "2.webp",
+  "3.webp",
+  "4.webp",
+  "5.webp",
+  "6.webp",
+  "7.webp",
+  "8.webp",
+  "9.webp",
+  "10.webp",
+  "11.webp",
+  "12.webp",
 ];
 
 const Gallery: React.FC = () => {

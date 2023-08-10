@@ -28,7 +28,7 @@ const Footer = (): JSX.Element => {
         </section>
         <section />
       </section>
-      <section className="w-screen bg-primary text-white font-monty uppercase h-10 text-xl flex items-center justify-center py-2 sm:text-sm md:text-lg">
+      <section className=" bg-primary text-white font-monty uppercase h-10 text-xl flex items-center justify-center py-2 sm:text-sm md:text-lg">
         Made with ❤️ by Team TechnoVIT © {new Date().getFullYear()}
       </section>
     </>
