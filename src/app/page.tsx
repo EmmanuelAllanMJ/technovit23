@@ -11,7 +11,7 @@ const Countdown = dynamic(() => import("../components/Countdown"), {
 
 export default function Home() {
   return (
-    <main className="bg-[#110F13]">
+    <main className="bg-[#110F13] flex items-center justify-center flex-col gap-6 h-auto">
       <Hero />
       <Gallery />
       <section className="min-h-screen pt-16">
