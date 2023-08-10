@@ -58,12 +58,12 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <section>
-      <div ref={gallery} className={`gallery`}>
-        <Column images={[images[0], images[5], images[10]]} y={y} />
-        <Column images={[images[3], images[4], images[3]]} y={y2} />
-        <Column images={[images[6], images[7], images[8]]} y={y3} />
-        <Column images={[images[11], images[9], images[2]]} y={y4} />
+    <section className="overflow-hidden"> 
+      <div ref={gallery} className={`gallery -mx-[175px] scale-75 lg:mx-0 lg:scale-100 `}>
+        <Column images={[images[0], images[5], images[10], images[0]]} y={y} />
+        <Column images={[images[3], images[4], images[3], images[3]]} y={y2} />
+        <Column images={[images[6], images[7], images[8], images[6]]} y={y3} />
+        <Column images={[images[11], images[9], images[2], images[11]]} y={y4} />
       </div>
     </section>
   );
@@ -77,13 +77,13 @@ interface ColumnProps {
 const Column: React.FC<ColumnProps> = ({ images, y }) => {
   return (
     <motion.div
-      className={`column relative h-full w-3/12 min-w-[250px] flex flex-col gap-[2vw]`}
+      className={`column relative h-full w-3/12 min-w-[250px] flex flex-col gap-[2vw] scale-75`}
       style={{ y }}
     >
       {images.map((src, i) => (
         <div
           key={i}
-          className={`h-full w-full relative overflow-hidden rounded-[1vw] `}
+          className={`h-full w-full relative rounded-[1vw]`}
         >
            <Image src={`/images/${src}`} alt='image' className="object-cover" fill />
         </div>
