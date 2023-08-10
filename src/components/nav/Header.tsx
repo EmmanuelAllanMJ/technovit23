@@ -28,9 +28,6 @@ const navItems = [
 ]
 
 export default function Header() {
-
-  
-
   const pathname = usePathname();
   const [selectedIndicator, setSelectedIndicator] = useState(pathname);
 

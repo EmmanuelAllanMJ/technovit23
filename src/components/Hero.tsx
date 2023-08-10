@@ -38,14 +38,14 @@ const Hero = () => {
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
-            className="w-full h-20 lg:h-40 "
+            className="w-full h-10 lg:h-20 "
           />
         </div>
         <div className="absolute top-16 right-20 sm:right-0 sm:top-8 px-4">
           <img
             src="/assets/technovitlogo.png"
             alt="Right Logo"
-            className="w-full h-20 lg:h-40"
+            className="w-full h-10 lg:h-20"
           />
         </div>
         <div onMouseMove={(e) => {manageMouseMove(e)}}>
