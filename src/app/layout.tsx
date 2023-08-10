@@ -1,8 +1,13 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import dynamic from 'next/dynamic'
 
 const inter = Inter({ subsets: ['latin'] })
+
+const NavBar = dynamic(() => import("@/components/NavBar"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Techno vit 2023',
@@ -21,7 +26,10 @@ export default function RootLayout({
         <link rel="icon" href="/assets/logo.svg" sizes="any" />  
         <link rel="icon" href="/assets/logo.svg" type="image/x-icon" sizes="any"></link>      
         </head>
-        <body className={inter.className}>{children}</body>
+        <body className={inter.className}>
+          <NavBar/>
+          {children}
+          </body>
     </html>
   )
 }
