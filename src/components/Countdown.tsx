@@ -30,7 +30,7 @@ const Countdown = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-900">
+    <div className="flex flex-col justify-center items-center h-[60vh] md:h-screen sm:h-screen ">
         <h1 className="text-4xl font-bold text-center bg-gradient-to-b from-white from-60% to-gray-700 text-transparent bg-clip-text">Get ready to be Engaged, Enthrilled, and Entertained in</h1>
       <motion.div
         initial={{ scale: 0 }}
