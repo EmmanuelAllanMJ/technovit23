@@ -4,7 +4,6 @@
 
 @import url("@/assets/css/typography.css");
 
-
 .ticker-container {
   width: 100%;
   overflow: hidden;
@@ -48,4 +47,14 @@
 }
 .spacer {
   @apply h-screen;
+}
+
+.svgCurve {
+  position: absolute;
+  top: 0;
+  left: -99px;
+  width: 100px;
+  height: 100%;
+  fill: #111;
+  stroke: none;
 }
