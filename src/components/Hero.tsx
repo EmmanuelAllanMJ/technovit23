@@ -6,17 +6,20 @@ import Text3d from '../components/Text3d';
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
   
-  const plane = useRef(null);
-  const maxRotate = 45;
+  const plane = useRef<HTMLDivElement | null>(null);
+  const maxRotate =40;
 
-  const manageMouseMove = (e:any) => {
-    const x = e.clientX / window.innerWidth
-    const y = e.clientY / window.innerHeight
-    const perspective = window.innerWidth * 4;
-    const rotateX = maxRotate * x - maxRotate / 2; 
-    const rotateY = (maxRotate * y - maxRotate / 2) * - 1;
-    plane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`
-  }
+  const manageMouseMove = (e: any) => {
+    if (plane.current) {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+      const perspective = window.innerWidth * 4;
+      const rotateX = maxRotate * x - maxRotate / 2; 
+      const rotateY = (maxRotate * y - maxRotate / 2) * -1;
+      plane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`;
+    }
+  };
+  
 
   const buttonVariants = {
     moving: { y: -10 },
@@ -45,14 +48,14 @@ const Hero = () => {
             className="w-full h-20 lg:h-40"
           />
         </div>
-
+        <div onMouseMove={(e) => {manageMouseMove(e)}}>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center mt-60">
           <h1 className="text-9xl sm:text-4xl md:text-7xl font-monty bg-clip-text text-slate-200 tracking-widest">
-          <div onMouseMove={(e) => {manageMouseMove(e)}}>
+          
             <div ref={plane}>
               <Text3d primary={"T E C H N O V I T"} secondary={"T E C H N O V I T"}/>
             </div>
-          </div>  
+         
             <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
           </h1>
 
@@ -83,6 +86,7 @@ const Hero = () => {
           </motion.button>
         </div>
       </div>
+      </div>  
     </div>
   );
 };

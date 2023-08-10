@@ -12,7 +12,7 @@ const Countdown = dynamic(() => import("../components/Countdown"), {
 export default function Home() {
   return (
     <main className="bg-[#110F13]">
-      < Navbar />
+      {/* < Navbar /> */}
       <Hero />
       <Gallery />
       <section className="min-h-screen pt-16">
