@@ -3,21 +3,20 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Lenis from "@studio-freight/lenis";
 import { useTransform, useScroll, motion } from "framer-motion";
-import "@/assets/css/gallery.css";
 
 const images = [
-  "1.jpg",
-  "2.JPG",
-  "3.JPG",
-  "4.JPG",
-  "5.JPG",
-  "6.JPG",
-  "7.JPG",
-  "8.JPG",
-  "9.JPG",
-  "10.JPG",
-  "11.JPG",
-  "12.JPG",
+  "1.webp",
+  "2.webp",
+  "3.webp",
+  "4.webp",
+  "5.webp",
+  "6.webp",
+  "7.webp",
+  "8.webp",
+  "9.webp",
+  "10.webp",
+  "11.webp",
+  "12.webp",
 ];
 
 const Gallery: React.FC = () => {
@@ -59,14 +58,14 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <main className="">
-      <div ref={gallery} className="gallery">
+    <section>
+      <div ref={gallery} className={`gallery`}>
         <Column images={[images[0], images[1], images[2]]} y={y} />
         <Column images={[images[3], images[4], images[5]]} y={y2} />
         <Column images={[images[6], images[7], images[8]]} y={y3} />
         <Column images={[images[9], images[10], images[11]]} y={y4} />
       </div>
-    </main>
+    </section>
   );
 };
 
@@ -77,10 +76,20 @@ interface ColumnProps {
 
 const Column: React.FC<ColumnProps> = ({ images, y }) => {
   return (
-    <motion.div className={"column"} style={{ y }}>
+    <motion.div
+      className={`column relative h-full w-3/12 min-w-[250px] flex flex-col gap-[2vw]`}
+      style={{ y }}
+    >
       {images.map((src, i) => (
-        <div key={i} className="imageContainer">
-          <Image src={`/images/${src}`} alt="image" fill />
+        <div
+          key={i}
+          className={`h-full w-full relative overflow-hidden rounded-[1vw] `}
+        >
+          <Image
+            src={`/images/${src}`}
+            alt="technovit image"
+            fill
+          />
         </div>
       ))}
     </motion.div>
