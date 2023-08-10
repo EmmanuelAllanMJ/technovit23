@@ -49,3 +49,10 @@
 .spacer {
   @apply h-screen;
 }
+
+nav-hero {
+  @apply block m-0 pt-[30px] pb-0 px-0;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
