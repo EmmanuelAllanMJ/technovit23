@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Schools from "@/components/schools";
 import About from "@/components/About";
 import dynamic from "next/dynamic";
-
+import Star from "@/components/Stars"
 import Events from "@/components/Events";
 
 const Countdown = dynamic(() => import("../components/Countdown"), {
@@ -14,6 +14,7 @@ const Countdown = dynamic(() => import("../components/Countdown"), {
 export default function Home() {
   return (
     <main className="bg-[#110F13]">
+      <Star/>
       <Hero />
       <Gallery />
       <section className="min-h-screen pt-16">

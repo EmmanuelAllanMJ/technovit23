@@ -54,7 +54,7 @@ const Hero = () => {
         ))}
 
       </div>
-      <div className="w-full sm:h-50">
+      <div className="w-full sm:h-50 ">
         <img
           src="/assets/background.png"
           className="h-screen w-screen object-cover blur-1xl"
