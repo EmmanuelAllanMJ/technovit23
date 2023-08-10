@@ -1,12 +1,12 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Lenis from '@studio-freight/lenis';
 import { useTransform, useScroll, motion } from 'framer-motion';
-import styles from './page.module.scss';
+import styles from './page.module.css';
 
 const images = [
-  "1.jpg",
+  "1.JPG",
   "2.JPG",
   "3.JPG",
   "4.JPG",
@@ -78,7 +78,8 @@ const Column: React.FC<ColumnProps> = ({ images, y }) => {
     <motion.div className={styles.column} style={{ y }}>
       {images.map((src, i) => (
         <div key={i} className={styles.imageContainer}>
-          <Image src={`/images/${src}`} alt='image' fill objectFit="cover" />
+          <Image src={`/images/${src}`} alt='image' className="object-cover" layout="fill" />
+
         </div>
       ))}
 
