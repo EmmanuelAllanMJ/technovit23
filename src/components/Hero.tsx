@@ -2,12 +2,32 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import Text3d from "../components/Text3d";
+import Text3d from '../components/Text3d';
+import Link from "next/link";
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const plane = useRef<HTMLDivElement | null>(null);
   const maxRotate = 40;
+
+  const navItems = [
+    {
+      title: "Home",
+      href: "/",
+    },
+    {
+      title: "About",
+      href: "#about",
+    },
+    {
+      title: "Events",
+      href: "#events",
+    },
+    {
+      title: "Contact",
+      href: "#contact",
+    },
+  ]
 
   const manageMouseMove = (e: any) => {
     if (plane.current) {
@@ -26,6 +46,14 @@ const Hero = () => {
   };
   return (
     <div>
+      <div className="hidden md:flex lg:flex absolute z-10 mt-48 right-0 text-slate-400 flex-col gap-20">
+        {navItems.map(item => (
+          <li className="block m-0 pt-[20px] pb-0 px-0 rotate-90 cursor-pointer" key={item.title}>
+            <Link href={`/${item.href}`}>{item.title}</Link>
+          </li>
+        ))}
+
+      </div>
       <div className="w-full sm:h-50">
         <img
           src="/assets/background.png"
@@ -47,18 +75,12 @@ const Hero = () => {
             className="w-full h-10 lg:h-20"
           />
         </div>
-        <div
-          onMouseMove={(e) => {
-            manageMouseMove(e);
-          }}
-        >
+        <div onMouseMove={(e) => { manageMouseMove(e) }}>
           <div className="absolute inset-0 flex flex-col justify-center items-center text-center mt-60">
             <h1 className="text-9xl sm:text-4xl md:text-7xl font-monty bg-clip-text text-slate-200 tracking-widest">
+
               <div ref={plane}>
-                <Text3d
-                  primary={"T E C H N O V I T"}
-                  secondary={"T E C H N O V I T"}
-                />
+                <Text3d primary={"T E C H N O V I T"} secondary={"T E C H N O V I T"} />
               </div>
 
               <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
