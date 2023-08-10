@@ -4,7 +4,9 @@ import Hero from "@/components/Hero";
 import Schools from "@/components/schools";
 import About from "@/components/About";
 import dynamic from "next/dynamic";
+
 import Events from "@/components/Events";
+
 const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
 });
