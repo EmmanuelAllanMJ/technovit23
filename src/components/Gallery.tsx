@@ -64,14 +64,13 @@ const Gallery: React.FC = () => {
         <Column images={[images[6], images[7], images[8]]} y={y3} />
         <Column images={[images[9], images[10], images[11]]} y={y4} />
       </div>
-      <div className={styles.spacer}></div>
     </main>
   );
 };
 
 interface ColumnProps {
   images: string[];
-  y: ReturnType<typeof useTransform>;
+  y: any;
 }
 
 const Column: React.FC<ColumnProps> = ({ images, y }) => {
@@ -79,7 +78,7 @@ const Column: React.FC<ColumnProps> = ({ images, y }) => {
     <motion.div className={styles.column} style={{ y }}>
       {images.map((src, i) => (
         <div key={i} className={styles.imageContainer}>
-          <Image src={`/images/${src}`} alt='image' layout="fill" objectFit="cover" />
+          <Image src={`/images/${src}`} alt='image' fill objectFit="cover" />
         </div>
       ))}
     </motion.div>
