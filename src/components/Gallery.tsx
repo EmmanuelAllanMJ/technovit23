@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Lenis from '@studio-freight/lenis';
 import { useTransform, useScroll, motion } from 'framer-motion';
+
 
 const images = [
   "1.jpg",
