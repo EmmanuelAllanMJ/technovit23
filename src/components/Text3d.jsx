@@ -1,6 +1,5 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react';
 import styles from '../assets/css/Home.module.css';
-import gsap from 'gsap';
 
 export default function Index({primary, secondary}) {
 
