@@ -23,9 +23,7 @@ export default function Home() {
       <section>
         <Events />
       </section>
-      <section className="h-screen flex flex-col justify-center items-center">
         <About />
-      </section>
       <Footer />
     </main>
   );
