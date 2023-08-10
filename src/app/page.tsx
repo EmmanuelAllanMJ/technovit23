@@ -4,11 +4,23 @@ import Space from "@/components/Space";
 import Gallery from "@/components/Gallery";
 import Cards from "@/components/Cards";
 
+
+import About from "@/components/About";
+import dynamic from "next/dynamic";
+
+const Countdown = dynamic(() => import('../components/Countdown'), {
+  ssr: false
+})
+
 export default function Home() {
   return (
     <div className="bg-[#110F13]">
       <Hero />
-      <Gallery/>
+      <Gallery />
+
+      <Countdown/>
+      <About />
+
       <Footer />
     </div>
   );
