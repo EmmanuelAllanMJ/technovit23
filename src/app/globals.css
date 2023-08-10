@@ -49,6 +49,7 @@
   @apply h-screen;
 }
 
+<<<<<<< HEAD
 .svgCurve {
   position: absolute;
   top: 0;
@@ -58,3 +59,11 @@
   fill: #111;
   stroke: none;
 }
+=======
+nav-hero {
+  @apply block m-0 pt-[30px] pb-0 px-0;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+}
+>>>>>>> 2538f114fc7a1d792176afdc1405f22819324f99

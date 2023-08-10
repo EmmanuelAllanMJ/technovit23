@@ -61,7 +61,7 @@ const Gallery: React.FC = () => {
     <section className="overflow-hidden"> 
       <div ref={gallery} className={`gallery -mx-[175px] scale-75 lg:mx-0 lg:scale-100 `}>
         <Column images={[images[0], images[5], images[10], images[0]]} y={y} />
-        <Column images={[images[3], images[4], images[3], images[3]]} y={y2} />
+        <Column images={[images[3], images[4], images[3], images[11]]} y={y2} />
         <Column images={[images[6], images[7], images[8], images[6]]} y={y3} />
         <Column images={[images[11], images[9], images[2], images[11]]} y={y4} />
       </div>
