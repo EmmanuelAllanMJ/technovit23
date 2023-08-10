@@ -4,3 +4,28 @@
 
 @import url("../assets/typography.css");
 
+
+.ticker-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ticker-content {
+  display: flex;
+  animation: ticker 20s linear infinite;
+}
+
+.ticker-item {
+  flex-shrink: 0;
+  padding-right: 1rem; /* Adjust as needed */
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+

@@ -20,7 +20,7 @@ const Hero = () => {
         />
 
         {/* Top left logo outline */}
-        <div className="absolute top-16 left-16 sm:top-8 left-8">
+        <div className="absolute top-16 left-16 sm:top-8">
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
@@ -29,7 +29,7 @@ const Hero = () => {
         </div>
 
         {/* Top right logo outline */}
-        <div className="absolute top-16 right-20 sm:top-8 right-6">
+        <div className="absolute top-16 right-20 sm:top-8 ">
           <img
             src="/assets/technovitlogo.png"
             alt="Right Logo"
@@ -45,7 +45,7 @@ const Hero = () => {
           </h1>
 
           {/* Small Text */}
-          <div className="text-white text-base sm:text-sm text-xl font-monty italic capitalize text-center mt-6 sm:text-left">
+          <div className="text-white text-base sm:text-sm  font-monty italic capitalize text-center mt-6 sm:text-left">
             light of future it's AI
           </div>
           {/* Button */}
