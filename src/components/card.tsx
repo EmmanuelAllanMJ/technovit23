@@ -3,7 +3,7 @@ import Image from "next/image";
 const Card = () => {
   return (
     <>
-      <div className="bg-white w-96  flex flex-row justify-center font-monty mr-3 my-3.5  rounded-lg">
+      <div className="bg-white  flex flex-row justify-center font-monty mr-3 my-3.5  rounded-lg">
         <div className="">
           <Image
             width={450}

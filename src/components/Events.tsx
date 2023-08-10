@@ -33,13 +33,13 @@ const Events = ({ }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-center items-center overflow-auto md:px-6">
+      <div className="flex flex-wrap px-6 ">
         <Card />
         <Card />
         <Card />
         <Card />
       </div>
-      <div className="text-center">
+      <div className="text-center ">
         <button
           type="submit"
           className="py-7 px-12 text-white border-white border-2 rounded-full text-2xl"
