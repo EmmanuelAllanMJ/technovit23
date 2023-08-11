@@ -33,7 +33,7 @@ const Events = ({ }) => {
         </div>
       </div>
 
-      <div className="flex flex-wrap px-6 ">
+      <div className="flex flex-wrap justify-center items-center overflow-auto md:px-6">
         <Card />
         <Card />
         <Card />
