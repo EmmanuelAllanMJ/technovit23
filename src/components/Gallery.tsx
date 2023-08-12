@@ -58,14 +58,17 @@ const Gallery: React.FC = () => {
   }, []);
 
   return (
-    <section className="overflow-hidden"> 
-      <div ref={gallery} className={`gallery -mx-[300px] scale-50 lg:mx-0 md:scale-75 lg:scale-100 `}>
+    <section className="overflow-hidden relative">
+      <div ref={gallery} className={`gallery -mx-[300px] scale-50 lg:mx-0 md:scale-75 lg:scale-100`}>
         <Column images={[images[0], images[5], images[10], images[9]]} y={y} />
         <Column images={[images[3], images[4], images[3], images[11]]} y={y2} />
         <Column images={[images[2], images[7], images[8], images[6]]} y={y3} />
         <Column images={[images[11], images[9], images[2], images[11]]} y={y4} />
       </div>
-    </section>
+  <div className="absolute top-0 left-0 w-full h-1/4 sm:h-1/2 bg-gradient-to-b from-[#030014] to-transparent" />
+  <div className="absolute bottom-0 left-0 w-full h-1/4 sm:h-1/2 bg-gradient-to-b from-transparent to-[#030014]" />
+</section>
+
   );
 };
 
