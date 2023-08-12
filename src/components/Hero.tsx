@@ -50,31 +50,29 @@ const Hero = () => {
             className="w-full h-10 lg:h-24"
           />
         </div>
-        <div className="absolute inset-0 flex flex-col justify-center items-center"
+        <div className="absolute inset-0 pt-[30vh] sm:pt-[10vh] flex flex-col justify-center items-center"
           style={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            paddingTop: '30vh', // Adjust this value to offset the content vertically
           }}>
           <div
-            className="text-9xl mt-20 font-monty tracking-widest"
+            className="text-9xl sm:text-5xl md:text-7xl pl-14 sm:pl-9 mt-20 font-monty tracking-widest"
             style={{
               background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
-              paddingLeft:'60px',
               WebkitTextFillColor: 'transparent'
             }}
           >
-            TECHNOVIT<span className="text-5xl font-monty" style={{
+            TECHNOVIT<span className="text-5xl sm:text-xl font-monty" style={{
                 background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
               }}>'23</span>
           </div>
-          <div className="text-white text-3xl font-monty italic mt-4">Light Of Future it's AI</div>
+          <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light Of Future it's AI</div>
           <button className="w-48 mt-8 h-8 py-7 bg-gradient-to-b from-[#05011b] to-[#544374] rounded-full border border-[#846C9C] flex justify-center items-center gap-2">
             <div className="text-[#C8B8EC] text-base font-medium">Register Now</div>
           </button>
