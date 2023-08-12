@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Countdown = () => {
-  const targetDate = new Date("2023-08-31T00:00:00").getTime(); // Set your target date here
+  const targetDate = new Date("2023-10-05T00:00:00").getTime(); // Set your target date here
   const [remainingTime, setRemainingTime] = useState(calculateRemainingTime());
 
   useEffect(() => {
