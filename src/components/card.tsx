@@ -1,21 +1,38 @@
 import React from "react";
 import Image from "next/image";
-const Card = () => {
+
+interface CardProps {
+  eventName: string;
+  eventImage: string;
+  eventDescription: string;
+  eventSchool: string;
+  eventPrice: number;
+}
+
+const Card: React.FC<CardProps> = ({
+  eventName,
+  eventImage,
+  eventDescription,
+  eventSchool,
+  eventPrice,
+}) => {
   return (
     <>
-      <div className="bg-white  flex flex-row justify-center font-monty mr-3 my-3.5  rounded-lg">
+      <div className="bg-white flex flex-row justify-center font-monty mr-3 my-3.5 rounded-xl ">
         <div className="">
           <Image
-            width={450}
-            height={300}
-            src="/assets/open.jpg"
+            width={420}
+            height={350}
+            src={eventImage}
             alt=""
-            className="object-cover h-48"
+            className="object-cover h-64 rounded-t-xl "
           />
           <div className="pl-7 pt-5  ">
             <div className="pl-3">
-              <p className="text-5xl mt-5">Event Name</p>
-              <p className="text-xl my-5">This is a short representation</p>
+              <p className="text-5xl mt-5">{eventName}</p>
+              <p className="text-xl my-5">
+                {eventSchool} - {eventDescription} - <b>₹ {eventPrice}</b>
+              </p>
               <div className="text-xs">
                 <div className="flex felx-row">
                   <svg
@@ -31,9 +48,9 @@ const Card = () => {
                       fill="black"
                     />
                   </svg>
-                  <p className="">29thfeb,2023</p>
+                  <p className="">29<sup>th</sup> Feb 2023</p>
                 </div>
-                <div className="flex felx-row items-base">
+                <div className="flex flex-row items-base">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="15 "
@@ -63,7 +80,7 @@ const Card = () => {
                       fill="black"
                     />
                   </svg>
-                  <p className="mt-1.5">Mg ke samne</p>
+                  <p className="mt-1.5">MG Auditorium</p>
                 </div>
               </div>
             </div>
@@ -94,4 +111,5 @@ const Card = () => {
     </>
   );
 };
+
 export default Card;
