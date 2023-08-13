@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import dynamic from 'next/dynamic'; // Import dynamic from Next.js
+import dynamic from "next/dynamic";
 
 const Card = dynamic(() => import("./CoordinatorCards"), { ssr: false });
 
 const cardVariants = {
-  enter: (direction: number) => ({
+  enter: (direction:any) => ({
     x: direction > 0 ? "-100%" : "100%",
     opacity: 0,
   }),
@@ -15,7 +15,7 @@ const cardVariants = {
     x: 0,
     opacity: 1,
   },
-  exit: (direction:number) => ({
+  exit: (direction:any) => ({
     x: direction > 0 ? "100%" : "-100%",
     opacity: 0,
   }),
@@ -23,6 +23,7 @@ const cardVariants = {
 
 function Carousel() {
   const [width, setWidth] = useState(0);
+  const allCards = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
   useEffect(() => {
     const handleResize = () => {
@@ -38,28 +39,42 @@ function Carousel() {
     }
   }, []);
 
-  const allCards = ["a", "b", "c", "d", "e", "f", "g", "h"];
-  const direction = width <= 350 ? 1 : width <= 640 ? 2 : 3;
+  const getCurrentIndex = () => {
+    const direction = getWidthBasedDirection();
+    return (prevIndex:any) => (prevIndex + direction) % allCards.length;
+  };
+
+  const getWidthBasedDirection = () => {
+    if (width <= 350) {
+      return 1;
+    } else if (width <= 640) {
+      return 2;
+    } else {
+      return 3;
+    }
+  };
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const direction = getWidthBasedDirection();
+
   const cardIndices = allCards
     .slice(currentIndex, currentIndex + direction)
     .map((_, index) => (currentIndex + index) % allCards.length);
 
   const slideLeft = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - direction + allCards.length) % allCards.length
+    setCurrentIndex((prevIndex) =>
+      (prevIndex - direction + allCards.length) % allCards.length
     );
   };
 
   const slideRight = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + direction) % allCards.length);
+    setCurrentIndex(getCurrentIndex());
   };
 
   return (
-    <div className="flex flex-col justify-evenly border w-4/5 h-screen rounded-3xl mx-auto border-stone-500 relative bg-violet-950/5 items-center overflow-hidden">
+    <div className="flex flex-col justify-evenly border w-4/5 rounded-3xl mx-auto border-stone-500 relative bg-violet-950/5 items-center overflow-hidden">
       <div className="flex w-full">
-        <h1 className="text-white mx-auto text-4xl">Website Design</h1>
+        <h1 className="text-white mx-auto text-4xl my-16">Website Design</h1>
       </div>
       <div className="flex items-center justify-center gap-2">
         <AnimatePresence initial={false} custom={direction}>
