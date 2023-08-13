@@ -1,4 +1,8 @@
+'use client'
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import Link from "next/link";
+import React, { useEffect } from 'react';
 const Hero = () => {
   const navItems = [
     {
@@ -17,7 +21,22 @@ const Hero = () => {
       title: "Contact",
       href: "#contact",
     },
-  ];
+  ]
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ y: 0, opacity: 1 });
+    }
+  }, [controls, inView]);
+
+  const textVariants = {
+    hidden: { y: '50%', opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 2, ease: 'easeInOut' } },
+  };
 
   return (
     <div>
@@ -55,45 +74,43 @@ const Hero = () => {
         <div
           className="absolute inset-0 pt-[30vh] sm:pt-[10vh] flex flex-col justify-center items-center"
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+          <div className="text-9xl sm:text-4xl md:text-7xl pl-14 sm:pl-9 mt-20 font-monty tracking-widest"
+        ref={ref}>
+        <motion.span
+          variants={textVariants}
+          initial="hidden"
+          animate={controls}
+          className="block"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
           }}
         >
-          <div
-            className="text-9xl sm:text-4xl md:text-7xl pl-14 sm:pl-9 mt-20 font-monty tracking-widest"
+          TECHNOVIT<span
+            className="text-5xl sm:text-xl font-monty"
             style={{
-              background:
-                "linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)",
-              backgroundClip: "text",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
             }}
           >
-            TECHNOVIT
-            <span
-              className="text-5xl sm:text-xl font-monty"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)",
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              '23
-            </span>
-          </div>
-          <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">
-            Light Of Future - AI
-          </div>
-          <button
-            className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+            '23
+          </span>
+        </motion.span>
+      </div>
+          <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light Of Future - AI</div>
+          <button className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
-           bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
-          >
-            Register Now
+           bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300">
+            <div className="text-[#C8B8EC] text-base font-medium">Register Now</div>
           </button>
         </div>
       </div>
