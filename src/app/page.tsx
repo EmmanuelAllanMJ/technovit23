@@ -21,10 +21,10 @@ export default function Home() {
         <Countdown />
         <Schools />
       </section>
-      <section>
+      <section className="about-grid">
         <Events />
-      </section>
         <About />
+      </section>
       <Footer />
     </main>
   );
