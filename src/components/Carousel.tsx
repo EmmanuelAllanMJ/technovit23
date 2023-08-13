@@ -1,11 +1,13 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Card from "./CoordinatorCards";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
+import dynamic from 'next/dynamic'; // Import dynamic from Next.js
+
+const Card = dynamic(() => import("./CoordinatorCards"), { ssr: false });
 
 const cardVariants = {
-  enter: (direction:number) => ({
+  enter: (direction: number) => ({
     x: direction > 0 ? "-100%" : "100%",
     opacity: 0,
   }),
@@ -20,17 +22,20 @@ const cardVariants = {
 };
 
 function Carousel() {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width, setWidth] = useState(0);
+
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
 
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   const allCards = ["a", "b", "c", "d", "e", "f", "g", "h"];
