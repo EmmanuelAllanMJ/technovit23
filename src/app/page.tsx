@@ -6,6 +6,8 @@ import About from "@/components/About";
 import dynamic from "next/dynamic";
 import Star from "@/components/Stars"
 import Events from "@/components/Events";
+import Carousel from "@/components/Carousel";
+import Coordinator from "@/components/Coordinator";
 
 const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
@@ -23,8 +25,9 @@ export default function Home() {
       </section>
       <section className="about-grid">
         <Events />
-        <About />
       </section>
+      <Coordinator/>
+        <About />
       <Footer />
     </main>
   );
