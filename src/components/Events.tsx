@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import CustomDropdown from "./Dropdown";
 import Card from "./card";
+import { useRouter } from "next/navigation";
 
 const eventsData = [
   {
@@ -39,6 +40,8 @@ const Events: React.FC = () => {
   const [selectedSchool, setSelectedSchool] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
+
+  const router = useRouter()
 
   useEffect(() => {
     const matchesSearch = (eventName: string) =>
@@ -169,6 +172,7 @@ const Events: React.FC = () => {
             h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
             items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
             bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
+                onClick={()=>router.push('/events')}
             >
               See More
             </button>
