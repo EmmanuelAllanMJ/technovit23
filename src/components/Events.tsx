@@ -1,68 +1,181 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import CustomDropdown from "./Dropdown";
 import Card from "./card";
-const Events = ({ }) => {
+
+const eventsData = [
+  {
+    eventName: "Event Name 1",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 1",
+    eventSchool: "Qubit",
+    eventPrice: 75,
+  },
+  {
+    eventName: "Event Name 2",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 2",
+    eventSchool: "Scope",
+    eventPrice: 50,
+  },
+  {
+    eventName: "Event Name 3",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 3",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },
+  {
+    eventName: "Event Name 4",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 4",
+    eventSchool: "Qubit",
+    eventPrice: 25,
+  },
+];
+
+const Events: React.FC = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSchool, setSelectedSchool] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [filteredEvents, setFilteredEvents] = useState(eventsData);
+
+  useEffect(() => {
+    const matchesSearch = (eventName: string) =>
+      eventName.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const matchesSchool = (eventSchool: string) =>
+      selectedSchool === "" || eventSchool === selectedSchool;
+
+    const matchesPrice = (eventPrice: number) => {
+      if (selectedPrice === "") {
+        return true;
+      }
+      if (selectedPrice === "Low") {
+        return eventPrice <= 50;
+      }
+      if (selectedPrice === "Medium") {
+        return eventPrice > 50 && eventPrice <= 100;
+      }
+      if (selectedPrice === "High") {
+        return eventPrice > 100;
+      }
+    };
+
+    const filtered = eventsData.filter(
+      (event) =>
+        matchesSearch(event.eventName) &&
+        matchesSchool(event.eventSchool) &&
+        matchesPrice(event.eventPrice)
+    );
+
+    setFilteredEvents(filtered);
+  }, [searchQuery, selectedSchool, selectedPrice]);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSchoolChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedSchool(event.target.value);
+  };
+
+  const handlePriceChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedPrice(event.target.value);
+  };
+
+  const handleSchoolSelect = (value: string) => {
+    setSelectedSchool(value);
+  };
+
+  const handlePriceSelect = (value: string) => {
+    setSelectedPrice(value);
+  };
+
   return (
-    <div className=" font-monty">
-      <div className="flex justify-center text-white px-12 py-7 ">
-        <div className="w-full md:w-auto md:flex-grow-0 md:mr-7">
-          <input
-            className="bg-stone-600 rounded-full py-3 px-3 w-full md:w-auto"
-            type="search"
-            placeholder="Search event name..."
-          />
+    <>
+      <div className="">
+        <div className="flex justify-center items-center ">
+          <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+            EVENTS
+          </section>
         </div>
-
-        <div className="w-full md:w-auto md:flex-grow-0 md:mr-7">
-          <select className="bg-stone-600 rounded-full py-3 px-3 w-full md:w-auto">
-            <option value="">Schools</option>
-            <option value="School 1">QUBIT</option>
-            <option value="School 2">Scope</option>
-            <option value="School 3">Sense</option>
-            <option value="School 4">School 4</option>
-            <option value="School 5">School 5</option>
-          </select>
-        </div>
-
-        <div className="w-full md:w-auto md:flex-grow-0">
-          <select className="bg-stone-600 rounded-full py-3 px-3 w-full md:w-auto">
-            <option value="">Price</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap justify-center items-center overflow-auto md:px-6">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-      <div className="text-center ">
-        <button
-          type="submit"
-          className="py-7 px-12 text-white border-white border-2 rounded-full text-2xl"
-        >
-          <div className="flex flex-row">
-            See More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="35"
-              height="35"
-              viewBox="0 0 40 40"
-              fill="none"
-              className="ml-5"
-            >
-              <path
-                d="M28.2324 30.5174L38.75 19.9999L28.2324 9.48242L26.4647 11.2502L33.9645 18.75H1.30969V21.25H33.9643L26.4647 28.7496L28.2324 30.5174Z"
-                fill="white"
+        <div className="font-monty ml-3 ">
+          <div className="flex justify-center items-center text-white py-7 gap-2 mb-8">
+            {/* Search Bar */}
+            <div className="flex w-full h-16 xs:w-1/4 sm:w-1/2 md:w-1/2 lg-w-1/2">
+              <input
+                className="bg-white bg-opacity-40 rounded-full py-3 px-3 w-full"
+                type="search"
+                placeholder="Search Event Name..."
+                value={searchQuery}
+                onChange={handleSearchChange}
               />
-            </svg>
+            </div>
+
+            {/* School Dropdown */}
+            <div className="flex w-full xs-w-1/4 sm:w-1/2 mr-3 md:w-1/2 lg-w-1/2 ">
+              <CustomDropdown
+                label="Schools"
+                options={[
+                  { value: "", label: "All Schools" },
+                  { value: "Qubit", label: "Qubit" },
+                  { value: "Scope", label: "Scope" },
+                  { value: "Sense", label: "Sense" },
+                ]}
+                selectedValue={selectedSchool}
+                onSelect={handleSchoolSelect}
+              />
+
+              {/* Price Dropdown */}
+              <CustomDropdown
+                label="Price"
+                options={[
+                  { value: "", label: "Price" },
+                  { value: "Low", label: "Low" },
+                  { value: "Medium", label: "Medium" },
+                  { value: "High", label: "High" },
+                ]}
+                selectedValue={selectedPrice}
+                onSelect={handlePriceSelect}
+              />
+            </div>
           </div>
-        </button>
+
+          {/* Display Filtered Events */}
+          <div className="flex flex-wrap justify-center items-center overflow-auto md:px-6">
+            {filteredEvents.length === 0 ? (
+              <p className="text-white text-center py-10">
+                NO EVENTS AVAILABLE
+              </p>
+            ) : (
+              filteredEvents.map((event) => (
+                <Card
+                  key={event.eventName}
+                  eventName={event.eventName}
+                  eventImage={event.eventImage}
+                  eventDescription={event.eventDescription}
+                  eventSchool={event.eventSchool}
+                  eventPrice={event.eventPrice}
+                />
+              ))
+            )}
+          </div>
+
+          {/* "See More" Button */}
+          <div className="flex justify-center items-center text-center mb-4">
+            <button
+              className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
+            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
+            bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
+            >
+              See More
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
