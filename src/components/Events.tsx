@@ -94,13 +94,18 @@ const Events: React.FC = () => {
 
   return (
     <>
-      <div className="">
-        <div className="flex justify-center items-center ">
+      <div className="relative">
+        <img
+          src="/assets/events-bg.png"
+          className="h-screen w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
+          alt="Background"
+        />
+        <div className="flex justify-center items-center relative z-10">
           <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
             EVENTS
           </section>
         </div>
-        <div className="font-monty ml-3 ">
+        <div className="font-monty ml-3 relative z-10">
           <div className="flex justify-center items-center text-white py-7 gap-2 mb-8">
             {/* Search Bar */}
             <div className="flex w-full h-16 xs:w-1/4 sm:w-1/2 md:w-1/2 lg-w-1/2">
