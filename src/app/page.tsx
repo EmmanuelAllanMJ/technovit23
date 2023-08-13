@@ -6,6 +6,7 @@ import About from "@/components/About";
 import dynamic from "next/dynamic";
 import Star from "@/components/Stars"
 import Events from "@/components/Events";
+import Carousel from "@/components/Carousel";
 
 const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
@@ -24,6 +25,7 @@ export default function Home() {
       <section>
         <Events />
       </section>
+      <Carousel/>
         <About />
       <Footer />
     </main>
