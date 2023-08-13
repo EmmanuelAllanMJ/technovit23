@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Card from "./Card";
 import CustomDropdown from "./Dropdown";
+import Card from "./card";
 
 const eventsData = [
   {
