@@ -19,7 +19,7 @@ const About = () => {
         <div className="grid place-items-center">
           <div className=" absolute right-1/3 shadow-purple-900 opacity-30 md:opacity:10 sm:opacity:5 w-300 h-200 shadow-[0_0_20em_20em] "></div>
           <p className="z-10 text-neutral-100 font-monty font-extralight text-justify mt-6 lg:w-10/12 text-4xl md:text-3xl sm:text-lg sm:text-center !leading-normal pt-4">
-            This is the 7<sup>th</sup> Edition of TechnoVIT, an international level
+            This is the 8<sup>th</sup> Edition of TechnoVIT, an international level
             technical festival of VIT Chennai. It gives us immense pride and
             pleasure in presenting TechnoVIT' 23. This technical extravaganza
             will be filled with numerous activities such as workshops and
