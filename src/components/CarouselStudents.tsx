@@ -75,7 +75,7 @@ function Carousel() {
   return (
     <div className="flex flex-col justify-evenly border w-4/5 rounded-3xl mx-auto border-stone-500 relative bg-violet-950/5 items-center overflow-hidden mt-4 md:mt-8 mb-4 md:mb-8">
       <div className="flex w-full">
-        <h1 className="text-white mx-auto text-4xl my-16">Faculty</h1>
+        <h1 className="text-white mx-auto text-4xl my-16">Student</h1>
       </div>
       <div className="flex items-center justify-center gap-2">
         <AnimatePresence initial={false} custom={direction}>
