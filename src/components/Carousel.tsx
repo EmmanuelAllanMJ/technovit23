@@ -45,7 +45,7 @@ function Carousel() {
   };
 
   const getWidthBasedDirection = () => {
-    if (width <= 912) { // Adjusted width for screens with 912 pixels or less
+    if (width <= 912) { 
       return 1;
     } else {
       return 3;
@@ -54,7 +54,7 @@ function Carousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const direction = getWidthBasedDirection();
-  const cardDisplayCount = width <= 912 ? 1 : 3; // Adjusted cardDisplayCount for screens with 912 pixels or less
+  const cardDisplayCount = width <= 912 ? 1 : 3; 
 
   const cardIndices = allCards
     .slice(currentIndex, currentIndex + cardDisplayCount)
