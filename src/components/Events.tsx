@@ -33,6 +33,34 @@ const eventsData = [
     eventSchool: "Qubit",
     eventPrice: 25,
   },
+  {
+    eventName: "Event Name 5",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 5",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },
+  {
+    eventName: "Event Name 6",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 6",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },
+  {
+    eventName: "Event Name 7",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 7",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },
+  {
+    eventName: "Event Name 8",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 8",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },
 ];
 
 const Events: React.FC = () => {
@@ -40,8 +68,9 @@ const Events: React.FC = () => {
   const [selectedSchool, setSelectedSchool] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
   const [filteredEvents, setFilteredEvents] = useState(eventsData);
-
-  const router = useRouter()
+  const [seem, setSeem] = useState(0);
+  const [mesg, setMesg] = useState("See More");
+  const router = useRouter();
 
   useEffect(() => {
     const matchesSearch = (eventName: string) =>
@@ -74,6 +103,16 @@ const Events: React.FC = () => {
 
     setFilteredEvents(filtered);
   }, [searchQuery, selectedSchool, selectedPrice]);
+  const more = () => {
+    if (seem == 0) {
+      setSeem(1);
+      setMesg("See Less");
+      return;
+    } else {
+      setSeem(0);
+      setMesg("See More");
+    }
+  };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
@@ -156,6 +195,21 @@ const Events: React.FC = () => {
               <p className="text-white text-center py-10">
                 NO EVENTS AVAILABLE
               </p>
+            ) : seem === 0 ? (
+              filteredEvents.map((event, index) =>
+                index <= 3 ? (
+                  <Card
+                    key={event.eventName}
+                    eventName={event.eventName}
+                    eventImage={event.eventImage}
+                    eventDescription={event.eventDescription}
+                    eventSchool={event.eventSchool}
+                    eventPrice={event.eventPrice}
+                  />
+                ) : (
+                  ""
+                )
+              )
             ) : (
               filteredEvents.map((event) => (
                 <Card
@@ -177,9 +231,9 @@ const Events: React.FC = () => {
             h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
             items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
             bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
-                onClick={()=>router.push('/events')}
+              onClick={more}
             >
-              See More
+              {mesg}
             </button>
           </div>
         </div>
