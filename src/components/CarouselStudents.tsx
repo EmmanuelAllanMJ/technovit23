@@ -23,7 +23,7 @@ const cardVariants = {
 
 function Carousel() {
   const [width, setWidth] = useState(0);
-  const allCards = ["a", "b", "c", "d", "e", "f", "g", "h"];
+  const allCards = ["a", "b", "c", "d", "e", "f", "g"];
 
   useEffect(() => {
     const handleResize = () => {
@@ -105,7 +105,7 @@ function Carousel() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <Card id={cardIndex} />
+                <Card id={cardIndex} type="student" />
               </motion.div>
             ))}
           </motion.div>
