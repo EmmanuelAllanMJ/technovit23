@@ -45,7 +45,7 @@ function Carousel() {
   };
 
   const getWidthBasedDirection = () => {
-    if (width <= 912) { 
+    if (width >= 612) { 
       return 1;
     } else {
       return 3;
@@ -54,7 +54,7 @@ function Carousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const direction = getWidthBasedDirection();
-  const cardDisplayCount = width <= 912 ? 1 : 3; 
+  const cardDisplayCount = width >= 612 ? 1 : 3; 
 
   const cardIndices = allCards
     .slice(currentIndex, currentIndex + cardDisplayCount)
@@ -90,10 +90,10 @@ function Carousel() {
             transition={{
               x: {
                 type: "tween",
-                ease: [0.43, 0.13, 0.23, 0.96],
-                duration: 0.5,
+                ease: [0.12, 0.13, 0.43, 0.96],
+                duration: 0.3,
               },
-              opacity: { duration: 0.2 },
+              opacity: { duration: 0.1 },
             }}
           >
             {cardIndices.map((cardIndex) => (
@@ -103,7 +103,7 @@ function Carousel() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+                transition={{ duration: 0.1 }}
               >
                 <Card id={cardIndex} />
               </motion.div>
