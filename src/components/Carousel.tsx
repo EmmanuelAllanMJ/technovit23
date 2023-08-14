@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 const Card = dynamic(() => import("./CoordinatorCards"), { ssr: false });
 
 const cardVariants = {
-  enter: (direction) => ({
+  enter: (direction:number) => ({
     x: direction > 0 ? "-100%" : "100%",
     opacity: 0,
   }),
@@ -15,7 +15,7 @@ const cardVariants = {
     x: 0,
     opacity: 1,
   },
-  exit: (direction) => ({
+  exit: (direction:number) => ({
     x: direction > 0 ? "100%" : "-100%",
     opacity: 0,
   }),
@@ -41,11 +41,11 @@ function Carousel() {
 
   const getCurrentIndex = () => {
     const direction = getWidthBasedDirection();
-    return (prevIndex) => (prevIndex + direction) % allCards.length;
+    return (prevIndex:number) => (prevIndex + direction) % allCards.length;
   };
 
   const getWidthBasedDirection = () => {
-    if (width <= 912) { // Adjusted width for screens with 912 pixels or less
+    if (width <= 912) { 
       return 1;
     } else {
       return 3;
@@ -54,7 +54,7 @@ function Carousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const direction = getWidthBasedDirection();
-  const cardDisplayCount = width <= 912 ? 1 : 3; // Adjusted cardDisplayCount for screens with 912 pixels or less
+  const cardDisplayCount = width <= 912 ? 1 : 3; 
 
   const cardIndices = allCards
     .slice(currentIndex, currentIndex + cardDisplayCount)
