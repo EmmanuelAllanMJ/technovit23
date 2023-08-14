@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 const Card = dynamic(() => import("./CoordinatorCards"), { ssr: false });
 
 const cardVariants = {
-  enter: (direction:any) => ({
+  enter: (direction:number) => ({
     x: direction > 0 ? "-100%" : "100%",
     opacity: 0,
   }),
@@ -15,7 +15,7 @@ const cardVariants = {
     x: 0,
     opacity: 1,
   },
-  exit: (direction:any) => ({
+  exit: (direction:number) => ({
     x: direction > 0 ? "100%" : "-100%",
     opacity: 0,
   }),
@@ -41,14 +41,12 @@ function Carousel() {
 
   const getCurrentIndex = () => {
     const direction = getWidthBasedDirection();
-    return (prevIndex:any) => (prevIndex + direction) % allCards.length;
+    return (prevIndex:number) => (prevIndex + direction) % allCards.length;
   };
 
   const getWidthBasedDirection = () => {
-    if (width <= 350) {
+    if (width <= 912) { 
       return 1;
-    } else if (width <= 640) {
-      return 2;
     } else {
       return 3;
     }
@@ -56,23 +54,26 @@ function Carousel() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const direction = getWidthBasedDirection();
+  const cardDisplayCount = width <= 912 ? 1 : 3; 
 
   const cardIndices = allCards
-    .slice(currentIndex, currentIndex + direction)
+    .slice(currentIndex, currentIndex + cardDisplayCount)
     .map((_, index) => (currentIndex + index) % allCards.length);
 
   const slideLeft = () => {
     setCurrentIndex((prevIndex) =>
-      (prevIndex - direction + allCards.length) % allCards.length
+      (prevIndex - cardDisplayCount + allCards.length) % allCards.length
     );
   };
 
   const slideRight = () => {
-    setCurrentIndex(getCurrentIndex());
+    setCurrentIndex((prevIndex) =>
+      (prevIndex + cardDisplayCount) % allCards.length
+    );
   };
 
   return (
-    <div className="flex flex-col justify-evenly border w-4/5 rounded-3xl mx-auto border-stone-500 relative bg-violet-950/5 items-center overflow-hidden">
+    <div className="flex flex-col justify-evenly border w-4/5 rounded-3xl mx-auto border-stone-500 relative bg-violet-950/5 items-center overflow-hidden mt-4 md:mt-8 mb-4 md:mb-8">
       <div className="flex w-full">
         <h1 className="text-white mx-auto text-4xl my-16">Website Design</h1>
       </div>
