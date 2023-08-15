@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         "primary": "#7B2CBF",
         "secondary": "#C77DFF",
+        "borcol": "#846C9C"
 
       },
       fontFamily: {
