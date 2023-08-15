@@ -5,49 +5,46 @@ type CardProps = {
 
 const imageUrl: Array<{ link: string, name: string }> = [
   {
-    link: "https://lh3.googleusercontent.com/u/0/drive-viewer/AITFw-x_6EWWaiHHuYwB8TatYF9b8wIUdSanekTMnXLDHg_84UmL4EWKkso1dDoKov9_n3taap0HUCF8I3gP4XRXg1R0rA69Xg=w1852-h980",
+    link: "/images/student/MONISH.JPG",
     name: "Mohish S",
   },
   {
-    link: 'https://lh3.googleusercontent.com/u/0/drive-viewer/AITFw-w6O8oklAVfo1AN6tTjs-2pzivDXufByy0dcgwR8d9FJokhHKsTgeaWbrIEKi4ORevNPWNntCFdVpP9hBrjHMuaM9NPjg=w1852-h980',
+    link: '/images/student/Nivedhitha.jpg',
     name: "Niveditha Gna",
   }, {
-    link: 'https://lh3.google.com/u/0/d/16iwwRDtAL_WVsQwq9M9RJSo4lh8VR1q7=k',
+    link: '/images/student/Jayasree.jpg',
     name: " Jayasree M",
   }, {
-    link: "https://lh3.google.com/u/0/d/1emc6jnQVIJ3I-8Fje6VirNPo4jm6AnI2=k",
+    link: "/images/student/Harshadaa.jpg",
     name: "Harshadaavenkat"
   },
   {
-    link: "https://lh3.google.com/u/0/d/1Uuv6MDtthsjRj0XpzOI1lDh7GaVfo67W=k",
+    link: "/images/student/shyam.jpg",
     name: "Shyam Sundhar",
   },
   {
-    link: "https://lh3.google.com/u/0/d/16dFLxJEnJsXNIan3p8FIZSavotjz9-UF=k",
+    link: "/images/student/Aadil.jpg",
     name: "Mohammed Aadil",
   },
   {
-    link: "https://lh3.google.com/u/0/d/1Pt3pl5qqZmRduYgCaJ7kYIwHGeHXxcLe=k",
+    link: "/images/student/Pravarthika.jpeg",
     name: "Pravarthika V",
   }
 ];
 
 const facultyImageUrl: Array<{ link: string, name: string }> = [
-  {
-    name : "Pravarthika V",
-    link:"https://d29xyctv32cl2b.cloudfront.net/vit/authors/prabhakar-v.webp"
-  },
+
   {
     name : "Dr. Vijayakumar P",
-    link:"https://chennai.vit.ac.in/wp-content/uploads/2020/08/Dr.Vijayakumar-P-resize-255x319.jpg"
+    link:"/images/faculty/Vijayakumar.jpg"
   },
   {
     name : "Dr. Karmel A",
-    link:"https://chennai.vit.ac.in/wp-content/uploads/2020/01/Dr.Karmel-A.jpg"
+    link:"/images/faculty/Karmel.png"
   },
   {
     name : "Dr. S. Bharathiraja",
-    link:"https://chennai.vit.ac.in/wp-content/uploads/2020/08/50299_SCOPE-S.Bharathiraja-Bharathiraja-S-255x319.jpg"
+    link:"/images/faculty/Bharathiraja.jpg"
   },
 
 ]
