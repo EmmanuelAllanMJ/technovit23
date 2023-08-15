@@ -1,27 +1,35 @@
-"use client"
-import { FC } from 'react'
-import Carousel from './Carousel'
-import CarouselStudents from './CarouselStudents'
+"use client";
 
-const Coordinator = () => {
-    return (
-        <div className='font-monty overflow-hidden'>
-            <img
-                src="/assets/coordinates.png"
-                className="mx-auto blur-1xl"
-                alt="Background"
-            />
-            <h2 className=' mt-100 mb-10 text-3xl md:text-5xl lg:text-6xl text-white uppercase text-center'>Co-ordinators</h2>
-            
-            <div className='mt-1'>
-                <Carousel />
-                <br />
-                <CarouselStudents />
-            </div>
-            <br />
-        </div>
-    )
+import CoordinatorCardImage from "@/components/CoordinatorCards";
+import { facultyImageUrl, studentImageUrl } from "../../public/data/data";
+
+interface ICompProps {
+  className?: string;
 }
 
-export default Coordinator;
+const CoordinatorComponent = (props: ICompProps) => {
+  return (
+    <section className={`${props.className} font-monty py-4`}>
+      <section className="flex flex-col lg:mx-32 md:mx-16 sm:mx-8">
+        <h1 className="flex w-full justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
+          Faculty Coordinators
+        </h1>
+        <section className="flex flex-wrap sm:flex-col items-center justify-center gap-12 w-full">
+          {facultyImageUrl.map((item, i) => (
+            <CoordinatorCardImage link={item.link} name={item.name} key={i} />
+          ))}
+        </section>
+        <h1 className="flex w-full justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
+          Student Coordinators
+        </h1>
+        <section className="flex flex-wrap sm:flex-col items-center justify-center gap-12 w-full">
+          {studentImageUrl.map((item, i) => (
+            <CoordinatorCardImage link={item.link} name={item.name} key={i} />
+          ))}
+        </section>
+      </section>
+    </section>
+  );
+};
 
+export default CoordinatorComponent;

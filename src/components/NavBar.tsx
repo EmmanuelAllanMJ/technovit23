@@ -1,28 +1,26 @@
 "use client";
 import styles from "@/assets/css/navigation.module.css";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-import Header from './nav/Header';
+import { AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import Header from "./nav/Header";
 
 export default function NavBar() {
-
   const [isActive, setIsActive] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (isActive) setIsActive(false)
-    console.log(pathname === "/")
-  if (pathname !== "/") setShowButton(true)
-  }, [pathname])
+    if (isActive) setIsActive(false);
+    if (pathname !== "/") setShowButton(true);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => {
-      if(pathname !== "/") return
-      console.log("Entered here")
-      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+      if (pathname !== "/") return;
+      const scrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
       if (isActive && scrollPosition <= window.innerHeight) {
         setShowButton(true);
       } else if (scrollPosition > window.innerHeight) {
@@ -32,29 +30,34 @@ export default function NavBar() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [isActive]);
-
 
   return (
     <>
       <div className={styles.main}>
-
         <div className={styles.header}>
-          {showButton && <div onClick={() => { setIsActive(!isActive) }} className={styles.button}>
-            <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
-          </div>}
+          {showButton && (
+            <div
+              onClick={() => {
+                setIsActive(!isActive);
+              }}
+              className={styles.button}
+            >
+              <div
+                className={`${styles.burger} ${
+                  isActive ? styles.burgerActive : ""
+                }`}
+              ></div>
+            </div>
+          )}
         </div>
-
       </div>
-      <AnimatePresence mode="wait">
-        {isActive && <Header />}
-      </AnimatePresence>
+      <AnimatePresence mode="wait">{isActive && <Header />}</AnimatePresence>
     </>
-  )
+  );
 }
-

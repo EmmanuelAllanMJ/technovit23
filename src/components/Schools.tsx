@@ -29,23 +29,23 @@ let ImageComponent = (props: ImageProps): ReactNode => {
 
 let Schools = (): JSX.Element => {
   return (
-    <section className="py-32 sm:py-40" id='#events'>
+    <section className="py-32 sm:py-40" id="#events">
       <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
         Schools
       </section>
       <section className="grid md:grid-cols-4 md:px-6 sm:grid-cols-1 lg:grid-cols-4 lg:px-32 items-center place-items-center place-content-center gap-4">
-        <ImageComponent className="" image={qubit} />
-        <ImageComponent className="" image={srishti} />
-        <ImageComponent className="" image={glitz} />
-        <ImageComponent className="" image={taikunn} />
-        <ImageComponent className="" image={diseno} />
-        <ImageComponent className="" image={bandvit} />
-        <ImageComponent className="" image={vsplash} />
-        <ImageComponent className="" image={vitness} />
+        <ImageComponent image={qubit} />
+        <ImageComponent image={srishti} />
+        <ImageComponent image={glitz} />
+        <ImageComponent image={taikunn} />
+        <ImageComponent image={diseno} />
+        <ImageComponent image={bandvit} />
+        <ImageComponent image={vsplash} />
+        <ImageComponent image={vitness} />
       </section>
-      <section className="flex px-8 justify-center gap-16">
-        <ImageComponent className="lg:h-48 lg:w-48" image={lilacs} />
-        <ImageComponent className="lg:h-48 lg:w-48" image={connect} />
+      <section className="flex sm:flex-col sm:h-full sm:justify-center sm:items-center px-8 justify-center gap-16">
+        <ImageComponent className="lg:h-52 lg:w-52" image={lilacs} />
+        <ImageComponent className="lg:h-52 lg:w-52" image={connect} />
       </section>
     </section>
   );
