@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="About-grid">
+    <div className="about-grid">
      <br/>
       <div className="flex px-32 md:px-28 sm:px-16  flex-col justify-center ">
         <div className="mt-8">
