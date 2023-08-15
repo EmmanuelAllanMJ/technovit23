@@ -1,80 +1,35 @@
-"use client"
-import { FC, useRef } from 'react'
-// import CarouselStudents from './CarouselStudents'
-import Carousel from "framer-motion-carousel"
-import { facultyImageUrl, studentImageUrl } from '../../public/data/data';
-import Image from 'next/image';
+"use client";
 
+import CoordinatorCardImage from "@/components/CoordinatorCards";
+import { facultyImageUrl, studentImageUrl } from "../../public/data/data";
 
-const Coordinator = () => {
-    const carouselRef = useRef();
-
-    return (
-        <div className='font-monty overflow-hidden'>
-            <img
-                src="/assets/coordinates.png"
-                className="mx-auto blur-1xl"
-                alt="Background"
-            />
-            <h2 className=' mt-100 mb-10 text-3xl md:text-5xl lg:text-6xl text-white uppercase text-center'>Co-ordinators</h2>
-            {/*             
-            <div className='mt-1'>
-                <Carousel />
-                <br />
-                <CarouselStudents />
-            </div>
-            <br /> */}
-            <>
-                <div className="flex w-full">
-                    <h1 className="text-white mx-auto text-4xl my-16">Faculty</h1>
-                </div>
-
-                <div style={{ width: 800, height: 500, margin: "0 auto" }} >
-                    <Carousel autoPlay={true} interval={20000} loop={true} >
-                        {facultyImageUrl.map((item, i) => (
-                            <div className='flex items-center justify-center flex-col'>
-                                <Image
-                                    draggable="false"
-                                    src={item.link}
-                                    key={i}
-                                    width={400}
-                                    height={400}
-                                    alt={item.name}
-                                />
-                                <h1 className="text-white text-center text-3xl">{item.name}</h1>
-
-                            </div >
-                        ))}
-                    </Carousel>
-                </div>
-
-                <div className="flex w-full">
-                    <h1 className="text-white mx-auto text-4xl my-16">Student</h1>
-                </div>
-
-                <div style={{ width: 800, height: 500, margin: "0 auto" }} >
-                    <Carousel autoPlay={true} interval={20000} loop={true}>
-                        {studentImageUrl.map((item, i) => (
-                            <div className='flex items-center justify-center flex-col'>
-                                <Image
-                                    draggable="false"
-                                    src={item.link}
-                                    key={i}
-                                    width={400}
-                                    height={400}
-                                    alt={item.name}
-                                />
-                                <h1 className="text-white text-center text-3xl">{item.name}</h1>
-
-                            </div >
-                        ))}
-                    </Carousel>
-                </div>
-
-            </>
-        </div>
-    )
+interface ICompProps {
+  className?: string;
 }
 
-export default Coordinator;
+const CoordinatorComponent = (props: ICompProps) => {
+  return (
+    <section className={`${props.className} font-monty py-4`}>
+      <section className="flex flex-col lg:mx-32 md:mx-16 sm:mx-8">
+        <h1 className="flex w-full justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
+          Faculty Coordinators
+        </h1>
+        <section className="flex flex-wrap sm:flex-col items-center justify-center gap-12 w-full">
+          {facultyImageUrl.map((item, i) => (
+            <CoordinatorCardImage link={item.link} name={item.name} key={i} />
+          ))}
+        </section>
+        <h1 className="flex w-full justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
+          Student Coordinators
+        </h1>
+        <section className="flex flex-wrap sm:flex-col items-center justify-center gap-12 w-full">
+          {studentImageUrl.map((item, i) => (
+            <CoordinatorCardImage link={item.link} name={item.name} key={i} />
+          ))}
+        </section>
+      </section>
+    </section>
+  );
+};
 
+export default CoordinatorComponent;
