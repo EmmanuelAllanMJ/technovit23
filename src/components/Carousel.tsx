@@ -23,7 +23,7 @@ const cardVariants = {
 
 function Carousel() {
   const [width, setWidth] = useState(0);
-  const allCards = ["a", "b", "c", "d"];
+  const allCards = ["a", "b", "c"];
 
   useEffect(() => {
     const handleResize = () => {
