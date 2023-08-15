@@ -57,11 +57,13 @@ function CoordinatorCardImage(props: ICardProps): JSX.Element {
     <section
       className={`${props.className} flex flex-col gap-4 py-4 justify-center items-center object-contain`}
     >
-      <img
-        src={props.link}
-        alt={props.name}
-        className="rounded-lg h-80 w-80 md:h-64 md:w-64 scale-90 border-borcol border-4"
-      />
+      <section className="border border-borcol p-4 rounded-lg">
+        <img
+          src={props.link}
+          alt={props.name}
+          className="rounded-lg h-80 w-80 md:h-64 md:w-64 transition hover:scale-110"
+        />
+      </section>
       <h1 className="text-white text-center text-3xl md:text-xl sm:text-xl">
         {props.name}
       </h1>

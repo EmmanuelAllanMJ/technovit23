@@ -43,7 +43,7 @@ let Schools = (): JSX.Element => {
         <ImageComponent image={vsplash} />
         <ImageComponent image={vitness} />
       </section>
-      <section className="flex px-8 justify-center gap-16">
+      <section className="flex sm:flex-col sm:h-full sm:justify-center sm:items-center px-8 justify-center gap-16">
         <ImageComponent className="lg:h-52 lg:w-52" image={lilacs} />
         <ImageComponent className="lg:h-52 lg:w-52" image={connect} />
       </section>

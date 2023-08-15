@@ -1,7 +1,7 @@
 export const studentImageUrl: Array<{ link: string, name: string }> = [
     {
         link: "/images/student/MONISH.JPG",
-        name: "Mohish S",
+        name: "Monish S",
     },
     {
         link: '/images/student/Nivedhitha.jpg',
@@ -11,7 +11,7 @@ export const studentImageUrl: Array<{ link: string, name: string }> = [
         name: " Jayasree M",
     }, {
         link: "/images/student/Harshadaa.jpg",
-        name: "Harshadaavenkat"
+        name: "Harshadaa Venkat"
     },
     {
         link: "/images/student/shyam.jpg",
