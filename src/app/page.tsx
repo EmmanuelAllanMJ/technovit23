@@ -18,18 +18,18 @@ export default function Home() {
       <Star />
       <Hero />
       <Gallery />
-      <section className="min-h-screen pt-16">
-        <Countdown />
-        <Schools />
-      </section>
       <section className="about-grid">
+        <section className="min-h-screen flex flex-col justify-center items-center">
+          <About />
+        </section>
+        <section className="min-h-screen pt-16">
+          <Countdown />
+          <Schools />
+        </section>
         <Events />
+        <CoordinatorComponent/>    
+        <Footer />
       </section>
-      <CoordinatorComponent/>
-      <section className="min-h-screen flex flex-col justify-center items-center">
-        <About />
-      </section>
-      <Footer />
     </main>
   );
 }

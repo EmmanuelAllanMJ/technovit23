@@ -33,10 +33,12 @@ export const studentImageUrl: ICardProps[] = [
 
 export const facultyImageUrl: ICardProps[] = [
   {
+
     name: "Dr. S. Bharathiraja",
     link: "/images/faculty/Bharathiraja.jpg",
   },
   {
+
     name: "Dr. Vijayakumar P",
     link: "/images/faculty/Vijayakumar.jpg",
   },

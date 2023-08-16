@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import CustomDropdown from "./Dropdown";
-import Card from "./card";
+import EventCard from "./EventCard";
 import { useRouter } from "next/navigation";
+
 
 const eventsData = [
   {
@@ -55,6 +56,24 @@ const eventsData = [
     eventPrice: 100,
   },
   {
+    eventName: "Event Name 9",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 8",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },{
+    eventName: "Event Name 10",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 8",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },{
+    eventName: "Event Name 11",
+    eventImage: "/assets/open.jpg",
+    eventDescription: "Description of Event 8",
+    eventSchool: "Sense",
+    eventPrice: 100,
+  },{
     eventName: "Event Name 8",
     eventImage: "/assets/open.jpg",
     eventDescription: "Description of Event 8",
@@ -136,10 +155,10 @@ const Events: React.FC = () => {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative min-h-screen">
         <img
           src="/assets/events-bg.png"
-          className="h-screen w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
+          className="h-full w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
           alt="Background"
         />
         <div className="flex justify-center items-center relative z-10">
@@ -147,8 +166,8 @@ const Events: React.FC = () => {
             EVENTS
           </section>
         </div>
-        <div className="font-monty ml-3 relative z-10">
-          <div className="flex justify-center items-center text-white py-7 gap-2 mb-8">
+        <div className="font-monty relative z-10">
+          <div className="flex justify-center items-center text-white py-7 gap-2 mb-8 w-3/4 sm:w-5/6 mx-auto ">
             {/* Search Bar */}
             <div className="flex w-full h-16 xs:w-1/4 sm:w-1/2 md:w-1/2 lg-w-1/2">
               <input
@@ -161,7 +180,7 @@ const Events: React.FC = () => {
             </div>
 
             {/* School Dropdown */}
-            <div className="flex w-full xs-w-1/4 sm:w-1/2 mr-3 md:w-1/2 lg-w-1/2 ">
+            <div className="flex z-10 w-full xs-w-1/4 sm:w-1/2 mr-3 md:w-1/2 lg-w-1/2 ">
               <CustomDropdown
                 label="Schools"
                 options={[
@@ -190,7 +209,7 @@ const Events: React.FC = () => {
           </div>
 
           {/* Display Filtered Events */}
-          <div className="flex flex-wrap justify-center items-center overflow-auto md:px-6">
+          <div className="flex flex-wrap justify-center items-center gap-7">
             {filteredEvents.length === 0 ? (
               <p className="text-white text-center py-10">
                 NO EVENTS AVAILABLE
@@ -198,8 +217,9 @@ const Events: React.FC = () => {
             ) : seem === 0 ? (
               filteredEvents.map((event, index) =>
                 index <= 3 ? (
-                  <Card
-                    key={event.eventName}
+                  <EventCard
+                    key={index}
+                    index={index}
                     eventName={event.eventName}
                     eventImage={event.eventImage}
                     eventDescription={event.eventDescription}
@@ -211,9 +231,10 @@ const Events: React.FC = () => {
                 )
               )
             ) : (
-              filteredEvents.map((event) => (
-                <Card
-                  key={event.eventName}
+              filteredEvents.map((event,index) => (
+                <EventCard
+                  key={index}
+                  index={index}
                   eventName={event.eventName}
                   eventImage={event.eventImage}
                   eventDescription={event.eventDescription}
