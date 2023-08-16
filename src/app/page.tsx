@@ -17,15 +17,15 @@ export default function Home() {
     <main className="bg-[#030014]">
       <Star />
       <Hero />
-      <Gallery />
       <section className="about-grid">
+          <Countdown />
         <section className="min-h-screen flex flex-col justify-center items-center">
           <About />
         </section>
-        <section className="min-h-screen pt-16">
-          <Countdown />
-          <Schools />
-        </section>
+      </section>
+      <Gallery />
+      <section className="about-grid">
+        <Schools />
         <Events />
         <CoordinatorComponent/>    
         <Footer />

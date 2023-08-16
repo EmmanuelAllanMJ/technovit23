@@ -87,6 +87,7 @@ const Countdown = () => {
           </div>
         </div>
       </motion.div>
+      
     </div>
   );
 };

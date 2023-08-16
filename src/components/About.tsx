@@ -3,8 +3,8 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <div className="flex px-32 md:px-28 sm:px-16  flex-col justify-center ">
-        <div className="mt-8">
+      <div className="flex px-32 md:px-28 sm:px-16  flex-col justify-center mt-12 mb-16">
+        <div className="">
           <div className="absolute animate-pulse">
             <svg>circle</svg>
           </div>
@@ -34,6 +34,17 @@ const About = () => {
           </p>
           <br />
         </div>
+        <div className="flex justify-center items-center text-center mb-4">
+            <button
+              className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
+            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
+            bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
+              
+            >
+              See More
+            </button>
+          </div>
       </div>
     </>
   );
