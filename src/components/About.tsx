@@ -13,7 +13,7 @@ const About = () => {
             className="w-28 sm:w-16 mt-4 opacity-75"
           ></img>
           <h2 className="z-100 font-monty bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center text-7xl md:text-6xl sm:text-4xl uppercase">
-            About technoVIT
+            AboutThis is a technoVIT
           </h2>
         </div>
         <div className="grid place-items-center">
