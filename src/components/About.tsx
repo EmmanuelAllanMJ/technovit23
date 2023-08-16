@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <div className="flex px-32 md:px-28 sm:px-16  flex-col justify-center mt-12 mb-16">
+      <div className="flex px-32 md:px-28 sm:px-16  flex-col justify-center mt-12 mb-16 ">
         <div className="">
           <div className="absolute animate-pulse">
             <svg>circle</svg>
