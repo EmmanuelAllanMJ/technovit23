@@ -65,8 +65,8 @@ const Gallery: React.FC = () => {
         <Column images={[images[2], images[7], images[8], images[6]]} y={y3} />
         <Column images={[images[11], images[9], images[2], images[11]]} y={y4} />
       </div>
-  <div className="absolute top-0 left-0 w-full h-1/4 sm:h-1/2 bg-gradient-to-b from-[#030014] to-transparent" />
-  <div className="absolute bottom-0 left-0 w-full h-1/4 sm:h-1/2 bg-gradient-to-b from-transparent to-[#030014]" />
+  <div className="absolute top-0 left-0 w-full h-1/4 sm:h-1/2 bg-gradient-to-b from-[#050117] to-transparent" />
+  <div className="absolute bottom-0 left-0 w-full h-1/4 sm:h-1/2 bg-gradient-to-b from-transparent to-[#08031b]" />
 </section>
 
   );

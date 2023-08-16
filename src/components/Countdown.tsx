@@ -34,9 +34,9 @@ const Countdown = () => {
   }
 
   return (
-    <div className="py-20 px-8 flex flex-col justify-center items-center md:h-screen sm:h-screen gap-6">
+    <div className="py-20 px-8 flex flex-col justify-center items-center md:h-screen sm:h-screen gap-6 bg-gradient-to-b from-[#040116] to-transparent z-0">
       <h1 className="text-4xl md:text-lg sm:text-xl font-light font-regular text-center text-white uppercase">
-        Get ready to be Engaged, Enthrilled, and Entertained in
+        Get ready for the future of AI in
       </h1>
       <motion.div
         initial={{ scale: 0 }}
@@ -87,6 +87,7 @@ const Countdown = () => {
           </div>
         </div>
       </motion.div>
+      
     </div>
   );
 };
