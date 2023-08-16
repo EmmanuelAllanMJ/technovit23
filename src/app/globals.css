@@ -46,20 +46,22 @@
   @apply -top-3/4;
 }
 
-
 .svgCurve {
   position: absolute;
   top: 0;
   left: -99px;
   width: 100px;
   height: 100%;
-  fill: #111;
+  fill: #100c2d;
   stroke: none;
 }
-.about-grid{
+.about-grid {
   background-size: 180px 180px;
-  background-image:
-    linear-gradient(to right, rgba(224, 101, 255, 0.07) 3px, transparent 1px),
+  background-image: linear-gradient(
+      to right,
+      rgba(224, 101, 255, 0.07) 3px,
+      transparent 1px
+    ),
     linear-gradient(to bottom, rgba(224, 101, 255, 0.07) 3px, transparent 1px);
 }
 /* Assuming you have a CSS file or a style tag where you define your styles */

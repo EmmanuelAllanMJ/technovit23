@@ -15,7 +15,7 @@ const Hero = () => {
     },
     {
       title: "Events",
-      href: "#events",
+      href: "events",
     },
     {
       title: "Contact",

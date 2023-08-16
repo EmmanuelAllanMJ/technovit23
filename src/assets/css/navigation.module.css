@@ -3,7 +3,7 @@
   position: fixed;
   right: 0;
   font-family: "Montserrat", sans-serif;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .header .button {
@@ -14,7 +14,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 1000;
+  background-color: white;
 }
 
 .header .burger {
@@ -24,10 +25,10 @@
 .header .burger::before {
   content: "";
   display: block;
-  height: 1px;
+  height: 2px;
   width: 40%;
   margin: auto;
-  background-color: white;
+  background-color: #2e265e;
   position: relative;
   transition: transform 0.3s;
 }

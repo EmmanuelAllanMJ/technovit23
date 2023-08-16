@@ -12,7 +12,7 @@ const Footer = (): JSX.Element => {
               technovit-help@vit.ac.in
             </a>
             <a
-              href="ph:+91-999222939"
+              href="tel:+91-999222939"
               className="font-regular text-3xl md:text-xl sm:text-sm hover:underline text-slate-100"
             >
               +91-999222939
