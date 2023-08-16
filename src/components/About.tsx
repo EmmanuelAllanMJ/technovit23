@@ -23,7 +23,7 @@ const About = () => {
           </p>
           <br />
         </div>
-        <div className="flex justify-center items-center text-center mb-4">
+        <div className="flex justify-center items-center text-center mt-4 mb-4">
             <button
               className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
             h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
