@@ -14,22 +14,22 @@ const Countdown = dynamic(() => import("../components/Countdown"), {
 
 export default function Home() {
   return (
-    <main className="bg-[#030014]">
+    <main className="">
       <Star />
       <Hero />
-      <Gallery />
-      <section className="min-h-screen pt-16">
-        <Countdown />
+      <section className="about-grid bg-[#030014]">
+          <Countdown />
+        <section className="min-h-screen flex flex-col justify-center items-center">
+          <About />
+        </section>
+      </section>
+      <section className="bg-[#030014]"><Gallery /></section>
+      <section className="about-grid bg-[#08031b]">
         <Schools />
-      </section>
-      <section className="about-grid">
         <Events />
+        <CoordinatorComponent/>    
+        <Footer />
       </section>
-      <CoordinatorComponent/>
-      <section className="min-h-screen flex flex-col justify-center items-center">
-        <About />
-      </section>
-      <Footer />
     </main>
   );
 }
