@@ -7,7 +7,7 @@ export const studentImageUrl: ICardProps[] = [
   },
   {
     link: "/images/student/Nivedhitha.jpg",
-    name: "Niveditha Gna",
+    name: "Nivedhitha Gna",
   },
   {
     link: "/images/student/Jayasree.jpg",
@@ -18,10 +18,6 @@ export const studentImageUrl: ICardProps[] = [
     name: "Harshadaa Venkat",
   },
   {
-    link: "/images/student/shyam.jpg",
-    name: "Shyam Sundhar",
-  },
-  {
     link: "/images/student/Aadil.jpg",
     name: "Mohammed Aadil",
   },
@@ -29,19 +25,25 @@ export const studentImageUrl: ICardProps[] = [
     link: "/images/student/Pravarthika.jpeg",
     name: "Pravarthika V",
   },
+  {
+    link: "/images/student/shyam.jpg",
+    name: "Shyam Sundhar",
+  },
 ];
 
 export const facultyImageUrl: ICardProps[] = [
   {
+
+    name: "Dr. S. Bharathiraja",
+    link: "/images/faculty/Bharathiraja.jpg",
+  },
+  {
+
     name: "Dr. Vijayakumar P",
     link: "/images/faculty/Vijayakumar.jpg",
   },
   {
     name: "Dr. Karmel A",
     link: "/images/faculty/Karmel.png",
-  },
-  {
-    name: "Dr. S. Bharathiraja",
-    link: "/images/faculty/Bharathiraja.jpg",
   },
 ];
