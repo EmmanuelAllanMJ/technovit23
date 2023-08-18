@@ -64,21 +64,9 @@ export const aboutFacultyImageUrl: CardProps[] = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   },
   {
-    name: "Mr. Sankar Viswanathan",
-    link: "/images/faculty/img2.jpg",
-    designation: "Vice President",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
-  },
-  {
     name: "Dr. Sekar Viswanathan",
     link: "/images/faculty/img3.jpg",
     designation: "Vice President",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
-  },
-  {
-    name: "Dr. Karmel A",
-    link: "/images/faculty/Karmel.png",
-    designation: "Coordinator",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   },
   {
@@ -91,6 +79,18 @@ export const aboutFacultyImageUrl: CardProps[] = [
     name: "Dr. Kanchana Bhaaskaran V. S",
     link: "/images/faculty/img5.jpg",
     designation: "Pro Vice Chancellor",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+  },
+  {
+    name: "Dr. Karmel A",
+    link: "/images/faculty/Karmel.png",
+    designation: "Coordinator",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+  },
+  {
+    name: "Dr. Vijayakumar P",
+    link: "/images/faculty/Vijayakumar.jpg",
+    designation: "Coordinator",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   }
 ]
