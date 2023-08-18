@@ -42,19 +42,18 @@ const FacultyCardImage = (props: CardProps): JSX.Element => {
       </div>
 
       <div className="relative text-white gap-4 p-2 lg:p-10 w-full h-full flex items-start italic text-lg lg:text-xl font-extralight justify-center flex-col">
+        <div className="w-full h-full leading-loose">
         <div className="w-10 lg:w-20 flex items-center justify-center h-full ">
           <Image src={QouteIcon} alt=" " className="w-full" />
         </div>
-
-        <div className="w-full h-full leading-loose">
           {props.description}
           {props.description}
           {props.description}
-        </div>
-
-        <div className="rotate-180 w-10 lg:w-20 flex items-center justify-center absolute top-52  lg:top-48 right-0 h-full ">
+        <div className="rotate-180 w-10 lg:w-20 flex items-center ml-auto justify-center top-52  lg:top-48 right-0 h-full ">
           <Image src={QouteIcon} alt=" " className="w-full" />
         </div>
+        </div>
+
       </div>
 
     </div>
