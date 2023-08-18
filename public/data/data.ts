@@ -82,6 +82,7 @@ export const aboutFacultyImageUrl: CardProps[] = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   },
   {
+
     name: "Dr. Rajasekaran V",
     link: "/images/faculty/Rajasekaran.jpg",
     designation: "Director, Students Welfare",
