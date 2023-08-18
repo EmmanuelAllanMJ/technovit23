@@ -113,6 +113,12 @@ export const aboutFacultyImageUrl: CardProps[] = [
     link: "/images/faculty/Vijayakumar.jpg",
     designation: "Coordinator",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+  },
+  {
+    name: "Dr. S. Bharathiraja",
+    link: "/images/faculty/Bharathiraja.jpg",
+    designation: "Coordinator",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   }
 ]
 
