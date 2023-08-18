@@ -32,7 +32,7 @@ const About = () => {
             bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
 
           >
-            See More
+           Delegates Message
           </a>
         </div>
       </div>
