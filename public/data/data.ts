@@ -103,23 +103,23 @@ export const aboutFacultyImageUrl: CardProps[] = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   },
   {
+    name: "Dr. S. Bharathiraja",
+    link: "/images/faculty/Bharathiraja.jpg",
+    designation: "Convenor",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
+  },
+  {
     name: "Dr. Karmel A",
     link: "/images/faculty/Karmel.png",
-    designation: "Coordinator",
+    designation: "Co-Convenor",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   },
   {
     name: "Dr. Vijayakumar P",
     link: "/images/faculty/Vijayakumar.jpg",
-    designation: "Coordinator",
+    designation: "Co-Convenor",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
   },
-  {
-    name: "Dr. S. Bharathiraja",
-    link: "/images/faculty/Bharathiraja.jpg",
-    designation: "Coordinator",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit."
-  }
 ]
 
 // VFIT GLIT
