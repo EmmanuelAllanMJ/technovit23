@@ -29,9 +29,9 @@ let ImageComponent = (props: ImageProps): ReactNode => {
 
 let Schools = (): JSX.Element => {
   return (
-    <section className="py-32 sm:py-40 bg-white/20" id="#events">
+    <section className="py-32 sm:py-40" id="#events">
       <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase ">
-        Schools
+        School Fests
       </section>
       <section className="grid md:grid-cols-4 md:px-6 sm:grid-cols-1 lg:grid-cols-4 lg:px-32 items-center place-items-center place-content-center gap-4">
         <ImageComponent image={qubit} />
