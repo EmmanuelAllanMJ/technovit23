@@ -9,7 +9,7 @@ const Stars = (props) => {
     const randomNumbers = Array.from({ length: 5000 }, () => Math.random() * 2 - 1.2);
     return new Float32Array(randomNumbers);
   });
-  
+
   useFrame((state, delta) => {
     ref.current.rotation.x -= delta / 10;
     ref.current.rotation.y -= delta / 15;
