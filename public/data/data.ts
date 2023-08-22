@@ -123,41 +123,7 @@ export const aboutFacultyImageUrl: CardProps[] = [
 ]
 
 export const schools:ImageProps[] = [
-  {
-    name : "qubit",
-    description : "Qubit is the school of Computer Science and Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
-    image : "/logos/qubit.webp",
-    faculty : [
-      {
-        name : "Dr. Anusha K",
-        designation : "Associate Professor",
-        description : "Dr. Anusha K is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
-        link : "/images/faculty/schools/Anusha.jpg",
-        email : "anusha.k@vit.ac.in"
-      },
-      {
-        name : "Dr. M. Prasad",
-        designation : "Assistant Professor",
-        description : "Dr. M. Prasad is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
-        link : "/images/faculty/schools/Prasad.jpg",
-        email : "prasad.m@vit.ac.in"
-      },
-      {
-        name : "Dr. Sandosh S",
-        designation : "Assistant Professor",
-        description : "Dr. Sandosh S is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
-        link : "/images/faculty/schools/Sandosh.jpg",
-        email : "sandosh.s@vit.ac.in"
-      },
-      {
-        name : "Dr. Asha Jerlin M",
-        designation : "Assistant Professor",
-        description : "Dr. Asha Jerlin M is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
-        link : "/images/faculty/schools/Asha.jpg",
-        email : "ashajerlin.m@vit.ac.in"
-      }
-    ]
-  },
+  
   {
     name : "bandVIT",
     description : "bandVIT is the school of Electrical and Electronics Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
@@ -260,6 +226,41 @@ export const schools:ImageProps[] = [
         description : "Dr. Dhanasekar S is an Associate Professor in the School of Information Technology at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Dhanasekar.jpg",
         email : "dhanasekar.sundaram@vit.ac.in"
+      }
+    ]
+  },
+  {
+    name : "qubit",
+    description : "Qubit is the school of Computer Science and Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
+    image : "/logos/qubit.webp",
+    faculty : [
+      {
+        name : "Dr. Anusha K",
+        designation : "Associate Professor",
+        description : "Dr. Anusha K is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
+        link : "/images/faculty/schools/Anusha.jpg",
+        email : "anusha.k@vit.ac.in"
+      },
+      {
+        name : "Dr. M. Prasad",
+        designation : "Assistant Professor",
+        description : "Dr. M. Prasad is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
+        link : "/images/faculty/schools/Prasad.jpg",
+        email : "prasad.m@vit.ac.in"
+      },
+      {
+        name : "Dr. Sandosh S",
+        designation : "Assistant Professor",
+        description : "Dr. Sandosh S is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
+        link : "/images/faculty/schools/Sandosh.jpg",
+        email : "sandosh.s@vit.ac.in"
+      },
+      {
+        name : "Dr. Asha Jerlin M",
+        designation : "Assistant Professor",
+        description : "Dr. Asha Jerlin M is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
+        link : "/images/faculty/schools/Asha.jpg",
+        email : "ashajerlin.m@vit.ac.in"
       }
     ]
   },

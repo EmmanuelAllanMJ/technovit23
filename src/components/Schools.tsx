@@ -11,7 +11,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
     <>
       <Transition.Root show={props.open} as={Fragment}>
         <Dialog onClose={() => props.setOpen(false)} initialFocus={cancelButtonRef}>
-          <div className="fixed z-10 inset-0 overflow-y-auto">
+          <div className="fixed z-10 inset-0  overflow-y-auto">
             <div className="flex items-center justify-center min-h-screen">
               <Transition.Child
                 enter="ease-out duration-300"
@@ -21,7 +21,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Overlay className="fixed inset-0 bg-opacity-75 transition-opacity" />
+                <Dialog.Overlay className="fixed inset-0 " />
               </Transition.Child>
               <Transition.Child
                 enter="ease-out duration-300"
@@ -31,36 +31,36 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-full sm:p-8">
-                  <div className="bg-white px-4 py-5 sm:p-6">
+                <div className="w-xl max-w-4xl p-6 my-8 text-left align-middle transition-all transform rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-full sm:p-8 violet-modal">
+                  <div className="px-2 py-5 sm:p-6">
                     <div className="sm:flex sm:items-start">
-                      <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                        <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
-                          Coordinators
+                      <div className="mt-2 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                        <Dialog.Title as="h3" className="text-5xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+                          {props.name} faculty Coordinator's
                         </Dialog.Title>
-                        <div className="mt-4 grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                        <div className="mt-8 grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 gap-5 flex justify-center">
                           {props.faculty.map((faculty) => (
-                            <div key={faculty.name} className="mb-4">
+                            <div key={faculty.name} className="mb-4 ">
                               <div className="flex items-center justify-center">
                                 <Image
-                                  className="w-24 h-24 rounded-full grayscale hover:grayscale-0 hover:scale-125 transition-all duration-300 cursor-pointer"
+                                  className="w-24 h-24 rounded-full"
                                   src={faculty.link}
                                   alt="Faculty Image"
                                   width={96}
                                   height={96}
                                 />
                               </div>
-                              <p className="text-lg font-semibold text-gray-900">
+                              <p className="text-sm font-bold text-white mt-4">
                                 {faculty.name}
                               </p>
-                              <p className="text-sm text-gray-500">
+                              <p className="text-sm font-semibold text-gray-200">
                                 {faculty.designation}
                               </p>
-                              <p className="text-sm text-gray-500">
-                                {faculty.description}
-                              </p>
-                              <p className="text-sm text-gray-500">
+                              <p className="text-sm text-gray-300 mb-2">
                                 {faculty.email}
+                              </p>
+                              <p className="text-sm text-[#aaa6c3]">
+                                {faculty.description}
                               </p>
                             </div>
                           ))}
@@ -111,6 +111,7 @@ const Schools = (): JSX.Element => {
         School Fests
       </section>
       <section className="grid md:grid-cols-4 md:px-6 sm:grid-cols-1 lg:grid-cols-4 lg:px-32 items-center place-items-center place-content-center gap-4">
+      <div className=" absolute shadow-purple-700 opacity-30 md:opacity:10 sm:opacity:5 w-1/3 h-400 shadow-[0_0_20em_20em] "></div>
         {schools.map((school) => (
           <ImageComponent key={school.image} {...school} />
         ))}

@@ -4,9 +4,6 @@
 
 @import url("@/assets/css/typography.css");
 
-html{
-  scroll-behavior: smooth;
-}
 
 .ticker-container {
   width: 100%;
@@ -77,3 +74,7 @@ html{
   width: 100%;
 }
 /* Assuming you have a CSS file or a style tag where you define your styles */
+
+.violet-modal {
+  background-color: #0f0b25e5;
+}
