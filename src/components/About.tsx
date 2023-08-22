@@ -5,9 +5,6 @@ const About = () => {
     <>
       <div className="flex px-32 md:px-28 sm:px-16  flex-col justify-center mt-12 mb-16" id="about">
         <div className="">
-          <div className="absolute animate-pulse">
-            <svg>circle</svg>
-          </div>
           <img
             src="/assets/stars.svg"
             className="w-28 sm:w-16 mt-4 opacity-75"
