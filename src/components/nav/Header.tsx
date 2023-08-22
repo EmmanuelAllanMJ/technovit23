@@ -14,15 +14,15 @@ const navItems = [
   },
   {
     title: "About",
-    href: "/about",
+    href: "#about",
   },
   {
     title: "Events",
-    href: "events",
+    href: "#events",
   },
   {
     title: "Contact",
-    href: "/#contact",
+    href: "#contact",
   },
 ];
 

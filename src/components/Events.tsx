@@ -4,6 +4,9 @@ import CustomDropdown from "./Dropdown";
 import EventCard from "./EventCard";
 import { useRouter } from "next/navigation";
 
+interface EventsProps {
+  seemore?: boolean;
+}
 
 const eventsData = [
   {
@@ -82,7 +85,7 @@ const eventsData = [
   },
 ];
 
-const Events: React.FC = () => {
+const Events: React.FC<EventsProps> = ({seemore}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchool, setSelectedSchool] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
@@ -155,7 +158,7 @@ const Events: React.FC = () => {
 
   return (
     <>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen" id="events">
         <img
           src="/assets/events-bg.png"
           className="h-full w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
@@ -252,7 +255,7 @@ const Events: React.FC = () => {
             h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
             items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
             bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
-              onClick={more}
+              onClick={seemore ? more : ()=>router.push("/events")}
             >
               {mesg}
             </button>

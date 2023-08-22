@@ -4,6 +4,10 @@
 
 @import url("@/assets/css/typography.css");
 
+html{
+  scroll-behavior: smooth;
+}
+
 .ticker-container {
   width: 100%;
   overflow: hidden;
