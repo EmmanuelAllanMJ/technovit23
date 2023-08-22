@@ -21,7 +21,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
               >
-                <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                <Dialog.Overlay className="fixed inset-0 bg-opacity-75 transition-opacity" />
               </Transition.Child>
               <Transition.Child
                 enter="ease-out duration-300"
@@ -31,24 +31,26 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-full sm:p-8">
+                  <div className="bg-white px-4 py-5 sm:p-6">
                     <div className="sm:flex sm:items-start">
                       <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                         <Dialog.Title as="h3" className="text-lg leading-6 font-medium text-gray-900">
                           Coordinators
                         </Dialog.Title>
-                        <div className="mt-2">
+                        <div className="mt-4 grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-5">
                           {props.faculty.map((faculty) => (
-                            <div key={faculty.name}>
-                              <Image
-                                className="sm:max-w-[8em] sm:max-h-[8em] md:max-h-[8em] md:max-w-[8em] grayscale hover:grayscale-0 hover:scale-125 transition-all duration-300 cursor-pointer"
-                                src={faculty.link}
-                                alt="Logo"
-                                width={200}
-                                height={200}
-                              />
-                              <p className="text-sm text-gray-500">
+                            <div key={faculty.name} className="mb-4">
+                              <div className="flex items-center justify-center">
+                                <Image
+                                  className="w-24 h-24 rounded-full grayscale hover:grayscale-0 hover:scale-125 transition-all duration-300 cursor-pointer"
+                                  src={faculty.link}
+                                  alt="Faculty Image"
+                                  width={96}
+                                  height={96}
+                                />
+                              </div>
+                              <p className="text-lg font-semibold text-gray-900">
                                 {faculty.name}
                               </p>
                               <p className="text-sm text-gray-500">
@@ -75,6 +77,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
     </>
   );
 }
+
 
 
 const ImageComponent = (props: ImageProps): React.ReactNode => {
