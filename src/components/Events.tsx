@@ -126,7 +126,7 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
           <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
             EVENTS
           </section>
-        </section>
+        </div>
         <section className="font-monty relative z-10">
           <section className="flex justify-center items-center text-white py-7 gap-2 mb-8 w-3/4 sm:w-5/6 mx-auto ">
             {/* Search Bar */}
