@@ -165,7 +165,7 @@ const Events: React.FC<EventsProps> = ({seemore}) => {
           alt="Background"
         />
         <div className="flex justify-center items-center relative z-10">
-          <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+          <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
             EVENTS
           </section>
         </div>
