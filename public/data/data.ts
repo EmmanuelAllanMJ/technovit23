@@ -122,13 +122,6 @@ export const aboutFacultyImageUrl: CardProps[] = [
   },
 ]
 
-// VFIT GLIT
-// 1. Dr. S. G. Deepika (51965)
-// 2. Dr. M. Bhuvaneshwari (51973)
-// SMEC Diseno
-// 1. Dr. Giridharan (50730)
-// 2. Dr. Muralimohan (51727)
-
 export const schools:ImageProps[] = [
   {
     name : "qubit",
@@ -144,24 +137,24 @@ export const schools:ImageProps[] = [
       },
       {
         name : "Dr. M. Prasad",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. M. Prasad is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Prasad.jpg",
-        email : ""
+        email : "prasad.m@vit.ac.in"
       },
       {
         name : "Dr. Sandosh S",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Sandosh S is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Sandosh.jpg",
-        email : ""
+        email : "sandosh.s@vit.ac.in"
       },
       {
         name : "Dr. Asha Jerlin M",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Asha Jerlin M is an Associate Professor in the School of Computer Science and Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Asha.jpg",
-        email : ""
+        email : "ashajerlin.m@vit.ac.in"
       }
     ]
   },
@@ -175,11 +168,11 @@ export const schools:ImageProps[] = [
         designation : "Associate Professor",
         description : "Sofana Reka S is an Associate Professor in the School of Electrical and Electronics Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Sofana.jpg",
-        email : ""
+        email : "sofanareka.s@vit.ac.in"
       },
       {
         name : "Ravi Prakash Dwivedi",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Ravi Prakash Dwivedi is an Associate Professor in the School of Electrical and Electronics Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Ravi.jpg",
         email : ""
@@ -193,14 +186,14 @@ export const schools:ImageProps[] = [
     faculty : [
       {
         name : "Dr. S. G. Deepika",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. S. G. Deepika is an Associate Professor in the School of Mechanical Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Deepika.jpg",
         email : ""
       },
       {
         name : "Dr. M. Bhuvaneshwari",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. M. Bhuvaneshwari is an Associate Professor in the School of Mechanical Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Bhuvaneshwari.jpg",
         email : ""
@@ -221,9 +214,9 @@ export const schools:ImageProps[] = [
       },
       {
         name : "Dr. Muralimohan",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Muralimohan is an Associate Professor in the School of Electronics and Communication Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
-        link : "/images/faculty/schools/Muralimohan.jpg",
+        link : "/images/faculty/schools/Murali.jpg",
         email : ""
       }
     ]
@@ -235,14 +228,14 @@ export const schools:ImageProps[] = [
     faculty : [
       {
         name : "Dr. Pritam Bhowmik",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Pritam Bhowmik is an Associate Professor in the School of Electronics and Communication Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Pritam.jpg",
         email : ""
       },
       {
         name : "Dr. Jyotismita Mishra",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Jyotismita Mishra is an Associate Professor in the School of Electronics and Communication Engineering at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Jyotismita.jpg",
         email : ""
@@ -256,17 +249,17 @@ export const schools:ImageProps[] = [
     faculty : [
       {
         name : "Dr. Parthiban V",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Parthiban V is an Associate Professor in the School of Information Technology at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Parthiban.jpg",
-        email : ""
+        email : "parthiban.v@vit.ac.in"
       },
       {
         name : "Dr. Dhanasekar S",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Dhanasekar S is an Associate Professor in the School of Information Technology at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Dhanasekar.jpg",
-        email : ""
+        email : "dhanasekar.sundaram@vit.ac.in"
       }
     ]
   },
@@ -280,11 +273,11 @@ export const schools:ImageProps[] = [
         designation : "Associate Professor",
         description : "Dr. Jishnu J is an Associate Professor in the School of Mechanical Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Jishnu.jpg",
-        email : ""
+        email : "jishnu.jr@vit.ac.in"
       },
       {
         name : "Dr. Nikhil G",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Nikhil G is an Associate Professor in the School of Mechanical Engineering at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Nikhil.jpg",
         email : ""
@@ -298,7 +291,7 @@ export const schools:ImageProps[] = [
     faculty : [
       {
         name : "Dr. Anjali Gopakumar",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Anjali Gopakumar is an Associate Professor in the School of Science and Humanities at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Anjali.jpg",
         email : ""
@@ -319,7 +312,7 @@ export const schools:ImageProps[] = [
     faculty : [
       {
         name : "Dr. Mahalakshmi Tiwari",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Mahalakshmi Tiwari is an Associate Professor in the School of Social Sciences and Languages at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Mahalakshmi.jpg",
         email : ""
@@ -329,7 +322,7 @@ export const schools:ImageProps[] = [
         designation : "Associate Professor",
         description : "Dr. Maya Rathnasabapathy is an Associate Professor in the School of Social Sciences and Languages at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Maya.jpg",
-        email : ""
+        email : "maya.r@vit.ac.in"
       }
     ]
   },
@@ -343,11 +336,11 @@ export const schools:ImageProps[] = [
         designation : "Associate Professor",
         description : "Dr. Padmavathy C is an Associate Professor in the School of Business at VIT Chennai. She has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Padmavathy.jpg",
-        email : ""
+        email : "padmavathy.tv@vit.ac.in"
       },
       {
         name : "Dr. Buvanesh C",
-        designation : "Associate Professor",
+        designation : "Assistant Professor",
         description : "Dr. Buvanesh C is an Associate Professor in the School of Business at VIT Chennai. He has been a part of the school since its inception and has been a great support to the students.",
         link : "/images/faculty/schools/Buvanesh.jpg",
         email : ""
