@@ -18,11 +18,11 @@ interface IJSONReponse {
   };
 }
 
-const useEvents = () => {
+const useEvents = (setLoading: Function) => {
   const [events, setEvents] = useState<Event[]>([]);
   const query = `
   query {
-    eventContentCollection {
+    eventContentCollection(order: [eventName_ASC]) {
       items {
         eventName
         school
@@ -35,6 +35,7 @@ const useEvents = () => {
       }
     }
   }
+  
 `;
   useEffect(() => {
     const fetchEvents = async () => {
@@ -51,6 +52,7 @@ const useEvents = () => {
       );
       const data: IJSONReponse = await res.json();
       setEvents(data.data.eventContentCollection.items);
+      setLoading(false);
     };
     fetchEvents();
   }, []);
