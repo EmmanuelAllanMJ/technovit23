@@ -31,7 +31,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <div className="w-xl overflow-y-auto overflow-scroll flex items-center justify-center relative left-10 md:left-0  z-50 max-w-4xl p-6 my-8 text-left align-middle transition-all transform rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-3/4 md:w-11/12 sm:p-8 violet-modal">
+                <div className="w-xl overflow-y-auto overflow-scroll flex items-center justify-center relative left-10 md:left-0 lg:left-0 z-50 max-w-4xl p-6 my-8 text-left align-middle transition-all transform rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-3/4 md:w-11/12 sm:p-8 violet-modal">
                   <div className="px-2 py-5 sm:p-6  ">
                     <div className="flex flex-wrap justify-center items-center">
                       <div className="mt-2 text-center ">
