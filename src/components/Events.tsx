@@ -93,14 +93,16 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
             className="h-full w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
             alt="Background"
           />
-          <section className="flex justify-center items-center relative z-10">
-            <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+
+          <div className="flex justify-center items-center relative z-10">
+            <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
               EVENTS
             </section>
-          </section>
-          <section className="font-monty relative z-10">
-            <section className="flex justify-center items-center text-white py-7 gap-2 mb-8 w-3/4 sm:w-5/6 mx-auto ">
-              <section className="flex w-full h-16 xs:w-1/4 sm:w-1/2 md:w-1/2 lg-w-1/2">
+          </div>
+          <section className="font-monty relative z-10 w-full flex flex-col items-center justify-center">
+            <section className="flex justify-center sm:flex-col md:flex-row w-full lg:flex-row items-center text-white py-7 gap-2 mb-8 lg:w-3/4 md:w-3/4 sm:w-5/6 mx-auto ">
+              {/* Search Bar */}
+              <section className="flex w-full h-16 md:w-1/2 lg-w-1/2">
                 <input
                   className="bg-white bg-opacity-40 rounded-full py-3 px-3 w-full"
                   type="search"
@@ -110,7 +112,8 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
                 />
               </section>
 
-              <section className="flex z-10 w-full xs-w-1/4 sm:w-1/2 mr-3 md:w-1/2 lg-w-1/2 ">
+              {/* School Dropdown */}
+              <section className="flex flex-col md:flex-row lg:flex-row z-10 w-full items-start justify-center gap-2 md:mr-3 md:w-1/2 lg-w-1/2 ">
                 <CustomDropdown
                   label="Schools"
                   options={[
@@ -123,6 +126,7 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
                   onSelect={handleSchoolSelect}
                 />
 
+                {/* Price Dropdown */}
                 <CustomDropdown
                   label="Price"
                   options={[
