@@ -56,14 +56,27 @@ export const facultyImageUrl: ICardProps[] = [
   {
     name: "Dr. S. Bharathiraja",
     link: "/images/faculty/Bharathiraja.jpg",
+    designation : "Convenor"
   },
   {
     name: "Dr. Vijayakumar P",
     link: "/images/faculty/Vijayakumar.jpg",
+    designation : "Co-Convenor"
   },
   {
     name: "Dr. Karmel A",
     link: "/images/faculty/Karmel.png",
+    designation : "Co-Convenor"
+  },
+  {
+    name: "Dr. Rajasekaran V",
+    link: "/images/faculty/Rajasekaran.jpg",
+    designation : "Director, Students Welfare"
+  },
+  {
+    name: "Dr. Sekar Sathiya Narayanan",
+    link: "/images/faculty/Sekar.png",
+    designation : "Assistant Director - SW"
   },
 ];
 

@@ -3,6 +3,7 @@ import Image from "next/image";
 export type ICardProps = {
   link: string;
   name: string;
+  designation?: string;
   className?: string;
 };
 
@@ -21,6 +22,9 @@ const CoordinatorCardImage = (props: ICardProps): JSX.Element => {
       <h1 className="text-white text-center text-3xl md:text-xl sm:text-xl">
         {props.name}
       </h1>
+      <p className="text-white text-center text-xl md:text-xl sm:text-xl">
+         {props.designation}
+        </p>
     </section>
   );
 };

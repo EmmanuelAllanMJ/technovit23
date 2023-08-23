@@ -20,7 +20,6 @@ const Footer = (): JSX.Element => {
           <div><a href="/about">About</a></div>
           <div><a href="events">Events</a></div>
           <div><a href="/#contact">Contact Us</a></div>
-        </div>
         <div className="flex items-center gap-4">
           <a href="https://www.facebook.com/your-facebook-handle" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={24} color="white" />
@@ -31,6 +30,7 @@ const Footer = (): JSX.Element => {
           <a href="https://www.instagram.com/your-instagram-handle" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={24} color="white" />
           </a>
+        </div>
         </div>
       </div>
       <div className="bg-primary text-white font-monty uppercase h-10 text-xl flex items-center justify-center py-2 sm:text-sm md:text-lg w-full">

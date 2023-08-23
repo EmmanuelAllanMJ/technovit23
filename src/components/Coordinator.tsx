@@ -16,7 +16,7 @@ const CoordinatorComponent = (props: ICompProps) => {
         </h1>
         <section className="flex flex-wrap sm:flex-col items-center justify-center gap-12 w-full">
           {facultyImageUrl.map((item, i) => (
-            <CoordinatorCardImage link={item.link} name={item.name} key={i} />
+            <CoordinatorCardImage link={item.link} name={item.name} key={i} designation={item.designation}/>
           ))}
         </section>
         <h1 className="flex w-full justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
