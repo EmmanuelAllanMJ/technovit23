@@ -84,7 +84,7 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
   if (loading) {
     return <>Loading ...</>;
   } else {
-    // console.log(filteredEvents);
+    console.log(filteredEvents);
     return (
       <>
         <section className="relative min-h-screen" id="events">
