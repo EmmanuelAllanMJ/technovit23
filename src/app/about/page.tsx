@@ -1,4 +1,6 @@
 "use client"
+import FacultyComponent from "@/components/Faculty";
+import React from "react";
 
 import DelegatesMessage from "@/components/DelegatesMessage";
 const AboutPage = () => {
