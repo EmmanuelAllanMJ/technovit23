@@ -65,7 +65,7 @@ export const facultyImageUrl: ICardProps[] = [
   },
   {
     name: "Dr. Karmel A",
-    link: "/images/faculty/Karmel.png",
+    link: "/images/faculty/Karmel.jpg",
     designation : "Co-Convenor"
   },
   {
@@ -75,7 +75,7 @@ export const facultyImageUrl: ICardProps[] = [
   },
   {
     name: "Dr. Sekar Sathiya Narayanan",
-    link: "/images/faculty/Sekar.png",
+    link: "/images/faculty/Sekar.jpg",
     designation : "Assistant Director - SW"
   },
 ];
