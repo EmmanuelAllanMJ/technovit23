@@ -31,14 +31,14 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <div className="w-xl max-w-4xl p-6 my-8 text-left align-middle transition-all transform rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-3/4 md:w-11/12 sm:p-8 violet-modal">
-                  <div className="px-2 py-5 sm:p-6">
+                <div className="w-xl overflow-y-auto overflow-scroll flex items-center justify-center relative left-10 md:left-0  z-50 max-w-4xl p-6 my-8 text-left align-middle transition-all transform rounded-lg shadow-xl sm:my-0 sm:align-top sm:w-3/4 md:w-11/12 sm:p-8 violet-modal">
+                  <div className="px-2 py-5 sm:p-6  ">
                     <div className="flex flex-wrap justify-center items-center">
-                      <div className="mt-2 text-center">
+                      <div className="mt-2 text-center ">
                         <Dialog.Title as="h3" className="text-5xl sm:text-xl md:text-3xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
-                          {props.name} faculty Coordinator's
+                          {props.name} Faculty Coordinator's
                         </Dialog.Title>
-                        <div className={`flex flex-wrap justify-center items-center mt-8 md:grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 gap-2 sm:h-[60vh] overflow-y-auto `}>
+                        <div className={`flex flex-wrap md:flex-nowrap lg:flex-nowrap justify-center items-center mt-8 md:grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-4 gap-8 sm:h-[60vh] overflow-y-scroll `}>
                             {props.faculty.map((faculty) => (
                               <div key={faculty.name} className="mb-4 text-center">
                                 <div className="flex items-center justify-center">
@@ -53,13 +53,13 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                                 <p className="text-sm font-bold text-white mt-4">
                                   {faculty.name}
                                 </p>
-                                <p className="text-sm  font-semibold text-gray-200">
+                                <p className="text-sm font-semibold text-gray-200">
                                   {faculty.designation}
                                 </p>
                                 <p className="text-sm text-gray-300 mb-2">
                                   {faculty.email}
                                 </p>
-                                <div className="text-sm text-[#aaa6c3] w-48 mx-auto">
+                                <div className="text-sm text-justify text-[#aaa6c3] w-48 mx-auto">
                                   {faculty.description}
                                 </div>
                               </div>

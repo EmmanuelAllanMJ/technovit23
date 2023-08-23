@@ -40,7 +40,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
           )}
         </button>
         {isOpen && (
-          <div className="absolute bg-white bg-opacity-20 rounded mt-2 py-2 px-3 w-full">
+          <div className="absolute bg-white/90 text-black rounded mt-2 py-2 px-3 w-full">
             {options.map((option) => (
               <div
                 key={option.value}
