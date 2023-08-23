@@ -34,8 +34,8 @@ const Countdown = () => {
   }
 
   return (
-    <div className="py-20 px-8 flex flex-col justify-center items-center md:h-screen sm:h-screen gap-6 bg-gradient-to-b from-[#040116] to-transparent z-0">
-      <h1 className="text-4xl md:text-lg sm:text-xl font-light font-regular text-center text-white uppercase">
+    <div className="py-20 px-8 flex flex-col justify-center items-center md:h-[60vh] sm:h-screen gap-6 bg-gradient-to-b from-[#040116] to-transparent z-0">
+      <h1 className="text-4xl md:text-3xl sm:text-xl font-light font-regular text-center text-white uppercase">
         Get ready for the future of AI in
       </h1>
       <motion.div
@@ -44,7 +44,7 @@ const Countdown = () => {
         transition={{ duration: 0.5 }}
         className="px-6 rounded-lg flex flex-col items-center space-y-4 bg-gradient-to-b from-white from-20% to-gray-800 text-transparent bg-clip-text"
       >
-        <div className="flex md:flex-col sm:flex-col lg:space-x-8 gap-6">
+        <div className="flex sm:flex-col lg:space-x-8 gap-6">
           <div className="flex flex-col items-center">
             <span className="text-9xl md:text-5xl sm:text-7xl font-bold">
               {remainingTime.days >= 10
