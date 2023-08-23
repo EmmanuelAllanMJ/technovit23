@@ -38,7 +38,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                         <Dialog.Title as="h3" className="text-5xl sm:text-xl md:text-3xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
                           {props.name} faculty Coordinator's
                         </Dialog.Title>
-                        <div className={`flex flex-wrap justify-center items-center mt-8 grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 gap-2 sm:h-[60vh] overflow-y-auto `}>
+                        <div className={`flex flex-wrap justify-center items-center mt-8 md:grid lg:grid-cols-4 sm:grid-cols-1 md:grid-cols-2 gap-2 sm:h-[60vh] overflow-y-auto `}>
                             {props.faculty.map((faculty) => (
                               <div key={faculty.name} className="mb-4 text-center">
                                 <div className="flex items-center justify-center">
@@ -53,7 +53,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                                 <p className="text-sm font-bold text-white mt-4">
                                   {faculty.name}
                                 </p>
-                                <p className="text-sm font-semibold text-gray-200">
+                                <p className="text-sm  font-semibold text-gray-200">
                                   {faculty.designation}
                                 </p>
                                 <p className="text-sm text-gray-300 mb-2">
