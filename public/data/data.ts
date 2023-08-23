@@ -4,7 +4,7 @@ export type CardProps = {
   name: string;
   link: string;
   designation: string;
-  description: string;
+  description?: string;
 };
 
 export type ImageProps = {
@@ -72,29 +72,29 @@ export const aboutFacultyImageUrl: CardProps[] = [
     name: "Dr. G.VISWANATHAN",
     link: "/images/faculty/img1.jpg",
     designation: "Chancellor",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+    // description:
+    //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
   },
   {
     name: "Dr. Sekar Viswanathan",
     link: "/images/faculty/img3.jpg",
     designation: "Vice President",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+    // description:
+    //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
   },
   {
     name: "Dr. Rambabu Kodali",
     link: "/images/faculty/img4.jpg",
     designation: "Vice Chancellor",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+    // description:
+    //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
   },
   {
     name: "Dr. Kanchana Bhaaskaran V. S",
     link: "/images/faculty/img5.jpg",
     designation: "Pro Vice Chancellor",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+    // description:
+    //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
   },
   {
     name: "Dr. Rajasekaran V",
@@ -102,6 +102,13 @@ export const aboutFacultyImageUrl: CardProps[] = [
     designation: "Director, Students Welfare",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+  },
+  {
+    name: "Dr. Sekar Sathiya Narayanan",
+    link: "/images/faculty/Sekar.png",
+    designation: "Assistant Director - SW",
+    description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.",
   },
   {
     name: "Dr. S. Bharathiraja",

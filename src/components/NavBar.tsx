@@ -16,9 +16,9 @@ export default function NavBar() {
     if (pathname !== "/") setShowButton(true);
   }, [pathname]);
 
-  useEffect(() => {
+ useEffect(() => {
     const handleScroll = () => {
-      if (pathname !== "/") return;
+      if (window.location.pathname !== "/") return; // Check if the current pathname is the home page
       const scrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
       if (isActive && scrollPosition <= window.innerHeight) {

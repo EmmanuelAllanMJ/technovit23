@@ -11,15 +11,19 @@ const Hero = () => {
     },
     {
       title: "About",
-      href: "#about",
+      href: "/#about",
     },
     {
       title: "Events",
-      href: "#events",
+      href: "/#events",
+    },
+    {
+      title: "Merch",
+      href: "merch",
     },
     {
       title: "Contact",
-      href: "#contact",
+      href: "/#contact",
     },
   ]
   const controls = useAnimation();

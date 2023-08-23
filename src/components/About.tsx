@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import TechnoLogo from "../../public/assets/technovit-logo.svg";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -34,8 +35,7 @@ const About = () => {
           <br />
         </div>
         <div className="flex justify-center items-center text-center mt-4 mb-4">
-          <a href="/about"
-            target="_blank"
+          <Link href="/about"
             className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
             h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
             items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
@@ -43,7 +43,7 @@ const About = () => {
 
           >
             Delegates Message
-          </a>
+          </Link>
         </div>
       </div>
     </>
