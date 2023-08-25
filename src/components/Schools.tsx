@@ -36,7 +36,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                     <div className="flex flex-wrap justify-center items-center">
                       <div className="mt-2 text-center ">
                         <Dialog.Title as="h3" className="text-5xl sm:text-xl md:text-3xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
-                          {props.name} Faculty Coordinator's
+                          {props.name} Faculty Coordinators
                         </Dialog.Title>
                         <div className={`flex flex-wrap justify-center items-center mt-8 gap-8 `}>
                             {props.faculty.map((faculty) => (
