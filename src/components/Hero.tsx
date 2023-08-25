@@ -96,7 +96,8 @@ const Hero = () => {
             WebkitTextFillColor: 'transparent'
           }}
         >
-          TECHNOVIT<span
+          TECHNOVIT'23
+{/*           <span
             className="text-5xl sm:text-xl font-monty"
             style={{
               background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
@@ -105,7 +106,7 @@ const Hero = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            '23
+            '23 */}
           </span>
         </motion.span>
       </div>
