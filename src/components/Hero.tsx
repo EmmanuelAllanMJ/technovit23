@@ -106,8 +106,8 @@ const Hero = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            '23 */}
-          </span>
+            '23 
+          </span> */}
         </motion.span>
       </div>
           <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light of the Future - AI</div>
