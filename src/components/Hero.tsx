@@ -61,7 +61,7 @@ const Hero = () => {
           alt="Background"
         />
 
-        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4">
+        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4 brightness-0 invert">
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
