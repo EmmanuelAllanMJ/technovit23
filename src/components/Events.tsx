@@ -118,9 +118,8 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
                   label="Schools"
                   options={[
                     { value: "", label: "All Schools" },
-                    { value: "Qubit", label: "Qubit" },
-                    { value: "Scope", label: "Scope" },
-                    { value: "Sense", label: "Sense" },
+                    { value: "Qubit", label: "Qubit [Scope]" },
+                    { value: "Sense", label: "Diseno [Sense]" },
                   ]}
                   selectedValue={selectedSchool}
                   onSelect={handleSchoolSelect}
