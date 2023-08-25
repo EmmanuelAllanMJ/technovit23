@@ -35,7 +35,7 @@ const About = () => {
           <br />
         </div>
         <div className="flex justify-center items-center text-center mt-4 mb-4">
-          <Link target="_blank" href="https://vit.ac.in/about/leadership#:~:text=Dr.-,G.,near%20Vellore%20in%20Tamil%20Nadu."
+          <Link target="_blank" href="https://chennai.vit.ac.in/about/leadership/"
             className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
             h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
             items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
