@@ -170,6 +170,7 @@ const Merch: React.FC<MerchProps> = ({ seemore }) => {
         </div>
         <div className="flex justify-center items-center relative z-10">
           <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+            <br/><br/>
             MERCH
             <br/><br/>
           </section>

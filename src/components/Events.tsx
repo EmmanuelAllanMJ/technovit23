@@ -8,6 +8,7 @@ import useEvents from "@/hooks/getEvents";
 
 interface EventsProps {
   seemore?: boolean;
+  events: Event[];
 }
 interface IJSONReponse {
   data: {
@@ -16,17 +17,20 @@ interface IJSONReponse {
     };
   };
 }
+  
+const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
+  // console.log(events);
 
-const Events: React.FC<EventsProps> = ({ seemore }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchool, setSelectedSchool] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
-  const [filteredEvents, setFilteredEvents] = useState<Event[]>();
+  const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
   const [loading, setLoading] = useState<boolean>(true);
   const [seem, setSeem] = useState(0);
   const [mesg, setMesg] = useState("See More");
   const router = useRouter();
   const event_hook = useEvents(setLoading);
+  
   useEffect(() => {
     const matchesSearch = (eventName: string) =>
       eventName.toLowerCase().includes(searchQuery.toLowerCase());
@@ -84,7 +88,7 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
   if (loading) {
     return <>Loading ...</>;
   } else {
-    console.log(filteredEvents);
+    // console.log(filteredEvents);
     return (
       <>
         <section className="relative min-h-screen" id="events">
@@ -141,12 +145,12 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
             </section>
 
             <section className="flex flex-wrap justify-center items-center gap-7">
-              {filteredEvents!?.length === 0 ? (
+              {events!?.length === 0 ? (
                 <p className="text-white text-center py-10">
                   NO EVENTS AVAILABLE
                 </p>
               ) : seem === 0 ? (
-                filteredEvents!?.map((event, index) =>
+                events!?.map((event, index) =>
                   index <= 3 ? (
                     <EventCard
                       key={index}
@@ -156,6 +160,8 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
                       eventDescription={event.description}
                       eventSchool={event.school}
                       eventPrice={event.price}
+                      Link={event.link}
+                      DateTime = {event.datetime}
                     />
                   ) : (
                     ""
@@ -171,6 +177,8 @@ const Events: React.FC<EventsProps> = ({ seemore }) => {
                     eventDescription={event.description}
                     eventSchool={event.school}
                     eventPrice={event.price}
+                    Link={event.link}
+                    DateTime = {event.datetime}
                   />
                 ))
               )}
