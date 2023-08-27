@@ -23,13 +23,13 @@ const About = () => {
           </div>
 
 
-          <h2 className="z-100 font-monty bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center text-7xl md:text-6xl sm:text-4xl">
+          <h2 className="z-100 font-opensans bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center text-7xl md:text-6xl sm:text-4xl">
             About TechnoVIT
           </h2>
         </div>
         <div className="grid place-items-center">
           <div className=" absolute right-1/3 shadow-purple-900 opacity-30 md:opacity:10 sm:opacity:5 w-300 h-200 shadow-[0_0_20em_20em] "></div>
-          <p className="z-10 text-neutral-100 font-monty font-extralight text-justify mt-6 lg:w-10/12 text-md md:text-2xl lg:text-2xl pt-4">
+          <p className="z-10 text-neutral-100 font-opensans font-extralight text-justify mt-6 lg:w-10/12 text-md md:text-2xl lg:text-2xl pt-4">
           Welcome to the electrifying launch of the 8<sup>th</sup> Edition of TechnoVIT - a beacon of innovation and brilliance! Embark on a remarkable journey at TechnoVIT '23, where the stage is set for an unparalleled technical spectacle. Immerse yourself in an extraordinary tapestry of workshops, technical showdowns, and engaging events meticulously crafted by the university's diverse schools. Beyond honing professional prowess, we're dedicated to nurturing life-enriching qualities in our students. Brace yourself for pulse-pounding gaming duels that will elevate excitement and create an atmosphere of pure fun. The festival transcends boundaries with awe-inspiring technical exhibitions, a testament to contributions from diverse organizations. At VIT Chennai, we pledge an ambiance brimming with endless delight, ensuring you depart with hearts full of anticipation. Get ready to be captivated, for TechnoVIT '23 is where magic and innovation converge!
           </p>
           <br />

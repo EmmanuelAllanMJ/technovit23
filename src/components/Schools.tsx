@@ -35,7 +35,7 @@ function Modal(props: ImageProps & { open: boolean, setOpen: (open: boolean) => 
                   <div className="px-2 py-5 sm:p-6  ">
                     <div className="flex flex-wrap justify-center items-center">
                       <div className="mt-2 text-center ">
-                        <Dialog.Title as="h3" className="text-5xl sm:text-xl md:text-3xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
+                        <Dialog.Title as="h3" className="text-5xl sm:text-xl md:text-3xl font-opensans bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white uppercase">
                           {props.name} Faculty Coordinators
                         </Dialog.Title>
                         <div className={`flex flex-wrap justify-center items-center mt-8 gap-8 `}>
@@ -126,7 +126,7 @@ const ImageComponent = (props: ImageProps): React.ReactNode => {
 const Schools = (): JSX.Element => {
   return (
     <section className="py-32 sm:py-40" id="#events">
-      <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white ">
+      <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-opensans bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white ">
         School Fests
       </section>
       <section className="grid md:grid-cols-4 md:px-6 sm:grid-cols-1 lg:grid-cols-4 lg:px-32 items-center place-items-center place-content-center gap-4">

@@ -23,7 +23,7 @@ const FacultyComponent = (props: ICompProps) => {
           className="w-full h-10 lg:h-24"
         />
       </div>
-      <section className={`${props.className} font-monty pt-20 pb-60 h-full`}>
+      <section className={`${props.className} font-opensans pt-20 pb-60 h-full`}>
         <section className="flex flex-col lg:mx-32 md:mx-16 sm:mx-8">
           <h1 className="flex w-full tracking-widest justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
             Delegates Message

@@ -4,6 +4,11 @@
 
 @import url("@/assets/css/typography.css");
 
+/* font defination */
+.font-opensans {
+  font-family: "OpenSans", sans-serif;
+}
+
 .ticker-container {
   width: 100%;
   overflow: hidden;

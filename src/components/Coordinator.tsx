@@ -9,7 +9,7 @@ interface ICompProps {
 
 const CoordinatorComponent = (props: ICompProps) => {
   return (
-    <section className={`${props.className} font-monty py-4`}>
+    <section className={`${props.className} font-opensans py-4`}>
       <section className="flex flex-col lg:mx-32 md:mx-16 sm:mx-8">
         <h1 className="flex w-full justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl my-16">
           Convenors

@@ -82,7 +82,7 @@ const Hero = () => {
             flexDirection: 'column',
             justifyContent: 'center',
           }}>
-          <div className="text-9xl sm:text-4xl md:text-7xl pl-14 sm:pl-9 mt-20 font-monty tracking-widest"
+          <div className="text-9xl sm:text-4xl md:text-7xl pl-14 sm:pl-9 mt-20 font-opensans tracking-widest"
         ref={ref}>
         <motion.span
           variants={textVariants}
@@ -93,12 +93,13 @@ const Hero = () => {
             background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            WebkitTextFillColor: 'transparent',
+            font:'opensans'
           }}
         >
           TECHNOVIT'23
 {/*           <span
-            className="text-5xl sm:text-xl font-monty"
+            className="text-5xl sm:text-xl font-opensans"
             style={{
               background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
               backgroundClip: 'text',
@@ -110,7 +111,7 @@ const Hero = () => {
           </span> */}
         </motion.span>
       </div>
-          <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light of the Future - AI</div>
+          <div className="text-white text-3xl sm:text-xl font-opensans italic mt-4">Light of the Future - AI</div>
           <a href='https://vitchennaievents.com/conf1/' target="_blank" className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
