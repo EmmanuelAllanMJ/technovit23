@@ -1,15 +1,9 @@
-"use client";
-import { motion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import { BsArrowRight } from "react-icons/bs";
-import Text3d from '../components/Text3d';
+'use client'
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import Link from "next/link";
+import React, { useEffect } from 'react';
 const Hero = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const plane = useRef<HTMLDivElement | null>(null);
-  const maxRotate = 40;
-
   const navItems = [
     {
       title: "Home",
@@ -17,42 +11,48 @@ const Hero = () => {
     },
     {
       title: "About",
-      href: "#about",
+      href: "/#about",
     },
     {
       title: "Events",
-      href: "#events",
+      href: "/#events",
+    },
+    {
+      title: "Merch",
+      href: "merch",
     },
     {
       title: "Contact",
-      href: "#contact",
+      href: "/#contact",
     },
   ]
+  const controls = useAnimation();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+  });
 
-  const manageMouseMove = (e: any) => {
-    if (plane.current) {
-      const x = e.clientX / window.innerWidth;
-      const y = e.clientY / window.innerHeight;
-      const perspective = window.innerWidth * 4;
-      const rotateX = maxRotate * x - maxRotate / 2;
-      const rotateY = (maxRotate * y - maxRotate / 2) * -1;
-      plane.current.style.transform = `perspective(${perspective}px) rotateX(${rotateY}deg) rotateY(${rotateX}deg)`;
+  useEffect(() => {
+    if (inView) {
+      controls.start({ y: 0, opacity: 1 });
     }
+  }, [controls, inView]);
+
+  const textVariants = {
+    hidden: { y: '50%', opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 2, ease: 'easeInOut' } },
   };
 
-  const buttonVariants = {
-    moving: { y: -10 },
-    stopped: { y: 0 },
-  };
   return (
     <div>
       <div className="hidden md:flex lg:flex absolute z-10 mt-48 right-0 text-slate-400 flex-col gap-20">
-        {navItems.map(item => (
-          <li className="block m-0 pt-[20px] pb-0 px-0 rotate-90 cursor-pointer" key={item.title}>
+        {navItems.map((item) => (
+          <li
+            className="block m-0 pt-[20px] pb-0 px-0 rotate-90 cursor-pointer"
+            key={item.title}
+          >
             <Link href={`/${item.href}`}>{item.title}</Link>
           </li>
         ))}
-
       </div>
       <div className="w-full sm:h-50 ">
         <img
@@ -61,57 +61,62 @@ const Hero = () => {
           alt="Background"
         />
 
-        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4">
+        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4 brightness-0 invert">
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
             className="w-full h-10 lg:h-20 "
           />
         </div>
-        <div className="absolute top-16 right-20 sm:right-0 sm:top-8 px-4">
+        <div className="absolute top-16 right-16 sm:right-0 sm:top-8 px-4">
           <img
             src="/assets/technovitlogo.png"
             alt="Right Logo"
-            className="w-full h-10 lg:h-20"
+            className="w-full h-10 lg:h-24"
           />
         </div>
-        <div onMouseMove={(e) => { manageMouseMove(e) }}>
-          <div className="absolute inset-0 flex flex-col justify-center items-center text-center mt-60">
-            <h1 className="text-9xl sm:text-4xl md:text-7xl font-monty bg-clip-text text-slate-200 tracking-widest">
-
-              <div ref={plane}>
-                <Text3d primary={"T E C H N O V I T"} secondary={"T E C H N O V I T"} />
-              </div>
-
-              <span className="text-6xl sm:text-xl md:text-5xl">'23</span>
-            </h1>
-
-            <div className="text-white text-2xl sm:text-sm font-monty italic capitalize text-center mt-6 sm:text-left">
-              light of future it's AI
-            </div>
-            <motion.button
-              className="w-40 h-16 sm:w-23 rounded-full p-2 border border-white mt-20 mb-10 flex items-center justify-center"
-              onHoverStart={() => setIsHovered(true)}
-              onHoverEnd={() => setIsHovered(false)}
-              variants={buttonVariants}
-              initial="moving"
-              animate={isHovered ? "stopped" : "moving"}
-              whileHover="stopped"
-            >
-              <div className="text-white flex gap-2 font-normal capitalize">
-                <p>Register Now</p>
-                <p>
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <BsArrowRight size={20} />
-                  </motion.span>
-                </p>
-              </div>
-            </motion.button>
-          </div>
+        <div
+          className="absolute inset-0 pt-[30vh] sm:pt-[10vh] flex flex-col justify-center items-center"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+          }}>
+          <div className="text-9xl sm:text-4xl md:text-7xl pl-14 sm:pl-9 mt-20 font-monty tracking-widest"
+        ref={ref}>
+        <motion.span
+          variants={textVariants}
+          initial="hidden"
+          animate={controls}
+          className="block"
+          style={{
+            background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}
+        >
+          TECHNOVIT'23
+{/*           <span
+            className="text-5xl sm:text-xl font-monty"
+            style={{
+              background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
+              backgroundClip: 'text',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
+          >
+            '23 
+          </span> */}
+        </motion.span>
+      </div>
+          <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light of the Future - AI</div>
+          <a href='https://vitchennaievents.com/conf1/' target="_blank" className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+           h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
+           items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
+           bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300">
+            <div className="text-[#C8B8EC] text-base font-medium">Register Now</div>
+          </a>
         </div>
       </div>
     </div>

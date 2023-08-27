@@ -1,69 +1,205 @@
-import React from "react";
-import Card from "./card";
-const Events = ({ }) => {
-  return (
-    <div className=" font-monty">
-      <div className="flex justify-center text-white px-12 py-7 ">
-        <div className="w-full md:w-auto md:flex-grow-0 md:mr-7">
-          <input
-            className="bg-stone-600 rounded-full py-3 px-3 w-full md:w-auto"
-            type="search"
-            placeholder="Search event name..."
+"use client";
+import type { Event } from "@/hooks/getEvents";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import CustomDropdown from "./Dropdown";
+import EventCard from "./EventCard";
+import useEvents from "@/hooks/getEvents";
+
+interface EventsProps {
+  seemore?: boolean;
+  events: Event[];
+}
+interface IJSONReponse {
+  data: {
+    eventContentCollection: {
+      items: Event[];
+    };
+  };
+}
+  
+const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
+  // console.log(events);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedSchool, setSelectedSchool] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [seem, setSeem] = useState(0);
+  const [mesg, setMesg] = useState("See More");
+  const router = useRouter();
+  const event_hook = useEvents(setLoading);
+  
+  useEffect(() => {
+    const matchesSearch = (eventName: string) =>
+      eventName.toLowerCase().includes(searchQuery.toLowerCase());
+
+    const matchesSchool = (eventSchool: string) =>
+      selectedSchool === "" || eventSchool === selectedSchool;
+
+    const matchesPrice = (eventPrice: number) => {
+      if (selectedPrice === "") {
+        return true;
+      }
+      if (selectedPrice === "Low") {
+        return eventPrice <= 50;
+      }
+      if (selectedPrice === "Medium") {
+        return eventPrice > 50 && eventPrice <= 100;
+      }
+      if (selectedPrice === "High") {
+        return eventPrice > 100;
+      }
+    };
+
+    const filtered = event_hook.filter(
+      (event: Event) =>
+        matchesSearch(event.eventName) &&
+        matchesSchool(event.school) &&
+        matchesPrice(event.price)
+    );
+
+    setFilteredEvents(filtered);
+  }, [searchQuery, selectedSchool, selectedPrice]);
+  const more = () => {
+    if (seem == 0) {
+      setSeem(1);
+      setMesg("See Less");
+      return;
+    } else {
+      setSeem(0);
+      setMesg("See More");
+    }
+  };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const handleSchoolSelect = (value: string) => {
+    setSelectedSchool(value);
+  };
+
+  const handlePriceSelect = (value: string) => {
+    setSelectedPrice(value);
+  };
+
+  if (loading) {
+    return <>Loading ...</>;
+  } else {
+    // console.log(filteredEvents);
+    return (
+      <>
+        <section className="relative min-h-screen" id="events">
+          <img
+            src="/assets/events-bg.png"
+            className="h-full w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
+            alt="Background"
           />
-        </div>
 
-        <div className="w-full md:w-auto md:flex-grow-0 md:mr-7">
-          <select className="bg-stone-600 rounded-full py-3 px-3 w-full md:w-auto">
-            <option value="">Schools</option>
-            <option value="School 1">QUBIT</option>
-            <option value="School 2">Scope</option>
-            <option value="School 3">Sense</option>
-            <option value="School 4">School 4</option>
-            <option value="School 5">School 5</option>
-          </select>
-        </div>
-
-        <div className="w-full md:w-auto md:flex-grow-0">
-          <select className="bg-stone-600 rounded-full py-3 px-3 w-full md:w-auto">
-            <option value="">Price</option>
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-      </div>
-
-      <div className="flex flex-wrap justify-center items-center overflow-auto md:px-6">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-      <div className="text-center ">
-        <button
-          type="submit"
-          className="py-7 px-12 text-white border-white border-2 rounded-full text-2xl"
-        >
-          <div className="flex flex-row">
-            See More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="35"
-              height="35"
-              viewBox="0 0 40 40"
-              fill="none"
-              className="ml-5"
-            >
-              <path
-                d="M28.2324 30.5174L38.75 19.9999L28.2324 9.48242L26.4647 11.2502L33.9645 18.75H1.30969V21.25H33.9643L26.4647 28.7496L28.2324 30.5174Z"
-                fill="white"
-              />
-            </svg>
+          <div className="flex justify-center items-center relative z-10">
+            <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
+              Events
+            </section>
           </div>
-        </button>
-      </div>
-    </div>
-  );
+          <section className="font-monty relative z-10 w-full flex flex-col items-center justify-center">
+            <section className="flex justify-center sm:flex-col md:flex-row w-full lg:flex-row items-center text-white py-7 gap-2 mb-8 lg:w-3/4 md:w-3/4 sm:w-5/6 mx-auto ">
+              {/* Search Bar */}
+              <section className="flex w-full h-16 md:w-1/2 lg-w-1/2">
+                <input
+                  className="bg-white bg-opacity-40 rounded-full py-3 px-3 w-full"
+                  type="search"
+                  placeholder="Search Event Name..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                />
+              </section>
+
+              {/* School Dropdown */}
+              <section className="flex flex-col md:flex-row lg:flex-row z-10 w-full items-start justify-center gap-2 md:mr-3 md:w-1/2 lg-w-1/2 ">
+                <CustomDropdown
+                  label="Schools"
+                  options={[
+                    { value: "", label: "All Schools" },
+                    { value: "Qubit", label: "Qubit [Scope]" },
+                    { value: "Sense", label: "Diseno [Sense]" },
+                  ]}
+                  selectedValue={selectedSchool}
+                  onSelect={handleSchoolSelect}
+                />
+
+                {/* Price Dropdown */}
+                <CustomDropdown
+                  label="Price"
+                  options={[
+                    { value: "", label: "Price" },
+                    { value: "Low", label: "Low" },
+                    { value: "Medium", label: "Medium" },
+                    { value: "High", label: "High" },
+                  ]}
+                  selectedValue={selectedPrice}
+                  onSelect={handlePriceSelect}
+                />
+              </section>
+            </section>
+
+            <section className="flex flex-wrap justify-center items-center gap-7">
+              {events!?.length === 0 ? (
+                <p className="text-white text-center py-10">
+                  NO EVENTS AVAILABLE
+                </p>
+              ) : seem === 0 ? (
+                events!?.map((event, index) =>
+                  index <= 3 ? (
+                    <EventCard
+                      key={index}
+                      index={index}
+                      eventName={event.eventName}
+                      eventImage={event.imageLink}
+                      eventDescription={event.description}
+                      eventSchool={event.school}
+                      eventPrice={event.price}
+                      Link={event.link}
+                      DateTime = {event.datetime}
+                    />
+                  ) : (
+                    ""
+                  )
+                )
+              ) : (
+                filteredEvents!?.map((event, index) => (
+                  <EventCard
+                    key={index}
+                    index={index}
+                    eventName={event.eventName}
+                    eventImage={event.imageLink}
+                    eventDescription={event.description}
+                    eventSchool={event.school}
+                    eventPrice={event.price}
+                    Link={event.link}
+                    DateTime = {event.datetime}
+                  />
+                ))
+              )}
+            </section>
+
+            <section className="flex justify-center items-center text-center mb-4">
+              <button
+                className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
+            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
+            bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
+                onClick={seemore ? more : () => router.push("/events")}
+              >
+                {mesg}
+              </button>
+            </section>
+          </section>
+        </section>
+      </>
+    );
+  }
 };
 
 export default Events;
