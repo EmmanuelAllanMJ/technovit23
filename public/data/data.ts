@@ -59,7 +59,7 @@ export const facultyImageUrl: ICardProps[] = [
     designation : "Director, Students Welfare"
   },
   {
-    name: "Dr. Bharathi Raja S",
+    name: "Dr. Bharathiraja S",
     link: "/images/faculty/Bharathiraja.jpg",
     designation : "Convenor"
   },

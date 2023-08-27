@@ -10,7 +10,7 @@ const About = () => {
         <div className="">
 
           <div className="flex items-center justify-center mt-6 px-8 py-4 bg-gradient-to-br from-[#544374]/40 to-[#0D0626]/40 rounded-xl border border-[#544374]/40">
-            <Image src={TechnoLogo} alt="TechnoVIT Logo" width={200} height={200} className="mx-auto w-full" />
+            <Image src={TechnoLogo} alt="TechnoVIT Logo" width={100} height={100} className="mx-auto w-3/5" />
           </div>
 
           <div className="flex items-center justify-beween w-full">
