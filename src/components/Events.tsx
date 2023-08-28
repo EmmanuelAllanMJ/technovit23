@@ -12,6 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 interface EventsProps {
   seemore?: boolean;
   events: Event[];
+  featured?: boolean;
 }
 interface IJSONReponse {
   data: {
@@ -21,8 +22,9 @@ interface IJSONReponse {
   };
 }
   
-const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
-  // console.log(events);
+const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
+
+  events = events.filter((event) => event.featuredEvents === featured);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchool, setSelectedSchool] = useState("");
   const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
@@ -33,7 +35,8 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
   const [mesg, setMesg] = useState("See More");
   const router = useRouter();
   const event_hook = useEvents(setLoading);
-
+  
+  console.log("Events",featured,events, filteredEvents);
   // Function to get unique schools
   function getUniqueSchools(events: Event[]) {
     const uniqueSchools = Array.from(
@@ -45,7 +48,7 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
     // This effect runs whenever event_hook changes.
     // It updates the filteredEvents whenever events change.
     getUniqueSchools(event_hook); // Assuming event_hook returns all events.
-    setFilteredEvents(event_hook); // Set filtered events to all events.
+    setFilteredEvents(events); // Set filtered events to all events.
     setLoading(false); // Mark loading as complete.
   }, [event_hook]);
   useEffect(() => {
@@ -112,7 +115,7 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
 
           <div className="flex justify-center items-center relative z-9">
             <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
-              Events
+              {featured && "Featured" } Events
             </section>
           </div>
           <section className="font-monty relative z-9 w-full flex flex-col items-center justify-center">
@@ -164,8 +167,9 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
                   NO EVENTS AVAILABLE
                 </p>
               ) : seem === 0 ? (
-                filteredEvents!?.map((event, index) =>
-                  index <= 3 ? (
+                filteredEvents!?.map((event, index) =>{
+                  // console.log(event, featured, filteredEvents);
+                  return (index <= 3 ? (
                     <EventCard
                       key={index}
                       index={index}
@@ -179,7 +183,7 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
                     />
                   ) : (
                     ""
-                  )
+                  ))}
                 )
               ) : (
                 filteredEvents!?.map((event, index) => (
