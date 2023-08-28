@@ -5,6 +5,9 @@ import React, { useEffect, useState } from "react";
 import CustomDropdown from "./Dropdown";
 import EventCard from "./EventCard";
 import useEvents from "@/hooks/getEvents";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 interface EventsProps {
   seemore?: boolean;
@@ -20,17 +23,31 @@ interface IJSONReponse {
   
 const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
   // console.log(events);
-
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchool, setSelectedSchool] = useState("");
-  const [selectedPrice, setSelectedPrice] = useState("");
   const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [uniqueSchools,setUniqueSchools]=useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [seem, setSeem] = useState(0);
   const [mesg, setMesg] = useState("See More");
   const router = useRouter();
   const event_hook = useEvents(setLoading);
-  
+
+  // Function to get unique schools
+  function getUniqueSchools(events: Event[]) {
+    const uniqueSchools = Array.from(
+      new Set(events.map((event) => event.school))
+    );
+    setUniqueSchools(uniqueSchools);
+  }
+  useEffect(() => {
+    // This effect runs whenever event_hook changes.
+    // It updates the filteredEvents whenever events change.
+    getUniqueSchools(event_hook); // Assuming event_hook returns all events.
+    setFilteredEvents(event_hook); // Set filtered events to all events.
+    setLoading(false); // Mark loading as complete.
+  }, [event_hook]);
   useEffect(() => {
     const matchesSearch = (eventName: string) =>
       eventName.toLowerCase().includes(searchQuery.toLowerCase());
@@ -38,30 +55,28 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
     const matchesSchool = (eventSchool: string) =>
       selectedSchool === "" || eventSchool === selectedSchool;
 
-    const matchesPrice = (eventPrice: number) => {
-      if (selectedPrice === "") {
-        return true;
+    const matchesDate = (eventDate: string) => {
+      if (!selectedDate) {
+        return true; // If no date is selected, show all events.
       }
-      if (selectedPrice === "Low") {
-        return eventPrice <= 50;
-      }
-      if (selectedPrice === "Medium") {
-        return eventPrice > 50 && eventPrice <= 100;
-      }
-      if (selectedPrice === "High") {
-        return eventPrice > 100;
-      }
+    
+      const currentDate = new Date(selectedDate.toDateString());
+      const eventDateObj = new Date(eventDate);
+    
+      return eventDateObj.toDateString() === currentDate.toDateString();
     };
+    
 
     const filtered = event_hook.filter(
       (event: Event) =>
         matchesSearch(event.eventName) &&
         matchesSchool(event.school) &&
-        matchesPrice(event.price)
+        matchesDate(event.datetime)
     );
 
+    getUniqueSchools(events);
     setFilteredEvents(filtered);
-  }, [searchQuery, selectedSchool, selectedPrice]);
+  }, [searchQuery, selectedSchool, selectedDate]);
   const more = () => {
     if (seem == 0) {
       setSeem(1);
@@ -81,9 +96,6 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
     setSelectedSchool(value);
   };
 
-  const handlePriceSelect = (value: string) => {
-    setSelectedPrice(value);
-  };
 
   if (loading) {
     return <>Loading ...</>;
@@ -98,12 +110,12 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
             alt="Background"
           />
 
-          <div className="flex justify-center items-center relative z-10">
+          <div className="flex justify-center items-center relative z-9">
             <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
               Events
             </section>
           </div>
-          <section className="font-monty relative z-10 w-full flex flex-col items-center justify-center">
+          <section className="font-monty relative z-9 w-full flex flex-col items-center justify-center">
             <section className="flex justify-center sm:flex-col md:flex-row w-full lg:flex-row items-center text-white py-7 gap-2 mb-8 lg:w-3/4 md:w-3/4 sm:w-5/6 mx-auto ">
               {/* Search Bar */}
               <section className="flex w-full h-16 md:w-1/2 lg-w-1/2">
@@ -118,39 +130,41 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
 
               {/* School Dropdown */}
               <section className="flex flex-col md:flex-row lg:flex-row z-10 w-full items-start justify-center gap-2 md:mr-3 md:w-1/2 lg-w-1/2 ">
-                <CustomDropdown
-                  label="Schools"
-                  options={[
-                    { value: "", label: "All Schools" },
-                    { value: "Qubit", label: "Qubit [Scope]" },
-                    { value: "Sense", label: "Diseno [Sense]" },
-                  ]}
-                  selectedValue={selectedSchool}
-                  onSelect={handleSchoolSelect}
-                />
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date: Date | null) => setSelectedDate(date)}
+                placeholderText="Select Date"
+                dateFormat="MMMM d, yyyy"
+                isClearable
+                className="bg-white font-monty bg-opacity-40 rounded-full py-5 px-3 w-full"
+                wrapperClassName="w-full"
+              />
 
-                {/* Price Dropdown */}
-                <CustomDropdown
-                  label="Price"
-                  options={[
-                    { value: "", label: "Price" },
-                    { value: "Low", label: "Low" },
-                    { value: "Medium", label: "Medium" },
-                    { value: "High", label: "High" },
-                  ]}
-                  selectedValue={selectedPrice}
-                  onSelect={handlePriceSelect}
-                />
+              <CustomDropdown
+                label="Select School"
+                options={[
+                  { value: "", label: "All Schools" },
+                  ...uniqueSchools.map((school) => ({
+                    value: school,
+                    label: school,
+                  })),
+                ]}
+                selectedValue={selectedSchool}
+                onSelect={handleSchoolSelect}
+              />
+
+
+              
               </section>
             </section>
 
             <section className="flex flex-wrap justify-center items-center gap-7">
-              {events!?.length === 0 ? (
+              {filteredEvents!?.length === 0 ? (
                 <p className="text-white text-center py-10">
                   NO EVENTS AVAILABLE
                 </p>
               ) : seem === 0 ? (
-                events!?.map((event, index) =>
+                filteredEvents!?.map((event, index) =>
                   index <= 3 ? (
                     <EventCard
                       key={index}
