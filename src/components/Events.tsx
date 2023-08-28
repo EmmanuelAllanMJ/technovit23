@@ -59,8 +59,7 @@ const Events: React.FC<EventsProps> = ({ seemore ,events}) => {
         matchesSchool(event.school) &&
         matchesPrice(event.price)
     );
-
-    setFilteredEvents(filtered);
+setFilteredEvents(filtered);
   }, [searchQuery, selectedSchool, selectedPrice]);
   const more = () => {
     if (seem == 0) {
