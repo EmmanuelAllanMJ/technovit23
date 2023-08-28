@@ -21,6 +21,20 @@ export type ImageProps = {
   }[];
 };
 
+export type MerchProps = {
+  name: string;
+  school: string;
+  description: string | null;
+  price: number;
+  link: string | null;
+  type: string;
+  mainImage: string;
+  frontImage: string | null;
+  backImage: string | null;
+  leftImage: string | null;
+  rightImage: string | null;
+}
+
 export const studentImageUrl: ICardProps[] = [
   {
     link: "/images/student/MONISH.JPG",
