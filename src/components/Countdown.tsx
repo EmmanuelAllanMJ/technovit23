@@ -34,7 +34,7 @@ const Countdown = () => {
   }
 
   return (
-    <div className="py-20 px-8 flex flex-col justify-center items-center md:h-[60vh] sm:h-screen gap-6 bg-gradient-to-b from-[#040116] to-transparent z-0">
+    <div className="font-monty py-20 px-8 flex flex-col justify-center items-center md:h-[60vh] sm:h-screen gap-6 bg-gradient-to-b from-[#040116] to-transparent z-0">
       <h1 className="text-4xl md:text-3xl sm:text-xl font-light font-regular text-center text-white uppercase">
         Get ready for the future of AI in
       </h1>
