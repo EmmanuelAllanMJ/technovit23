@@ -1,78 +1,81 @@
+"use client"
 import React, { useState, useEffect } from "react";
 import CustomDropdown from "./Dropdown";
 import MerchCard from "./MerchCard";
 import { useRouter } from "next/navigation";
+import { MerchProps } from "../../public/data/data";
 
-interface MerchProps {
+interface MerchCompProps {
   seemore?: boolean;
+  data : MerchProps[];
 }
 
-const merchData = [
-  {
-    merchName: "Hoody 1",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Hoody",
-    merchSize: "M",
-    merchPrice: 30,
-  },
-  {
-    merchName: "Hoody 2",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Hoody",
-    merchSize: "L",
-    merchPrice: 35,
-  },
-  {
-    merchName: "T-Shirt ",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "T-Shirt",
-    merchSize: "M",
-    merchPrice: 20,
-  },
-  {
-    merchName: "Pen 1",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Pen",
-    merchSize: "One Size",
-    merchPrice: 5,
-  },
-  {
-    merchName: "Hoody 3",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Hoody",
-    merchSize: "M",
-    merchPrice: 30,
-  },
-  {
-    merchName: "Hoody 4",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Hoody",
-    merchSize: "L",
-    merchPrice: 35,
-  },
-  {
-    merchName: "Hoody 5",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Hoody",
-    merchSize: "M",
-    merchPrice: 30,
-  },
-  {
-    merchName: "Hoody 6",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "Hoody",
-    merchSize: "L",
-    merchPrice: 35,
-  },
-  {
-    merchName: "T-Shirt 2",
-    merchImage: "/assets/open.jpg",
-    merchCategory: "T-Shirt",
-    merchSize: "M",
-    merchPrice: 20,
-  },
+// const merchData = [
+//   {
+//     merchName: "Hoody 1",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Hoody",
+//     merchSize: "M",
+//     merchPrice: 30,
+//   },
+//   {
+//     merchName: "Hoody 2",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Hoody",
+//     merchSize: "L",
+//     merchPrice: 35,
+//   },
+//   {
+//     merchName: "T-Shirt ",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "T-Shirt",
+//     merchSize: "M",
+//     merchPrice: 20,
+//   },
+//   {
+//     merchName: "Pen 1",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Pen",
+//     merchSize: "One Size",
+//     merchPrice: 5,
+//   },
+//   {
+//     merchName: "Hoody 3",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Hoody",
+//     merchSize: "M",
+//     merchPrice: 30,
+//   },
+//   {
+//     merchName: "Hoody 4",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Hoody",
+//     merchSize: "L",
+//     merchPrice: 35,
+//   },
+//   {
+//     merchName: "Hoody 5",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Hoody",
+//     merchSize: "M",
+//     merchPrice: 30,
+//   },
+//   {
+//     merchName: "Hoody 6",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "Hoody",
+//     merchSize: "L",
+//     merchPrice: 35,
+//   },
+//   {
+//     merchName: "T-Shirt 2",
+//     merchImage: "/assets/open.jpg",
+//     merchCategory: "T-Shirt",
+//     merchSize: "M",
+//     merchPrice: 20,
+//   },
 
-];
+// ];
 
 const categories = [
   "Hoody",
@@ -81,48 +84,48 @@ const categories = [
   // Add more categories as needed
 ];
 
-const Merch: React.FC<MerchProps> = ({ seemore }) => {
+const Merch: React.FC<MerchCompProps> = ({ seemore , data}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedPrice, setSelectedPrice] = useState("");
-  const [filteredMerch, setFilteredMerch] = useState(merchData);
+  const [filteredMerch, setFilteredMerch] = useState(data);
   const [seem, setSeem] = useState(0);
   const [mesg, setMesg] = useState("See More");
   const router = useRouter();
 
-  useEffect(() => {
-    const matchesSearch = (merchName: string) =>
-      merchName.toLowerCase().includes(searchQuery.toLowerCase());
+  // useEffect(() => {
+  //   const matchesSearch = (merchName: string) =>
+  //     merchName.toLowerCase().includes(searchQuery.toLowerCase());
 
-    const matchesCategory = (merchCategory: string) =>
-      selectedCategory === "" || merchCategory === selectedCategory;
+  //   const matchesCategory = (merchCategory: string) =>
+  //     selectedCategory === "" || merchCategory === selectedCategory;
 
-    const matchesPrice = (merchPrice: number) => {
-      if (selectedPrice === "") {
-        return true;
-      }
-      if (selectedPrice === "Low") {
-        return merchPrice <= 50;
-      }
-      if (selectedPrice === "Medium") {
-        return merchPrice > 50 && merchPrice <= 100;
-      }
-      if (selectedPrice === "High") {
-        return merchPrice > 100;
-      }
-    };
+  //   const matchesPrice = (merchPrice: number) => {
+  //     if (selectedPrice === "") {
+  //       return true;
+  //     }
+  //     if (selectedPrice === "Low") {
+  //       return merchPrice <= 50;
+  //     }
+  //     if (selectedPrice === "Medium") {
+  //       return merchPrice > 50 && merchPrice <= 100;
+  //     }
+  //     if (selectedPrice === "High") {
+  //       return merchPrice > 100;
+  //     }
+  //   };
 
-    const filtered = merchData.filter(
-      (merch) =>
-        matchesSearch(merch.merchName) &&
-        matchesCategory(merch.merchCategory) &&
-        matchesPrice(merch.merchPrice)
-    );
+  //   const filtered = merchData.filter(
+  //     (merch) =>
+  //       matchesSearch(merch.merchName) &&
+  //       matchesCategory(merch.merchCategory) &&
+  //       matchesPrice(merch.merchPrice)
+  //   );
 
-    setFilteredMerch(filtered);
-    setSeem(0);
-    setMesg("See More");
-  }, [searchQuery, selectedCategory, selectedPrice]);
+  //   setFilteredMerch(filtered);
+  //   setSeem(0);
+  //   setMesg("See More");
+  // }, [searchQuery, selectedCategory, selectedPrice]);
 
   const more = () => {
     if (seem === 0) {
@@ -218,38 +221,23 @@ const Merch: React.FC<MerchProps> = ({ seemore }) => {
           </div>
 
           {/* Display Filtered Merchs */}
-          {categories.map((category) => {
-            const categoryMerch = filteredMerch.filter(
-              (merch) => merch.merchCategory === category
-            );
-
-            const visibleMerch = categoryMerch.slice(0, seem === 0 ? 4 : categoryMerch.length);
-
-            return (
-              <div key={category}>
-                <h1 className="flex w-full tracking-widest justify-center bg-clip-text text-transparent bg-gradient-to-tl from-stone-600 to-white text-center mx-auto text-6xl md:text-4xl sm:text-4xl uppercase my-16">
-                  {category}
-                </h1>
+          
                 <div className="flex flex-wrap justify-center items-center gap-7">
-                  {visibleMerch.length === 0 ? (
+                  {data.length === 0 ? (
                     <p className="text-white text-center py-10">
                       NO MERCHS AVAILABLE
                     </p>
                   ) : (
-                    visibleMerch.map((merch, index) => (
+                    data.map((merch, index) => (
                       <MerchCard
                         key={index}
+                        merch={merch}
                         index={index}
-                        merchName={merch.merchName}
-                        merchImage={merch.merchImage}
-                        merchCategory={merch.merchCategory}
-                        merchSize={merch.merchSize}
-                        merchPrice={merch.merchPrice}
                       />
                     ))
                   )}
                 </div>
-                {categoryMerch.length > 4 && (
+                {data.length > 4 && (
                   <div className="flex justify-center items-center text-center mb-4">
                     <button
                       className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-52
@@ -263,10 +251,7 @@ const Merch: React.FC<MerchProps> = ({ seemore }) => {
                   </div>
                 )}
               </div>
-            );
-          })}
-        </div>
-      </div>
+            </div>
     </>
   );
 };
