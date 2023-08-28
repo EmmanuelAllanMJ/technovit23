@@ -41,7 +41,6 @@ const MerchPage = async () => {
   );
   const data = await res.json();
   const merch = data.data.merch1Collection.items;
-  console.log(merch);
   return (
     <div className="w-full bg-[#131115] from-transparent to-[#131115] bg-[url('/assets/delegates-bg.png')] ">
       <Merch seemore={true} data ={merch} />
