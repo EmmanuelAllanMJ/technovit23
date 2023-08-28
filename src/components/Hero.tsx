@@ -65,14 +65,14 @@ const Hero = () => {
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
-            className="w-full h-10 lg:h-20 "
+            className="w-100 h-12 lg:h-24"
           />
         </div>
         <div className="absolute top-16 right-16 sm:right-0 sm:top-8 px-4">
           <img
             src="/assets/technovitlogo.png"
             alt="Right Logo"
-            className="w-full h-10 lg:h-24"
+            className="w-100 h-14 lg:h-24"
           />
         </div>
         <div
