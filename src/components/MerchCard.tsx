@@ -183,7 +183,7 @@ const MerchCard: React.FC<MerchCardProps> = ({
             scale: 1,
             speed: 450,
           }}
-          className="bg-[#110C2A] p-5 rounded-2xl sm:w-[360px] w-full"
+          className="bg-[#110C2A] p-5 rounded-2xl sm:w-[360px] w-96"
         >
           <div className="relative w-full h-[200px]">
             <img
