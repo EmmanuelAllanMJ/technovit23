@@ -48,7 +48,7 @@ export default async function Home() {
   const data = await res.json();
   const events = data.data.eventContentCollection.items;
   return (
-    <main className="">
+    <main >
       <Star />
       <Hero />
       <section className="about-grid bg-[#030014]">

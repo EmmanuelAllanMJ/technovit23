@@ -14,10 +14,10 @@ const Footer = (): JSX.Element => {
           <div className="w-full flex items-start justify-center flex-col font-regular text-6xl md:text-5xl sm:text-4xl bg-clip-text text-transparent bg-gradient-to-tr hover:bg-gradient-to-bl from-stone-600 to-white">
             Contact Us
             <a
-              href="mailto:technovit-help@vit.ac.in"
+              href="mailto:technovit@vit.ac.in"
               className="font-regular text-3xl pt-8 mb-5 hover:underline md:text-xl sm:text-sm text-slate-100"
             >
-              technovit-help@vit.ac.in
+              technovit@vit.ac.in
             </a>
           </div>
         </div>
