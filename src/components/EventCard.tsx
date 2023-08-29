@@ -1,9 +1,11 @@
 "use client"
 import { Dialog, Transition } from '@headlessui/react';
 import { motion } from "framer-motion";
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { Fragment, useRef, useState } from "react";
 import { Tilt } from "react-tilt";
+import { schools } from '../../public/data/data';
 
 
 interface EventCardProps {
@@ -137,10 +139,20 @@ const EventCard: React.FC<EventCardProps> = (props) => {
 
           <div className='mt-5'>
             <h3 className='text-white font-bold text-[32px]'>{eventName}</h3>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventSchool}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{normalDate}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventDescription}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>₹ {eventPrice}</p>
+            <div className='flex items-center '>
+
+              <Image
+                width={100}
+                height={100}
+                src={schools.filter((school) => school.name.toLocaleLowerCase() === eventSchool.toLocaleLowerCase())[0].image}
+                alt='project_image'
+                className='w-3/12 h-full rounded-2xl object-cover'
+              />
+              <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventSchool}</p>
+            </div>
+            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{new Date(normalDate) < new Date("2023") ? "Coming Soon" : normalDate}</p>
+            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{!(new Date(normalDate) < new Date("2023")) && `${eventDescription}`}</p>
+            <p className='mt-2 text-[#aaa6c3] text-[16px]'> {!(new Date(normalDate) < new Date("2023")) && `₹${eventPrice}`}</p>
           </div>
           <button
             type="submit"
