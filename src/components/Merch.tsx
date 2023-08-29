@@ -145,22 +145,22 @@ const Merch: React.FC<MerchCompProps> = ({ seemore , data}) => {
             <br/><br/>
           </section>
         </div>
-        <div className="font-monty relative z-10">
-          <div className="flex justify-center items-center text-white py-7 gap-2 mb-8 w-3/4 sm:w-5/6 mx-auto ">
+        <div className="font-monty relative z-10 overflow-hidden ">
+          <div className="flex justify-center items-center text-white py-7 gap-2 mb-8 w-3/4 sm:w-5/6 mx-auto sm:flex-col xsm:flex-col ">
             {/* Search Bar */}
-            <div className="flex w-full h-16 xs:w-1/4 sm:w-1/2 md:w-1/2 lg-w-1/2">
+            <div className="flex w-full h-16  ">
               <input
                 className="bg-white bg-opacity-40 rounded-full py-3 px-3 w-full"
                 type="search"
-                placeholder="Search Merch Name..."
+                placeholder="Search Merchandise..."
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
             </div>
 
             {/* Category Dropdown */}
-            <div className="flex z-10 w-full xs-w-1/4 sm:w-1/2 mr-3 md:w-1/2 lg-w-1/2 ">
-              <CustomDropdown
+            <div className="flex z-10 w-full  ">
+              <CustomDropdown 
                 label="Category"
                 options={[
                   { value: "", label: "Category" },
