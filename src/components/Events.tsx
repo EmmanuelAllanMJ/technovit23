@@ -36,7 +36,6 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
   const router = useRouter();
   const event_hook = useEvents(setLoading);
   
-  console.log("Events",featured,events, filteredEvents);
   // Function to get unique schools
   function getUniqueSchools(events: Event[]) {
     const uniqueSchools = Array.from(
@@ -103,7 +102,6 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
   if (loading) {
     return <>Loading ...</>;
   } else {
-    // console.log(filteredEvents);
     return (
       <>
         <section className="relative min-h-screen" id="events">
@@ -173,7 +171,6 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
                 </p>
               ) : seem === 0 ? (
                 filteredEvents!?.map((event, index) =>{
-                  // console.log(event, featured, filteredEvents);
                   return (index <= 3 ? (
                     <EventCard
                       key={index}

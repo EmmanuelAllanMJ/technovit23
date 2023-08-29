@@ -275,9 +275,9 @@ export const schools: ImageProps[] = [
     ],
   },
   {
-    name: "ConnectiVITeee",
+    name: "ConnectiVITee",
     description:
-      "ConnectiVITeee is the school of Electronics and Communication Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
+      "ConnectiVITee is the school of Electronics and Communication Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
     image: "/logos/connectivitieee.webp",
     faculty: [
       {

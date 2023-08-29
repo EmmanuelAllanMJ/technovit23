@@ -35,7 +35,6 @@ const EventsPage = async () => {
   );
   const data = await res.json();
   const events = data.data.eventContentCollection.items;
-  console.log(events);
   
   return (
     <div className="bg-[#170f26] about-grid overflow-hidden">

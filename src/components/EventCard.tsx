@@ -103,6 +103,10 @@ const EventCard: React.FC<EventCardProps> = (props) => {
   var isoDate = DateTime;
   var date = new Date(isoDate);
   var normalDate = date.toLocaleString();
+  const logoUrl = schools.filter((school) => {
+    return school.name.toLocaleLowerCase() === eventSchool.toLocaleLowerCase()
+  })[0].image;
+  
   return (
     <>
       <motion.div
@@ -144,7 +148,7 @@ const EventCard: React.FC<EventCardProps> = (props) => {
               <Image
                 width={100}
                 height={100}
-                src={schools.filter((school) => school.name.toLocaleLowerCase() === eventSchool.toLocaleLowerCase())[0].image}
+                src={logoUrl}
                 alt='project_image'
                 className='w-3/12 h-full rounded-2xl object-cover'
               />
