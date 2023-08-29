@@ -27,21 +27,21 @@ const Footer = (): JSX.Element => {
           <div><a href="events">Events</a></div>
           <div><a href="/#contact">Contact Us</a></div>
         <div className="flex items-center gap-4">
-          <a href="https://www.facebook.com/your-facebook-handle" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://www.facebook.com/your-facebook-handle" target="_blank" rel="noopener noreferrer">
             <FaFacebook size={24} color="white" />
           </a>
           <a href="https://www.twitter.com/your-twitter-handle" target="_blank" rel="noopener noreferrer">
             <FaTwitter size={24} color="white" />
-          </a>
+          </a> */}
           <a href="https://www.instagram.com/technovit23/" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={24} color="white" />
           </a>
-          <a href="https://www.linkedin.com/company/technovit-vitvellore/" target="_blank" rel="noopener noreferrer">
+          {/* <a href="https://www.linkedin.com/company/technovit-vitvellore/" target="_blank" rel="noopener noreferrer">
             <FaLinkedin size={24} color="white" />
           </a>
           <a href="https://www.threads.net/@technovit23" target="_blank" rel="noopener noreferrer">
             <ThreadsLogo />
-          </a>
+          </a> */}
         </div>
         </div>
       </div>

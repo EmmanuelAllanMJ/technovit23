@@ -154,9 +154,14 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
                 ]}
                 selectedValue={selectedSchool}
                 onSelect={handleSchoolSelect}
+            
               />
 
-
+                {/* <button 
+                className="bg-white font-monty bg-opacity-40 rounded-full py-5 px-3 w-full"
+                >
+                  Featured 
+                </button> */}
               
               </section>
             </section>

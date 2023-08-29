@@ -197,30 +197,8 @@ const MerchCard: React.FC<MerchCardProps> = ({
             <h3 className="text-white font-bold text-[32px]">{merch.school}</h3>
             <p className="mt-2 text-[#aaa6c3] text-[16px]">{merch.name}</p>
             {/* <p className="mt-2 text-[#aaa6c3] text-[16px]">{merch.type}</p> */}
-            <p className="mt-2 text-[#aaa6c3] text-[16px]">₹ {merch.price}</p>
           </div>
-          <button
-            type="submit"
-            className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-44
-          h-10 sm:w-44 sm:h-10 md:w-40 md:h-10 lg:w-52 lg:h-12 flex justify-center 
-          items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
-          bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
-          >
-            <div className="flex flex-row text-sm">
-              Buy Now
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 30 30"
-                fill="none"
-                className="ml-5 sm:ml-2 w-5 h-5"
-              >
-                <path
-                  d="M21.1743 22.8881L29.0625 14.9999L21.1743 7.11182L19.8485 8.43768L25.4734 14.0625L0.982265 14.0625V15.9375L25.4732 15.9375L19.8485 21.5622L21.1743 22.8881Z"
-                  fill="#C8B8EC"
-                />
-              </svg>
-            </div>
-          </button>
+
         </Tilt>
       </motion.div>
     </>
