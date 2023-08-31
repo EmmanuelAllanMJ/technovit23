@@ -103,6 +103,7 @@ const EventCard: React.FC<EventCardProps> = (props) => {
   var isoDate = DateTime;
   var date = new Date(isoDate);
   var normalDate = date.toLocaleString();
+  console.log(schools);
   const logoUrl = schools.filter((school) => {
     return school.name.toLocaleLowerCase() === eventSchool.toLocaleLowerCase()
   })[0].image;
