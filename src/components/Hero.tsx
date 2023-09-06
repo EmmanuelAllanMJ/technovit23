@@ -56,7 +56,7 @@ const Hero = () => {
       </div>
       <div className="w-full sm:h-50 ">
         <img
-          src="/assets/background.png"
+          src="/assets/background.jpg"
           className="h-screen w-screen object-cover blur-1xl"
           alt="Background"
         />

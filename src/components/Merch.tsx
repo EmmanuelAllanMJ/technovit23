@@ -120,7 +120,7 @@ const Merch: React.FC<MerchCompProps> = ({ seemore , data}) => {
     <>
       <div className="relative min-h-screen" id="events">
         <img
-          src="/assets/events-bg.png"
+          src="/assets/events-bg.svg"
           className="h-full w-screen object-cover blur-1xl absolute top-0 left-0 z-0"
           alt="Background"
         />
