@@ -29,6 +29,7 @@ export default async function Home() {
           datetime
           imageLink
           link
+          featuredEvents
         }
       }
     }
@@ -47,7 +48,7 @@ export default async function Home() {
   const data = await res.json();
   const events = data.data.eventContentCollection.items;
   return (
-    <main className="">
+    <main >
       <Star />
       <Hero />
       <section className="about-grid bg-[#030014]">
@@ -59,7 +60,8 @@ export default async function Home() {
       <section className="bg-[#030014]"><Gallery /></section>
       <section className="about-grid bg-[#08031b]">
         <Schools />
-        <Events events={events}/>
+        <Events events={events} featured={true}/>
+        <Events events={events} featured={false}/>
         <CoordinatorComponent/>    
         <Footer />
       </section>

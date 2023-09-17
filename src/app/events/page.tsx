@@ -35,11 +35,12 @@ const EventsPage = async () => {
   );
   const data = await res.json();
   const events = data.data.eventContentCollection.items;
-  console.log(events);
   
   return (
-    <div className="bg-black bg-[url('/assets/events-bg.png')] overflow-hidden">
+    <div className="bg-[#170f26] about-grid overflow-hidden">
+      <div className="pt-20">
       <Events seemore={true} events={events} />
+      </div>
     </div>
   );
 };

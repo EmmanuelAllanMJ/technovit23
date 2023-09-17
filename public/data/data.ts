@@ -21,6 +21,20 @@ export type ImageProps = {
   }[];
 };
 
+export type MerchProps = {
+  name: string;
+  school: string;
+  description: string | null;
+  price: number;
+  link: string | null;
+  type: string;
+  mainImage: string;
+  frontImage: string | null;
+  backImage: string | null;
+  leftImage: string | null;
+  rightImage: string | null;
+}
+
 export const studentImageUrl: ICardProps[] = [
   {
     link: "/images/student/MONISH.JPG",
@@ -261,9 +275,9 @@ export const schools: ImageProps[] = [
     ],
   },
   {
-    name: "ConnectiVITeee",
+    name: "ConnectiVITieee",
     description:
-      "ConnectiVITeee is the school of Electronics and Communication Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
+      "ConnectiVITieee is the school of Electronics and Communication Engineering at VIT Chennai. It is one of the most active schools in the campus. The school has a very active student body and has been organizing various events and workshops for the stuents",
     image: "/logos/connectivitieee.webp",
     faculty: [
       {

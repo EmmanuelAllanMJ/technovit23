@@ -8,6 +8,7 @@ export interface Event {
   datetime: string;
   imageLink: string;
   link: string;
+  featuredEvents: boolean;
 }
 
 interface IJSONReponse {

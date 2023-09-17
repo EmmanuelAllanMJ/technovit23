@@ -1,9 +1,11 @@
 "use client"
 import { Dialog, Transition } from '@headlessui/react';
 import { motion } from "framer-motion";
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { Fragment, useRef, useState } from "react";
 import { Tilt } from "react-tilt";
+import { schools } from '../../public/data/data';
 
 
 interface EventCardProps {
@@ -101,6 +103,10 @@ const EventCard: React.FC<EventCardProps> = (props) => {
   var isoDate = DateTime;
   var date = new Date(isoDate);
   var normalDate = date.toLocaleString();
+  const logoUrl = schools.filter((school) => {
+    return school.name.toLocaleLowerCase() === eventSchool.toLocaleLowerCase()
+  })[0].image;
+  
   return (
     <>
       <motion.div
@@ -125,7 +131,7 @@ const EventCard: React.FC<EventCardProps> = (props) => {
             scale: 1,
             speed: 450,
           }}
-          className='bg-[#110C2A] p-5 rounded-2xl sm:w-[360px] w-full'
+          className='bg-[#110C2A] p-5 rounded-2xl sm:w-[360px] w-96 h-full'
         >
           <div className='relative w-full h-[200px]'>
             <img
@@ -137,10 +143,20 @@ const EventCard: React.FC<EventCardProps> = (props) => {
 
           <div className='mt-5'>
             <h3 className='text-white font-bold text-[32px]'>{eventName}</h3>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventSchool}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{normalDate}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventDescription}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px]'>₹ {eventPrice}</p>
+            <div className='flex items-center '>
+
+              <Image
+                width={100}
+                height={100}
+                src={logoUrl}
+                alt='project_image'
+                className='w-3/12 h-full rounded-2xl object-cover'
+              />
+              <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventSchool}</p>
+            </div>
+            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{new Date(normalDate) < new Date("2023") ? "Coming Soon" : normalDate}</p>
+            <p className='mt-2 text-[#aaa6c3] text-[16px]'>{!(new Date(normalDate) < new Date("2023")) && `${eventDescription}`}</p>
+            <p className='mt-2 text-[#aaa6c3] text-[16px]'> {!(new Date(normalDate) < new Date("2023")) && `₹${eventPrice}`}</p>
           </div>
           <button
             type="submit"
