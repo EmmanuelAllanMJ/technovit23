@@ -81,10 +81,10 @@ function Modal(props: { merch: MerchProps } & { open: boolean, setOpen: (open: b
                             </p>
                             <p className="text-sm font-semibold text-gray-200">
                               {props.merch.school}
-                            </p>{/*
+                            </p>
                             <p className="text-sm text-gray-300 mb-2">
-                              props.merch.price
-                            </p>*/}
+                              {props.merch.price}
+                            </p>
                             {/* <div className="text-sm text-justify text-[#aaa6c3] w-48 mx-auto">
                                   {faculty.description}
                                 </div> */}
@@ -196,7 +196,7 @@ const MerchCard: React.FC<MerchCardProps> = ({
           <div className="mt-5">
             <h3 className="text-white font-bold text-[32px]">{merch.school}</h3>
             <p className="mt-2 text-[#aaa6c3] text-[16px]">{merch.name}</p>
-            {/* <p className="mt-2 text-[#aaa6c3] text-[16px]">{merch.type}</p> */}
+            <p className="mt-2 text-[#aaa6c3] text-[16px]">₹ {merch.price}</p>
           </div>
 
         </Tilt>
