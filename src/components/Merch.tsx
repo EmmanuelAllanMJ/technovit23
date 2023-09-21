@@ -146,47 +146,6 @@ const Merch: React.FC<MerchCompProps> = ({ seemore , data}) => {
           </section>
         </div>
         <div className="font-monty relative z-10 overflow-hidden ">
-          <div className="flex justify-center items-center text-white py-7 gap-2 mb-8 w-3/4 sm:w-5/6 mx-auto sm:flex-col xsm:flex-col ">
-            {/* Search Bar */}
-            <div className="flex w-full h-16  ">
-              <input
-                className="bg-white bg-opacity-40 rounded-full py-3 px-3 w-full"
-                type="search"
-                placeholder="Search Merchandise..."
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-            </div>
-
-            {/* Category Dropdown */}
-            <div className="flex z-10 w-full  ">
-              <CustomDropdown 
-                label="Category"
-                options={[
-                  { value: "", label: "Category" },
-                  { value: "Hoody", label: "Hoody" },
-                  { value: "T-Shirt", label: "T-Shirt" },
-                  { value: "Pen", label: "Pen" },
-                ]}
-                selectedValue={selectedCategory}
-                onSelect={handleCategorySelect}
-              />
-
-              {/* Price Dropdown */}
-              <CustomDropdown
-                label="Price"
-                options={[
-                  { value: "", label: "Price" },
-                  { value: "Low", label: "Low" },
-                  { value: "Medium", label: "Medium" },
-                  { value: "High", label: "High" },
-                ]}
-                selectedValue={selectedPrice}
-                onSelect={handlePriceSelect}
-              />
-            </div>
-          </div>
-
           {/* Display Filtered Merchs */}
           
                 <div className="flex flex-wrap justify-center items-center gap-7 pb-10">
