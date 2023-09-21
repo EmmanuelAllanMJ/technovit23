@@ -418,4 +418,32 @@ export const schools: ImageProps[] = [
       },
     ],
   },
+  {
+    name:"Central committee",
+    description: "Central committee is the main body of the student welfare council. It is the main body that takes care of all the activities of the council. The central committee is headed by the Director of Student Welfare and the Convenor of the council. The central committee is divided into various sub-committees that take care of various activities of the council.",
+    image: "/assets/technovitlogo.png",  
+    faculty: [
+      {
+        name: "Dr. S. Bharathiraja",
+        designation: "Convenor",
+        description: "",
+        link: "/images/faculty/Bharathiraja.jpg",
+        email: "bharathiraja.s@vit.ac.in"
+      },
+      {
+        name: "Dr. Karmel A",
+        designation: "Co-Convenor",
+        description: "",
+        link: "/images/faculty/Karmel.jpg",
+        email: "karmel.a@vit.ac.in"
+      },
+      {
+        name: "Dr. Vijayakumar P",
+        designation: "Co-Convenor",
+        description: "",
+        link: "/images/faculty/Vijayakumar.jpg",
+        email: "vijaya.kumar@vit.ac.in"
+      },
+    ]
+  }
 ];
