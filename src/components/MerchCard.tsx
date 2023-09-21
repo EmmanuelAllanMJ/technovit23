@@ -90,6 +90,7 @@ function Modal(props: { merch: MerchProps } & { open: boolean, setOpen: (open: b
                                 </div> */}
                           </div>
                           <button
+                            onClick={() => (location.href="https://vitchennaievents.com/conf1/")}
                             type="submit"
                             className="mt-6 mb-4 ml-2 rounded-[90px] border-2 border-purple-600 w-44
                               h-10 sm:w-44 sm:h-10 md:w-40 md:h-10 lg:w-52 lg:h-12 flex justify-center 
