@@ -97,6 +97,7 @@ function Modal(props: { merch: MerchProps } & { open: boolean, setOpen: (open: b
                               bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
                           >
                             <div className="flex flex-row text-sm">
+                              <a href="https://vitchennaievents.com/technovit">
                               Buy Now
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +110,7 @@ function Modal(props: { merch: MerchProps } & { open: boolean, setOpen: (open: b
                                   fill="#C8B8EC"
                                 />
                               </svg>
+                              </a>
                             </div>
                           </button>
                         </div>
