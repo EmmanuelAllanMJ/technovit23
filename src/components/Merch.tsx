@@ -164,7 +164,7 @@ const Merch: React.FC<MerchCompProps> = ({ seemore , data}) => {
                 label="Category"
                 options={[
                   { value: "", label: "Category" },
-                  { value: "Hoody", label: "Hoddy" },
+                  { value: "Hoody", label: "Hoody" },
                   { value: "T-Shirt", label: "T-Shirt" },
                   { value: "Pen", label: "Pen" },
                 ]}
