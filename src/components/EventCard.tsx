@@ -91,7 +91,8 @@ function Modal(props: EventCardProps & { open: boolean, setOpen: (open: boolean)
                               items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
                               bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300"
                           >
-                            <a className="flex flex-row text-sm" href={props.Link}>
+                            {/*<a className="flex flex-row text-sm" href={props.Link}>*/}
+                            <a className="flex flex-row text-sm" href={"https://vitchennaievents.com"}>
                               Register Now
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
