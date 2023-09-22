@@ -111,7 +111,7 @@ const Hero = () => {
         </motion.span>
       </div>
           <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light of the Future - AI</div>
-          <a href='https://vitchennaievents.com/conf1/' target="_blank" className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+          <a href='https://vitchennaievents.com/technovit/' target="_blank" className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
            bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300">
