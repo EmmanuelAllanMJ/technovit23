@@ -165,7 +165,6 @@ const EventCard: React.FC<EventCardProps> = (props) => {
     if (eventDescription.split(' ').length > 25) {
       const truncatedText = eventDescription.split(' ').slice(0, 25).join(' ') + '...';
       setTruncatedDescription(truncatedText);
-      console.log(eventDescription);
     } else {  
       // If the text is within the word limit, no need to truncate
       setTruncatedDescription(eventDescription);
