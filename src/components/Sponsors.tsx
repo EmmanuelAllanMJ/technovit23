@@ -1,6 +1,7 @@
+"use client"
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import useSponsors from '@/hooks/getSponsors';
+import useSponsors from '@/hooks/getSponsors'
 
 type Sponsor = {
   name: string;
@@ -25,8 +26,12 @@ const Sponsors = (): JSX.Element => {
 
   useEffect(() => {
     async function fetchSponsors() {
-      const sponsorData = await useSponsors(); 
-      setSponsors(sponsorData);
+      try {
+        const sponsorData = await useSponsors(); 
+        setSponsors(sponsorData);
+      } catch (error) {
+        console.error("Error fetching sponsors:", error);
+      }
     }
 
     fetchSponsors();
