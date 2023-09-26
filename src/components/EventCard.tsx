@@ -32,7 +32,7 @@ function Modal(props: EventCardProps & { open: boolean, setOpen: (open: boolean)
     <>
       <Transition.Root show={props.open} as={Fragment}>
         <Dialog onClose={() => props.setOpen(false)} initialFocus={cancelButtonRef}>
-       
+
           <div className="fixed z-10 inset-0  overflow-y-auto ">
             <div className="flex flex-wrap items-center justify-center min-h-screen mx-16 -m-20">
               <Transition.Child
@@ -75,14 +75,14 @@ function Modal(props: EventCardProps & { open: boolean, setOpen: (open: boolean)
                               />
                               <p className='mt-2 text-[#aaa6c3] text-[18px]'>{props.eventSchool}</p>
                             </div>
-                            <p className='mt-2 text-[#aaa6c3] text-[16px] flex'>{new Date(normalDate) < new Date("2023") ? "Coming Soon" :normalDate}</p>
+                            <p className='mt-2 text-[#aaa6c3] text-[16px] flex'>{new Date(normalDate) < new Date("2023") ? "Coming Soon" : normalDate}</p>
                             <p className='mt-2 text-[#aaa6c3] text-[16px] flex'> {!(new Date(normalDate) < new Date("2023")) && `₹${props.eventPrice}`}</p>
                             <p className="text-gray-400  text-justify">
-                              {props.eventDescription}
+                            <div className="text-container" dangerouslySetInnerHTML={{ __html: props.eventDescription }} />
                             </p>
                           </div>
                         </div>
-                        
+
                         <div className="flex justify-center">
                           <button
                             type="submit"
@@ -103,7 +103,7 @@ function Modal(props: EventCardProps & { open: boolean, setOpen: (open: boolean)
                                 <path
                                   d="M21.1743 22.8881L29.0625 14.9999L21.1743 7.11182L19.8485 8.43768L25.4734 14.0625L0.982265 14.0625V15.9375L25.4732 15.9375L19.8485 21.5622L21.1743 22.8881Z"
                                   fill="#C8B8EC"
-                                  />
+                                />
                               </svg>
                             </a>
                           </button>
@@ -157,7 +157,7 @@ const EventCard: React.FC<EventCardProps> = (props) => {
   const logoUrl = schools.filter((school) => {
     return school.name.toLocaleLowerCase() === eventSchool.toLocaleLowerCase()
   })[0].image;
-  
+
   const [truncatedDescription, setTruncatedDescription] = useState('');
 
   useEffect(() => {
@@ -165,7 +165,8 @@ const EventCard: React.FC<EventCardProps> = (props) => {
     if (eventDescription.split(' ').length > 25) {
       const truncatedText = eventDescription.split(' ').slice(0, 25).join(' ') + '...';
       setTruncatedDescription(truncatedText);
-    } else {
+      console.log(eventDescription);
+    } else {  
       // If the text is within the word limit, no need to truncate
       setTruncatedDescription(eventDescription);
     }
@@ -204,7 +205,7 @@ const EventCard: React.FC<EventCardProps> = (props) => {
               className='w-full h-full rounded-2xl object-cover'
             />
           </div>
-          
+
           <div className='mt-5'>
             <h3 className='text-white font-bold text-[32px]'>{eventName}</h3>
             <div className='flex items-center '>
@@ -219,7 +220,8 @@ const EventCard: React.FC<EventCardProps> = (props) => {
               <p className='mt-2 text-[#aaa6c3] text-[16px]'>{eventSchool}</p>
             </div>
             <p className='mt-2 text-[#aaa6c3] text-[16px]'>{new Date(normalDate) < new Date("2023") ? "Coming Soon" : normalDate}</p>
-            <p className='mt-2 text-[#aaa6c3] text-[16px] '>{!(new Date(normalDate) < new Date("2023")) && `${truncatedDescription}`}</p>
+            <p className='mt-2 text-[#aaa6c3] text-[16px] '>{!(new Date(normalDate) < new Date("2023")) && <div className="text-container" dangerouslySetInnerHTML={{ __html: truncatedDescription }} />
+            }</p>
             <p className='mt-2 text-[#aaa6c3] text-[16px]'> {!(new Date(normalDate) < new Date("2023")) && `₹${eventPrice}`}</p>
           </div>
           <button
