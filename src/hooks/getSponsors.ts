@@ -1,13 +1,14 @@
+"use client"
 import { useEffect, useState } from "react";
 
 export interface Sponsor {
   name: string;
-  imagelink: string;
+  link: string;
 }
 
-interface IJSONResponse {
+interface ISponsorJSONResponse {
   data: {
-    sponsorsCollection: {
+    sponsorCollection: {
       items: Sponsor[];
     };
   };
@@ -15,45 +16,35 @@ interface IJSONResponse {
 
 const useSponsors = () => {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
-  
   const query = `
     query {
-      sponsorsCollection {
+      sponsorCollection {
         items {
           name
-          logo {
-            url
-          }
+          link
         }
       }
     }
   `;
-  
   useEffect(() => {
     const fetchSponsors = async () => {
-      try {
-        const res = await fetch(
-          "https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer YOUR_ACCESS_TOKEN`,
-            },
-            body: JSON.stringify({ query }),
-          }
-        );
-        
-        const data: IJSONResponse = await res.json();
-        setSponsors(data.data.sponsorsCollection.items);
-      } catch (error) {
-        console.error("Error fetching sponsors:", error);
-      }
+      const res = await fetch(
+        "https://graphql.contentful.com/content/v1/spaces/YOUR_SPACE_ID/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer YOUR_ACCESS_TOKEN`,
+          },
+          body: JSON.stringify({ query }),
+        }
+      );
+      const data: ISponsorJSONResponse = await res.json();
+      setSponsors(data.data.sponsorCollection.items);
     };
-    
     fetchSponsors();
   }, []);
-  
+
   return sponsors;
 };
 
