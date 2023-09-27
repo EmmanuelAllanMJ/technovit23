@@ -11,15 +11,19 @@ const Hero = () => {
     },
     {
       title: "About",
-      href: "#about",
+      href: "/#about",
     },
     {
       title: "Events",
-      href: "#events",
+      href: "/#events",
+    },
+    {
+      title: "Merch",
+      href: "merch",
     },
     {
       title: "Contact",
-      href: "#contact",
+      href: "/#contact",
     },
   ]
   const controls = useAnimation();
@@ -52,12 +56,12 @@ const Hero = () => {
       </div>
       <div className="w-full sm:h-50 ">
         <img
-          src="/assets/background.png"
+          src="/assets/background.jpg"
           className="h-screen w-screen object-cover blur-1xl"
           alt="Background"
         />
 
-        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4">
+        <div className="absolute top-16 left-16 sm:left-0 sm:top-8 px-4 brightness-0 invert">
           <img
             src="/assets/vitlogo.png"
             alt="Left Logo"
@@ -92,7 +96,8 @@ const Hero = () => {
             WebkitTextFillColor: 'transparent'
           }}
         >
-          TECHNOVIT<span
+          TECHNOVIT'23
+{/*           <span
             className="text-5xl sm:text-xl font-monty"
             style={{
               background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.60) 0%, #FFF 100%)',
@@ -101,12 +106,12 @@ const Hero = () => {
               WebkitTextFillColor: 'transparent',
             }}
           >
-            '23
-          </span>
+            '23 
+          </span> */}
         </motion.span>
       </div>
           <div className="text-white text-3xl sm:text-xl font-monty italic mt-4">Light of the Future - AI</div>
-          <a href='https://vitchennaievents.com/conf1/' target="_blank" className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
+          <a href='https://vitchennaievents.com/technovit/' target="_blank" className="mt-8 ml-2 rounded-[90px] border-2 border-purple-600 w-52
            h-16 sm:w-44 sm:h-14 md:w-48 md:h-16 lg:w-52 lg:h-16 flex justify-center 
            items-center text-[#C8B8EC] text-base font-medium cursor-pointer 
            bg-opacity-80 hover:bg-purple-500/10 hover:text-purple-200 transition-all duration-300">

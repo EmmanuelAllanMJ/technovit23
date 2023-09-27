@@ -12,9 +12,43 @@ const Countdown = dynamic(() => import("../components/Countdown"), {
   ssr: false,
 });
 
-export default function Home() {
+// export const dynamic = 'force-dynamic'
+export const fetchCache = 'force-no-store'
+
+export default async function Home() {
+
+  const query = `
+    query {
+      eventContentCollection {
+        items {
+          eventName
+          school
+          description
+          venue
+          price
+          datetime
+          imageLink
+          link
+          featuredEvents
+        }
+      }
+    }
+  `;
+  const res = await fetch(
+    "https://graphql.contentful.com/content/v1/spaces/fh8dptt5f1p3/",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer PfIiyQLVPV1qip8E8fz_fjEQKt1VClDImjAg2eCwo64`,
+      },
+      body: JSON.stringify({ query }),
+    },
+  );
+  const data = await res.json();
+  const events = data.data.eventContentCollection.items;
   return (
-    <main className="">
+    <main >
       <Star />
       <Hero />
       <section className="about-grid bg-[#030014]">
@@ -26,7 +60,8 @@ export default function Home() {
       <section className="bg-[#030014]"><Gallery /></section>
       <section className="about-grid bg-[#08031b]">
         <Schools />
-        <Events />
+        <Events events={events} featured={true}/>
+        <Events events={events} featured={false}/>
         <CoordinatorComponent/>    
         <Footer />
       </section>
