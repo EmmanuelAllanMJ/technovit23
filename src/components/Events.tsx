@@ -1,12 +1,14 @@
 "use client";
 import type { Event } from "@/hooks/getEvents";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import CustomDropdown from "./Dropdown";
 import EventCard from "./EventCard";
 import useEvents from "@/hooks/getEvents";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import debounce from 'lodash.debounce'
+import { getEventFilter } from "@/hooks/getEventFilter";
 
 
 interface EventsProps {
@@ -21,32 +23,28 @@ interface IJSONReponse {
     };
   };
 }
-  
-const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
+
+
+
+const Events: React.FC<EventsProps> = ({ seemore, events, featured }) => {
 
   events = events.filter((event) => event.featuredEvents === featured);
+  // get each school
+  const uniqueSchools = ["Qubit", "BandVIT", "Diseno", "VSplash", "Vitness", "Srishti", "Lilacs", "Taikuun", "Central Committee", "Glitz", "ConnectiVITieee"]
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedSchool, setSelectedSchool] = useState("");
   const [filteredEvents, setFilteredEvents] = useState<Event[]>(events);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [uniqueSchools,setUniqueSchools]=useState<string[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [seem, setSeem] = useState(0);
   const [mesg, setMesg] = useState("See More");
   const router = useRouter();
   const event_hook = useEvents(setLoading);
-  
-  // Function to get unique schools
-  function getUniqueSchools(events: Event[]) {
-    const uniqueSchools = Array.from(
-      new Set(events.map((event) => event.school))
-    );
-    setUniqueSchools(uniqueSchools);
-  }
+
+
   useEffect(() => {
     // This effect runs whenever event_hook changes.
     // It updates the filteredEvents whenever events change.
-    getUniqueSchools(event_hook); // Assuming event_hook returns all events.
     setFilteredEvents(events); // Set filtered events to all events.
     setLoading(false); // Mark loading as complete.
   }, [event_hook]);
@@ -61,13 +59,13 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
       if (!selectedDate) {
         return true; // If no date is selected, show all events.
       }
-    
+
       const currentDate = new Date(selectedDate.toDateString());
       const eventDateObj = new Date(eventDate);
-    
+
       return eventDateObj.toDateString() === currentDate.toDateString();
     };
-    
+
 
     const filtered = event_hook.filter(
       (event: Event) =>
@@ -76,7 +74,6 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
         matchesDate(event.datetime)
     );
 
-    getUniqueSchools(events);
     setFilteredEvents(filtered);
   }, [searchQuery, selectedSchool, selectedDate]);
   const more = () => {
@@ -94,9 +91,27 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
     setSearchQuery(event.target.value);
   };
 
-  const handleSchoolSelect = (value: string) => {
+  const handleSchoolSelect = async (value: string) => {
     setSelectedSchool(value);
+    const events = await getEventFilter({school:value})
+    console.log("Events", JSON.stringify(events))
+    setFilteredEvents(events.data.eventContentCollection.items);
   };
+
+
+  // Debounce
+  async function refetch() {
+    const events = await getEventFilter({school:selectedSchool})
+    setFilteredEvents(events)
+    console.log("Filtered", events)
+  }
+  const request = debounce(async () => {
+    await refetch()
+  }, 500)
+
+  const debounceRequest = useCallback(() => {
+    request()
+  }, [])
 
 
   if (loading) {
@@ -113,7 +128,7 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
 
           <div className="flex justify-center items-center relative z-9">
             <section className="pt-4 md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
-              {featured && "Featured" } Events
+              {featured && "Featured"} Events
             </section>
           </div>
           <section className="font-monty relative z-9 w-full flex flex-col items-center justify-center">
@@ -131,46 +146,46 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
 
               {/* School Dropdown */}
               <section className="flex flex-col md:flex-row lg:flex-row z-10 w-full items-start justify-center gap-2 md:mr-3 md:w-1/2 lg-w-1/2 ">
-              <DatePicker
-                selected={selectedDate}
-                onChange={(date: Date | null) => setSelectedDate(date)}
-                placeholderText="Select Date"
-                dateFormat="MMMM d, yyyy"
-                isClearable
-                className="bg-white font-monty bg-opacity-40 rounded-full py-5 px-3 w-full"
-                wrapperClassName="w-full"
-              />
+                <DatePicker
+                  selected={selectedDate}
+                  onChange={(date: Date | null) => setSelectedDate(date)}
+                  placeholderText="Select Date"
+                  dateFormat="MMMM d, yyyy"
+                  isClearable
+                  className="bg-white font-monty bg-opacity-40 rounded-full py-5 px-3 w-full"
+                  wrapperClassName="w-full"
+                />
 
-              <CustomDropdown
-                label="Select School"
-                options={[
-                  { value: "", label: "All Schools" },
-                  ...uniqueSchools.map((school) => ({
-                    value: school,
-                    label: school,
-                  })),
-                ]}
-                selectedValue={selectedSchool}
-                onSelect={handleSchoolSelect}
-            
-              />
+                <CustomDropdown
+                  label="Select School"
+                  options={[
+                    { value: "", label: "All Schools" },
+                    ...uniqueSchools.map((school) => ({
+                      value: school,
+                      label: school,
+                    })),
+                  ]}
+                  selectedValue={selectedSchool}
+                  onSelect={handleSchoolSelect}
+
+                />
 
                 {/* <button 
                 className="bg-white font-monty bg-opacity-40 rounded-full py-5 px-3 w-full"
                 >
                   Featured 
                 </button> */}
-              
+
               </section>
             </section>
 
             <section className="flex flex-wrap justify-center items-center gap-7">
-              {filteredEvents!?.length === 0 ? (
+              {filteredEvents?.length === 0 ? (
                 <p className="text-white text-center py-10">
                   NO EVENTS AVAILABLE
                 </p>
               ) : seem === 0 ? (
-                filteredEvents!?.map((event, index) =>{
+                filteredEvents?.map((event, index) => {
                   return (index <= 3 ? (
                     <EventCard
                       key={index}
@@ -181,11 +196,12 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
                       eventSchool={event.school}
                       eventPrice={event.price}
                       Link={event.link}
-                      DateTime = {event.datetime}
+                      DateTime={event.datetime}
                     />
                   ) : (
                     ""
-                  ))}
+                  ))
+                }
                 )
               ) : (
                 filteredEvents!?.map((event, index) => (
@@ -198,7 +214,7 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
                     eventSchool={event.school}
                     eventPrice={event.price}
                     Link={event.link}
-                    DateTime = {event.datetime}
+                    DateTime={event.datetime}
                   />
                 ))
               )}
