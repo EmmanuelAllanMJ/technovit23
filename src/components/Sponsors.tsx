@@ -1,57 +1,56 @@
 "use client"
 import { useEffect, useState } from 'react';
-import type { Sponsor } from "@/hooks/getSponsors";
+import type { Sponsor } from '@/hooks/getSponsors';
 import Image from 'next/image';
 import useSponsors from '@/hooks/getSponsors';
-
-// type Sponsor = {
-//   name: string;
-//   link: string;
-// };
 
 const ImageComponent = (props: Sponsor): JSX.Element => {
   return (
     <div>
-      <img
-        src={props.link}
-        alt={props.name}
-      />
+      <img src={props.link} alt={props.name} className="w-52 border border-white "/>
     </div>
   );
 };
 
 const Sponsors = (): JSX.Element => {
+  const sponsor_hook = useSponsors();
+  const [sponsorsByTitle, setSponsorsByTitle] = useState<{ [title: string]: Sponsor[] }>({});
 
-  const [sponsors, setSponsors] = useState<Sponsor[]>([]);
-
-  // useEffect(() => {
-  //   async function fetchSponsors() {
-  //     try {
-  //       const sponsorData = await useSponsors(); 
-  //       setSponsors(sponsorData);
-  //     } catch (error) {
-  //       console.error("Error fetching sponsors:", error);
-  //     }
-  //   }
-
-  //   fetchSponsors();
-  // }, []);
-
-const sponsor_hook = useSponsors();
-
-useEffect(()=>{
-  console.log(sponsor_hook);
-},[sponsor_hook]);
+  useEffect(() => {
+    // Group sponsors by title
+    const groupedSponsors: { [title: string]: Sponsor[] } = {};
+    sponsor_hook.forEach((sponsor) => {
+      if (!groupedSponsors[sponsor.title]) {
+        groupedSponsors[sponsor.title] = [];
+      }
+      groupedSponsors[sponsor.title].push(sponsor);
+    });
+    setSponsorsByTitle(groupedSponsors);
+  }, [sponsor_hook]);
 
   return (
-    <section className="py-32 sm:py-40" id="sponsors">
-      <section className="md:text-center sm:text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
+    <section className="py-32 sm:py-40 w-full text-center" id="sponsors">
+
+      <section className="text-center mb-10 lg:px-32 sm:px-8 md:px-16 text-6xl font-monty bg-clip-text text-transparent bg-gradient-to-t from-stone-600 to-white">
         Sponsors
       </section>
-      <section className="grid md:grid-cols-4 md:px-6 sm:grid-cols-1 lg:grid-cols-4 lg:px-32 items-center place-items-center place-content-center gap-4 relative">
-        <div className="absolute shadow-purple-700 opacity-30 md:opacity-10 sm:opacity-5 w-1/3 h-400 shadow-[0_0_20em_20em]"></div>
-        {sponsor_hook.map((sponsor, index) => (
-          <ImageComponent key={index} {...sponsor} />
+
+      <section className="w-100 ">
+
+        <div className="bg-red-900 mx-auto w-full"></div>
+        {Object.keys(sponsorsByTitle).map((title) => (
+
+          <div className="mx-auto " key={title}>
+
+            <h2 className="font-monty text-white text-xl mb-4 mt-8 capitalize">{title} Sponsors</h2>
+
+            <div className="flex flex-wrap gap-12 flex-row mx-40 justify-center">
+              {sponsorsByTitle[title].map((sponsor, index) => (
+                <ImageComponent key={index} {...sponsor} />
+              ))}
+            </div>
+
+          </div>
         ))}
       </section>
     </section>
