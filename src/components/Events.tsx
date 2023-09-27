@@ -8,7 +8,7 @@ import useEvents from "@/hooks/getEvents";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import debounce from 'lodash.debounce'
-import { getEventFilter } from "@/hooks/getEventFilter";
+import { getEventFilter, getEventQueryFilter } from "@/hooks/getEventFilter";
 
 
 interface EventsProps {
@@ -89,6 +89,7 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured }) => {
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
+    debounceRequest()
   };
 
   const handleSchoolSelect = async (value: string) => {
@@ -101,8 +102,8 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured }) => {
 
   // Debounce
   async function refetch() {
-    const events = await getEventFilter({school:selectedSchool})
-    setFilteredEvents(events)
+    const events = await getEventQueryFilter({search:searchQuery})
+    setFilteredEvents(events.data.eventContentCollection.items)
     console.log("Filtered", events)
   }
   const request = debounce(async () => {
@@ -134,7 +135,7 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured }) => {
           <section className="font-monty relative z-9 w-full flex flex-col items-center justify-center">
             <section className="flex justify-center sm:flex-col md:flex-row w-full lg:flex-row items-center text-white py-7 gap-2 mb-8 lg:w-3/4 md:w-3/4 sm:w-5/6 mx-auto ">
               {/* Search Bar */}
-              <section className="flex w-full h-16 md:w-1/2 lg-w-1/2">
+              {/* <section className="flex w-full h-16 md:w-1/2 lg-w-1/2">
                 <input
                   className="bg-white bg-opacity-40 rounded-full py-3 px-3 w-full"
                   type="search"
@@ -142,11 +143,11 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured }) => {
                   value={searchQuery}
                   onChange={handleSearchChange}
                 />
-              </section>
+              </section> */}
 
               {/* School Dropdown */}
               <section className="flex flex-col md:flex-row lg:flex-row z-10 w-full items-start justify-center gap-2 md:mr-3 md:w-1/2 lg-w-1/2 ">
-                <DatePicker
+                {/* <DatePicker
                   selected={selectedDate}
                   onChange={(date: Date | null) => setSelectedDate(date)}
                   placeholderText="Select Date"
@@ -154,7 +155,7 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured }) => {
                   isClearable
                   className="bg-white font-monty bg-opacity-40 rounded-full py-5 px-3 w-full"
                   wrapperClassName="w-full"
-                />
+                /> */}
 
                 <CustomDropdown
                   label="Select School"
