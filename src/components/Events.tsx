@@ -50,6 +50,8 @@ const Events: React.FC<EventsProps> = ({ seemore, events, featured}) => {
     setFilteredEvents(events); // Set filtered events to all events.
     setLoading(false); // Mark loading as complete.
   }, [event_hook]);
+
+
   useEffect(() => {
     const matchesSearch = (eventName: string) =>
       eventName.toLowerCase().includes(searchQuery.toLowerCase());
