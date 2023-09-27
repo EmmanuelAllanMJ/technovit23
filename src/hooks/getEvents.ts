@@ -19,11 +19,26 @@ interface IJSONReponse {
   };
 }
 
+const convertDateTo20230927T100000000Plus0530 = (date: Date) => {
+  // Convert the date to ISO 8601 format. Remove "Z" and add the offset.
+  const isoDateString = date.toISOString().replace('Z', '');
+
+  // Add the offset to the date string.
+  const offsetString = '+05:30';
+
+  // Return the date string in the desired format.
+  return isoDateString + offsetString;
+};
+
+
 const useEvents = (setLoading: Function) => {
   const [events, setEvents] = useState<Event[]>([]);
+  // convert date to 2023-09-27T10:00:00.000+05:30 format
+  const todayDate =  convertDateTo20230927T100000000Plus0530(new Date());
+  console.log(todayDate);
   const query = `
   query {
-    eventContentCollection(order: [eventName_ASC]) {
+    eventContentCollection(order: [eventName_ASC], where :{ datetime_gt: "${todayDate}" } ) {
       items {
         eventName
         school

@@ -26,7 +26,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({
   };
 
   return (
-    <div className="w-full  mr-2 ">
+    <div className="w-96  mr-2 ">
       <div className="relative">
         <button
           onClick={toggleDropdown}

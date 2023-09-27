@@ -25,6 +25,7 @@
     "framer-motion-carousel": "^2.0.3",
     "gl-matrix": "^3.4.3",
     "gsap": "^3.12.2",
+    "lodash.debounce": "^4.0.8",
     "maath": "^0.7.0",
     "next": "13.4.12",
     "postcss": "8.4.27",
@@ -42,6 +43,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
+    "@types/lodash.debounce": "^4.0.7",
     "@types/react-datepicker": "^4.15.0"
   }
 }
