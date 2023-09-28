@@ -6,6 +6,7 @@ import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import Star from "@/components/Stars";
 import Schools from "@/components/Schools";
+import Sponsors from "@/components/Sponsors";
 import dynamic from "next/dynamic";
 
 const Countdown = dynamic(() => import("../components/Countdown"), {
@@ -63,6 +64,7 @@ export default async function Home() {
         <Events events={events} featured={true}/>
         <Events events={events} featured={false}/>
         <CoordinatorComponent/>    
+        <Sponsors/>
         <Footer />
       </section>
     </main>
