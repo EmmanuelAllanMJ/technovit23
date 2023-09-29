@@ -77,7 +77,7 @@ function Modal(props: EventCardProps & { open: boolean, setOpen: (open: boolean)
                             </div>
                             <p className='mt-2 text-[#aaa6c3] text-[16px] flex'>{new Date(normalDate) < new Date("2023") ? "Coming Soon" : normalDate}</p>
                             <p className='mt-2 text-[#aaa6c3] text-[16px] flex'> {!(new Date(normalDate) < new Date("2023")) && `₹${props.eventPrice}`}</p>
-                            <p className="text-gray-400  text-justify">
+                            <p className="text-gray-400  md:text-justify lg:text-justify">
                             <div className="text-container" dangerouslySetInnerHTML={{ __html: props.eventDescription }} />
                             </p>
                           </div>

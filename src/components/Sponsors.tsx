@@ -7,7 +7,7 @@ import useSponsors from '@/hooks/getSponsors';
 const ImageComponent = (props: Sponsor): JSX.Element => {
   return (
     <div>
-      <img src={props.link} alt={props.name} className="w-52 border border-white "/>
+      <img src={props.link} alt={props.name} className="border border-white lg:w-52 md:w-52 w-32"/>
     </div>
   );
 };
@@ -44,7 +44,7 @@ const Sponsors = (): JSX.Element => {
 
             <h2 className="font-monty text-white text-xl mb-4 mt-8 capitalize">{title} Sponsors</h2>
 
-            <div className="flex flex-wrap gap-12 flex-row mx-40 justify-center">
+            <div className="flex md:gap-12 lg:gap-12 gap-6 flex-row flex-wrap mx-auto justify-center w-full">
               {sponsorsByTitle[title].map((sponsor, index) => (
                 <ImageComponent key={index} {...sponsor} />
               ))}
