@@ -19,7 +19,7 @@ const useSponsors = () => {
   const [sponsors, setSponsors] = useState<Sponsor[]>([]);
   const query = `
     query {
-      sponsorContentCollection(order: [name_ASC]){
+      sponsorContentCollection(){
         items {
           name
           link
