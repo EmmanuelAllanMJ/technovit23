@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta charSet="utf-8" />
+        <meta charSet="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="icon" href="/assets/logo.svg" sizes="any" />
         <link rel="icon" href="/assets/logo.svg" type="image/x-icon" sizes="any"></link>
       </head>
