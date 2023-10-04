@@ -25,9 +25,21 @@ const Sponsors = (): JSX.Element => {
       }
       groupedSponsors[sponsor.title].push(sponsor);
     });
-    setSponsorsByTitle(groupedSponsors);
-  }, [sponsor_hook]);
 
+    // Sort sponsors by the number of elements in increasing order
+    const sortedSponsors = Object.keys(groupedSponsors).sort((a, b) => {
+      const countA = groupedSponsors[a].length;
+      const countB = groupedSponsors[b].length;
+      return countA - countB;
+    });
+
+    const sortedSponsorObject: { [title: string]: Sponsor[] } = {};
+    sortedSponsors.forEach((title) => {
+      sortedSponsorObject[title] = groupedSponsors[title];
+    });
+
+    setSponsorsByTitle(sortedSponsorObject);
+  }, [sponsor_hook]);
   return (
     <section className="py-32 sm:py-40 w-full text-center" id="sponsors">
 
@@ -38,7 +50,7 @@ const Sponsors = (): JSX.Element => {
       <section className="w-100 ">
 
         <div className="bg-red-900 mx-auto w-full"></div>
-        {Object.keys(sponsorsByTitle).slice().reverse().map((title) => (
+        {Object.keys(sponsorsByTitle).map((title) => (
 
           <div className="mx-auto " key={title}>
 
