@@ -16,18 +16,29 @@ const Sponsors = (): JSX.Element => {
   const sponsor_hook = useSponsors();
   const [sponsorsByTitle, setSponsorsByTitle] = useState<{ [title: string]: Sponsor[] }>({});
 
-  useEffect(() => {
-    // Group sponsors by title
-    const groupedSponsors: { [title: string]: Sponsor[] } = {};
-    sponsor_hook.forEach((sponsor) => {
-      if (!groupedSponsors[sponsor.title]) {
-        groupedSponsors[sponsor.title] = [];
-      }
-      groupedSponsors[sponsor.title].push(sponsor);
-    });
-    setSponsorsByTitle(groupedSponsors);
-  }, [sponsor_hook]);
+useEffect(() => {
+  // Sort sponsors by custom order
+  const customOrder = ['title', 'gold', 'silver', 'other'];
 
+const sortedSponsors = sponsor_hook.slice().sort((a, b) => {
+  const orderA = customOrder.indexOf(a.title);
+  const orderB = customOrder.indexOf(b.title);
+  console.log(`${a.title}: ${orderA}, ${b.title}: ${orderB}`);
+  return orderA - orderB;
+  });
+
+  // Group sorted sponsors by title
+  const groupedSponsors: { [title: string]: Sponsor[] } = {};
+
+  sortedSponsors.forEach((sponsor) => {
+    if (!groupedSponsors[sponsor.title]) {
+      groupedSponsors[sponsor.title] = [];
+    }
+    groupedSponsors[sponsor.title].push(sponsor);
+  });
+
+  setSponsorsByTitle(groupedSponsors);
+}, [sponsor_hook]);
   return (
     <section className="py-32 sm:py-40 w-full text-center" id="sponsors">
 
@@ -38,7 +49,7 @@ const Sponsors = (): JSX.Element => {
       <section className="w-100 ">
 
         <div className="bg-red-900 mx-auto w-full"></div>
-        {Object.keys(sponsorsByTitle).slice().reverse().map((title) => (
+        {Object.keys(sponsorsByTitle).map((title) => (
 
           <div className="mx-auto " key={title}>
 
