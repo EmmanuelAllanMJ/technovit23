@@ -47,9 +47,10 @@ const Countdown = () => {
         <div className="flex sm:flex-col lg:space-x-8 gap-6">
           <div className="flex flex-col items-center">
             <span className="text-9xl md:text-5xl sm:text-7xl font-bold">
-              {remainingTime.days >= 10
+              0
+              {/* {remainingTime.days >= 10
                 ? remainingTime.days
-                : "0" + remainingTime.days.toString()}
+                : "0" + remainingTime.days.toString()} */}
             </span>
             <span className="text-3xl font-regular text-white bg-clip-text uppercase">
               Days
@@ -57,9 +58,10 @@ const Countdown = () => {
           </div>
           <div className="flex flex-col items-center">
             <span className="text-9xl md:text-5xl sm:text-7xl font-bold">
-              {remainingTime.hours >= 10
+              0
+              {/* {remainingTime.hours >= 10
                 ? remainingTime.hours
-                : "0" + remainingTime.hours.toString()}
+                : "0" + remainingTime.hours.toString()} */}
             </span>
             <span className="text-3xl font-regular text-white bg-clip-text uppercase">
               Hours
@@ -67,9 +69,10 @@ const Countdown = () => {
           </div>
           <div className="flex flex-col items-center">
             <span className="text-9xl md:text-5xl sm:text-7xl font-bold">
-              {remainingTime.minutes >= 10
+              0
+              {/* {remainingTime.minutes >= 10
                 ? remainingTime.minutes
-                : "0" + remainingTime.minutes.toString()}
+                : "0" + remainingTime.minutes.toString()} */}
             </span>
             <span className="text-3xl font-regular text-white bg-clip-text uppercase">
               Minutes
@@ -77,9 +80,10 @@ const Countdown = () => {
           </div>
           <div className="flex flex-col items-center">
             <span className="text-9xl md:text-5xl sm:text-7xl font-bold">
-              {remainingTime.seconds >= 10
+              0
+              {/* {remainingTime.seconds >= 10
                 ? remainingTime.seconds
-                : "0" + remainingTime.seconds.toString()}
+                : "0" + remainingTime.seconds.toString()} */}
             </span>
             <span className="text-3xl font-regular text-white bg-clip-text uppercase">
               Seconds

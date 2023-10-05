@@ -53,7 +53,7 @@ export default async function Home() {
       <Star />
       <Hero />
       <section className="about-grid bg-[#030014]">
-          <Countdown />
+          {/* <Countdown /> */}
         <section className="min-h-screen flex flex-col justify-center items-center">
           <About />
         </section>
